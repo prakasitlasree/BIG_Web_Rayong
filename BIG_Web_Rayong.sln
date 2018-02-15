@@ -5,6 +5,8 @@ VisualStudioVersion = 14.0.25420.1
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BIG_Web_Rayong", "BIG_Web_Rayong\BIG_Web_Rayong.csproj", "{D8A20F80-9C04-4D3D-A600-BEC4A564E3B6}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BIG.HTML", "BIG.HTML\BIG.HTML.csproj", "{71D25DC9-9F0B-438A-934C-C51E10DACE40}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -15,6 +17,10 @@ Global
 		{D8A20F80-9C04-4D3D-A600-BEC4A564E3B6}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{D8A20F80-9C04-4D3D-A600-BEC4A564E3B6}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{D8A20F80-9C04-4D3D-A600-BEC4A564E3B6}.Release|Any CPU.Build.0 = Release|Any CPU
+		{71D25DC9-9F0B-438A-934C-C51E10DACE40}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{71D25DC9-9F0B-438A-934C-C51E10DACE40}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{71D25DC9-9F0B-438A-934C-C51E10DACE40}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{71D25DC9-9F0B-438A-934C-C51E10DACE40}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
