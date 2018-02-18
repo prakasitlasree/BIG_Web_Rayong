@@ -151,7 +151,9 @@
     <Content Include="js\jquery.nav.js" />
     <Content Include="js\respond-1.1.0.min.js" />
     <Content Include="js\wow.js" />
-    <Content Include="Web.config" />
+    <Content Include="Web.config">
+      <SubType>Designer</SubType>
+    </Content>
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Properties\AssemblyInfo.cs" />
