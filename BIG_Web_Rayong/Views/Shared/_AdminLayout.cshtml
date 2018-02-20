@@ -1,0 +1,103 @@
+﻿
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>B.I.G Admin</title>
+  
+    <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
+    <link rel="stylesheet" href="@Url.Content("~/Scripts/adminLTE/bower_components/bootstrap/dist/css/bootstrap.min.css")">
+    <link rel="stylesheet" href="@Url.Content("~/Scripts/adminLTE/bower_components/font-awesome/css/font-awesome.min.css")">
+    <link rel="stylesheet" href="@Url.Content("~/Scripts/adminLTE/bower_components/Ionicons/css/ionicons.min.css")">
+    <link rel="stylesheet" href="@Url.Content("~/Scripts/adminLTE/dist/css/AdminLTE.min.css")">
+    <link rel="stylesheet" href="@Url.Content("~/Scripts/adminLTE/dist/css/skins/skin-blue.min.css")">
+    <link rel="stylesheet"
+          href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,600,700,300italic,400italic,600italic">
+
+
+    <!--JS-->
+
+    <script src="@Url.Content("~/Scripts/adminLTE/bower_components/jquery/dist/jquery.min.js")"></script>
+
+    <script src="@Url.Content("~/Scripts/adminLTE/bower_components/bootstrap/dist/js/bootstrap.min.js")"></script>
+
+    <script src="@Url.Content("~/Scripts/adminLTE/dist/js/adminlte.min.js")"></script>
+</head>
+
+<body class="hold-transition skin-blue sidebar-mini">
+    <div class="wrapper">
+
+        <header class="main-header">
+
+         
+            <a href="#" class="logo">
+             
+                <span class="logo-mini"><b>B.I.G</b></span>
+             
+                <span class="logo-lg"><b>B.I.G</b> Interguard</span>
+            </a>
+
+            <nav class="navbar navbar-static-top" role="navigation">
+                <!-- Sidebar toggle button-->
+                <a href="#" class="sidebar-toggle" data-toggle="push-menu" role="button">
+                    <span class="sr-only">Toggle navigation</span>
+                </a>
+                <!-- Navbar Right Menu -->
+                <div class="navbar-custom-menu">
+                    <ul class="nav navbar-nav">
+                       
+  
+                       
+                    </ul>
+                </div>
+            </nav>
+          
+        </header>
+     
+        <aside class="main-sidebar">
+
+          
+            <section class="sidebar">
+
+             
+
+                <!-- Sidebar Menu -->
+                <ul class="sidebar-menu" data-widget="tree">
+                    <li class="active"><a href="#"><i class="fa fa-link"></i> <span>Link</span></a></li>
+                    <li class=""><a href="#"><i class="fa fa-link"></i> <span>Link</span></a></li>
+                    <li class=""><a href="#"><i class="fa fa-link"></i> <span>Link</span></a></li>
+                    <li class=""><a href="#"><i class="fa fa-link"></i> <span>Link</span></a></li>
+                    <li class=""><a href="#"><i class="fa fa-link"></i> <span>Link</span></a></li>
+                </ul>
+              
+            </section>
+          
+        </aside>
+
+     
+        <div class="content-wrapper">
+            <section class="content container-fluid">
+
+              @RenderBody()
+            </section>
+        
+        </div>
+
+        <footer class="main-footer">
+            Copyright © 2018 บริษัทรักษาความปลอดภัย บี.ไอ.จี. อินเตอร์กรุ๊ป (ระยอง) จำกัด.
+        </footer>
+
+  
+
+    </div>
+ 
+
+  
+</body>
+</html>
