@@ -167,7 +167,12 @@
     <Compile Include="App_Start\IdentityConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="App_Start\Startup.Auth.cs" />
+    <Compile Include="Controllers\AdminController.cs" />
+    <Compile Include="Controllers\ContactController.cs" />
+    <Compile Include="Controllers\CustomerController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
+    <Compile Include="Controllers\NewsController.cs" />
+    <Compile Include="Controllers\ServiceController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
@@ -180,35 +185,43 @@
   <ItemGroup>
     <Content Include="Content\bootstrap.css" />
     <Content Include="Content\bootstrap.min.css" />
+    <Content Include="customer_img\agc.jpg" />
+    <Content Include="customer_img\bgrimm.jpg" />
+    <Content Include="customer_img\bridgestone.jpg" />
+    <Content Include="customer_img\eggo.jpg" />
+    <Content Include="customer_img\fujitrans.jpg" />
+    <Content Include="customer_img\gsteel.jpg" />
+    <Content Include="customer_img\irpc.jpg" />
+    <Content Include="customer_img\namyong.jpg" />
+    <Content Include="customer_img\snc.jpg" />
+    <Content Include="customer_img\tfi.jpg" />
+    <Content Include="customer_img\thaipaper.jpg" />
+    <Content Include="customer_img\vinythai.jpg" />
+    <Content Include="customer_img\zebra.jpg" />
+    <Content Include="customer_img\zeon.jpg" />
     <Content Include="favicon.ico" />
-    <Content Include="fonts\glyphicons-halflings-regular.svg" />
     <Content Include="Global.asax" />
     <Content Include="Content\Site.css" />
-    <Content Include="img\about-img.jpg" />
-    <Content Include="img\client_logo1.png" />
-    <Content Include="img\client_logo2.png" />
-    <Content Include="img\client_logo3.png" />
-    <Content Include="img\client_logo4.png" />
-    <Content Include="img\client_logo5.png" />
+    <Content Include="img\about.jpg" />
+    <Content Include="img\board_ry.jpg" />
+    <Content Include="img\ceo.JPG" />
+    <Content Include="img\CEO1.jpg" />
+    <Content Include="img\CEO2.jpg" />
+    <Content Include="img\CEO3.jpg" />
+    <Content Include="img\favicon.png" />
     <Content Include="img\logo.png" />
-    <Content Include="img\main_device_image.png" />
-    <Content Include="img\portfolio_pic1.jpg" />
-    <Content Include="img\portfolio_pic2.jpg" />
-    <Content Include="img\portfolio_pic3.jpg" />
-    <Content Include="img\portfolio_pic4.jpg" />
-    <Content Include="img\portfolio_pic5.jpg" />
-    <Content Include="img\portfolio_pic6.jpg" />
-    <Content Include="img\portfolio_pic7.jpg" />
-    <Content Include="img\portfolio_pic8.jpg" />
-    <Content Include="img\team_pic1.jpg" />
-    <Content Include="img\team_pic2.jpg" />
-    <Content Include="img\team_pic3.jpg" />
-    <Content Include="img\twitter_bird.png" />
+    <Content Include="img\main_bg.png" />
+    <Content Include="img\main_bg2.png" />
+    <Content Include="img\main_bg3.png" />
+    <Content Include="img\main_bg4.png" />
+    <Content Include="img\training.jpg" />
+    <Content Include="img\welcome.jpg" />
     <Content Include="Scripts\css\animate.css" />
     <Content Include="Scripts\css\animation.css" />
     <Content Include="Scripts\css\bootstrap.min.css" />
     <Content Include="Scripts\css\font-awesome.css" />
     <Content Include="Scripts\css\style.css" />
+    <Content Include="Scripts\fonts\fontawesome-webfont.svg" />
     <Content Include="Scripts\js\bootstrap.min.js" />
     <Content Include="Scripts\js\contact_me.js" />
     <Content Include="Scripts\js\custom.js" />
@@ -239,15 +252,27 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
+    <Folder Include="Scripts\adminLTE\bower_components\" />
+    <Folder Include="Scripts\adminLTE\build\" />
+    <Folder Include="Scripts\adminLTE\dist\" />
+    <Folder Include="Scripts\adminLTE\documentation\" />
+    <Folder Include="Scripts\adminLTE\pages\" />
+    <Folder Include="Scripts\adminLTE\plugins\" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="fonts\glyphicons-halflings-regular.woff" />
-    <Content Include="fonts\glyphicons-halflings-regular.ttf" />
-    <Content Include="fonts\glyphicons-halflings-regular.eot" />
     <Content Include="packages.config" />
     <None Include="Project_Readme.html" />
     <Content Include="Scripts\fonts\fontawesome-webfont.ttf" />
     <Content Include="Scripts\fonts\fontawesome-webfont.woff2" />
+    <Content Include="Scripts\fonts\fontawesome-webfont.woff" />
+    <Content Include="Scripts\fonts\fontawesome-webfont.eot" />
+    <Content Include="Scripts\fonts\FontAwesome.otf" />
+    <Content Include="Views\Service\Index.cshtml" />
+    <Content Include="Views\Customer\Index.cshtml" />
+    <Content Include="Views\Contact\Index.cshtml" />
+    <Content Include="Views\News\Index.cshtml" />
+    <Content Include="Views\Shared\_AdminLayout.cshtml" />
+    <Content Include="Views\Admin\Index.cshtml" />
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>

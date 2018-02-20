@@ -76,6 +76,7 @@
     <Content Include="big_img\main_bg.png" />
     <Content Include="big_img\main_bg2.png" />
     <Content Include="big_img\main_bg3.png" />
+    <Content Include="big_img\main_bg4.png" />
     <Content Include="big_img\training.jpg" />
     <Content Include="big_img\welcome.jpg" />
     <Content Include="css\font-awesome.min.css" />
