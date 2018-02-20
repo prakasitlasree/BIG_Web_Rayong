@@ -56,26 +56,10 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>BIG_RY.Context.tt</DependentUpon>
     </Compile>
-    <Compile Include="BIG_RY.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>BIG_RY.tt</DependentUpon>
-    </Compile>
-    <Compile Include="BIG_RY.Designer.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>BIG_RY.edmx</DependentUpon>
-    </Compile>
-    <Compile Include="LOGON.cs">
-      <DependentUpon>BIG_RY.tt</DependentUpon>
-    </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
-    <EntityDeploy Include="BIG_RY.edmx">
-      <Generator>EntityModelCodeGenerator</Generator>
-      <LastGenOutput>BIG_RY.Designer.cs</LastGenOutput>
-    </EntityDeploy>
+    <EntityDeploy Include="BIG_RY.edmx" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.Config" />
@@ -90,14 +74,15 @@
       <DependentUpon>BIG_RY.edmx</DependentUpon>
       <LastGenOutput>BIG_RY.Context.cs</LastGenOutput>
     </Content>
-    <Content Include="BIG_RY.tt">
-      <Generator>TextTemplatingFileGenerator</Generator>
-      <DependentUpon>BIG_RY.edmx</DependentUpon>
-      <LastGenOutput>BIG_RY.cs</LastGenOutput>
-    </Content>
   </ItemGroup>
   <ItemGroup>
     <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\BIG.WEB.RY.MODEL\BIG.WEB.RY.MODEL.csproj">
+      <Project>{1459bee4-33ff-426c-bb18-9612d7c4f0f6}</Project>
+      <Name>BIG.WEB.RY.MODEL</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

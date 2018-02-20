@@ -1,8 +1,8 @@
 ﻿<#@ template language="C#" debug="false" hostspecific="true"#>
 <#@ include file="EF6.Utility.CS.ttinclude"#><#@ 
  output extension=".cs"#><#
-
-const string inputFile = @"BIG_RY.edmx";
+ 
+const string inputFile = @"../BIG.WEB.RY.DAL/BIG_RY.edmx";
 var textTransform = DynamicTextTransformation.Create(this);
 var code = new CodeGenerationTools(this);
 var ef = new MetadataTools(this);

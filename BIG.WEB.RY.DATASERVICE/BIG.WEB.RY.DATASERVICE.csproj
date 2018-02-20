@@ -4,11 +4,11 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{1459BEE4-33FF-426C-BB18-9612D7C4F0F6}</ProjectGuid>
+    <ProjectGuid>{F40032B3-BF65-4B40-B39E-8E9525C326CA}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>BIG.WEB.RY.MODEL</RootNamespace>
-    <AssemblyName>BIG.WEB.RY.MODEL</AssemblyName>
+    <RootNamespace>BIG.WEB.RY.DATASERVICE</RootNamespace>
+    <AssemblyName>BIG.WEB.RY.DATASERVICE</AssemblyName>
     <TargetFrameworkVersion>v4.5.2</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
   </PropertyGroup>
@@ -44,24 +44,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="BIG_RY.cs">
-      <DependentUpon>BIG_RY.tt</DependentUpon>
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-    </Compile>
-    <Compile Include="LOGON.cs">
-      <DependentUpon>BIG_RY.tt</DependentUpon>
-    </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
-  </ItemGroup>
-  <ItemGroup>
-    <Content Include="BIG_RY.tt">
-      <Generator>TextTemplatingFileGenerator</Generator>
-      <LastGenOutput>BIG_RY.cs</LastGenOutput>
-    </Content>
-  </ItemGroup>
-  <ItemGroup>
-    <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

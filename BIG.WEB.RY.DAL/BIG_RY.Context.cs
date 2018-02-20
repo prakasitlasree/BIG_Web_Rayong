@@ -12,6 +12,8 @@ namespace BIG.WEB.RY.DAL
     using System;
     using System.Data.Entity;
     using System.Data.Entity.Infrastructure;
+    using BIG.WEB.RY.MODEL;
+    
     
     public partial class BIG_RY_DBEntities : DbContext
     {

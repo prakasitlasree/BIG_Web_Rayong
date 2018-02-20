@@ -249,6 +249,12 @@
     <Content Include="Scripts\fonts\fontawesome-webfont.ttf" />
     <Content Include="Scripts\fonts\fontawesome-webfont.woff2" />
   </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\BIG.WEB.RY.MODEL\BIG.WEB.RY.MODEL.csproj">
+      <Project>{1459bee4-33ff-426c-bb18-9612d7c4f0f6}</Project>
+      <Name>BIG.WEB.RY.MODEL</Name>
+    </ProjectReference>
+  </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
     <VSToolsPath Condition="'$(VSToolsPath)' == ''">$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)</VSToolsPath>

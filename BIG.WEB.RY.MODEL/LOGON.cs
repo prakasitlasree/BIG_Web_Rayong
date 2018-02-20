@@ -7,7 +7,7 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace BIG.WEB.RY.DAL
+namespace BIG.WEB.RY.MODEL
 {
     using System;
     using System.Collections.Generic;
