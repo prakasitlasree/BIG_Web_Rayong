@@ -46,6 +46,16 @@
   <ItemGroup>
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\BIG.WEB.RY.DAL\BIG.WEB.RY.DAL.csproj">
+      <Project>{ce513342-7514-46f5-a7cd-16f19fb1e34e}</Project>
+      <Name>BIG.WEB.RY.DAL</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\BIG.WEB.RY.MODEL\BIG.WEB.RY.MODEL.csproj">
+      <Project>{1459bee4-33ff-426c-bb18-9612d7c4f0f6}</Project>
+      <Name>BIG.WEB.RY.MODEL</Name>
+    </ProjectReference>
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.

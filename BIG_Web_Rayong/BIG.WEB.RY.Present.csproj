@@ -250,6 +250,10 @@
     <Content Include="Scripts\fonts\fontawesome-webfont.woff2" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\BIG.WEB.RY.DATASERVICE\BIG.WEB.RY.DATASERVICE.csproj">
+      <Project>{f40032b3-bf65-4b40-b39e-8e9525c326ca}</Project>
+      <Name>BIG.WEB.RY.DATASERVICE</Name>
+    </ProjectReference>
     <ProjectReference Include="..\BIG.WEB.RY.MODEL\BIG.WEB.RY.MODEL.csproj">
       <Project>{1459bee4-33ff-426c-bb18-9612d7c4f0f6}</Project>
       <Name>BIG.WEB.RY.MODEL</Name>
