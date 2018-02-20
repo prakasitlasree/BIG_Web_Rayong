@@ -69,7 +69,7 @@ body {
 }
 
 h2 {
-    font-size: 38px;
+    font-size: 34px;
     color: #222222;
     font-family: 'Raleway', sans-serif;
     font-weight: normal;
@@ -177,29 +177,29 @@ p {
 }
 
 .navStyle ul li a:hover {
-    color: #df0031;
+    color: #d41247;
 }
 
 .navStyle > li > a:hover, .nav > li > a:focus {
     text-decoration: none;
-    color: #df0031;
+    color: #d41247;
     background-color: transparent;
 }
 
 .navbar-inverse .navbar-nav > li > a:hover, .navbar-inverse .navbar-nav > li > a:focus {
-    color: #df0031;
+    color: #d41247;
     background-color: transparent;
 }
 
 .navbar-inverse .navbar-nav > .active > a, .navbar-inverse .navbar-nav > .active > a:hover, .navbar-inverse .navbar-nav > .active > a:focus {
-    color: #df0031;
+    color: #d41247;
     background-color: transparent;
 }
 
 .navStyle > li.active > a,
 .navStyle > li.active > a:hover {
     text-decoration: none;
-    color: #df0031;
+    color: #d41247;
     background-color: transparent;
 }
 
@@ -219,7 +219,7 @@ p {
 ---------------------------------*/
 
 .top_cont_outer {
-    background: #df0031;
+    background: #d41247;
     position: relative;
 }
 
@@ -293,17 +293,112 @@ a.read_more2 {
 
 a.read_more2:hover {
     background: #fff;
-    color: #df0031;
+    color: #d41247;
     border: 1px solid #fff;
 }
+ 
 
-	
+/*Contact us*/
 
+#contact_us {
+    padding: 20px 0px;
+    background: #efe9e980;
+}
 
+.contact_us_wrapper {
+    padding: 5px 0 20px;
+}
 
+.contact_us_section {
 
+}
+.contact_us_section h2 {
+    color: #222222;
+    font-family: 'Raleway', sans-serif;
+    font-size: 34px;
+    letter-spacing: -1px;
+    margin: 0 0 15px;
+    text-align: center;
+    text-transform: uppercase;
+}
 
+.contact_us_block {
+    text-align: center;
+    padding-left: 15px;
+    padding-right: 15px;
+}
 
+.contact_us_icon {
+    border: 2px solid #d41247;
+    border-radius: 50%;
+    width: 90px;
+    height: 90px;
+    margin: 0px auto 25px;
+}
+
+.contact_us_icon.icon2 {
+    border: 2px solid #d41247;
+}
+
+.contact_us_icon.icon3 {
+    border: 2px solid #d41247;
+}
+
+.contact_us_icon span {
+    background: transparent;
+    border-radius: 50%;
+    display: block;
+    height: 100%;
+    width: 100%;
+}
+
+.contact_us_icon i {
+    color: #d41247;
+    font-size: 40px;
+    margin-top: 0;
+    position: relative;
+    top: 20px;
+    z-index: 20;
+}
+
+.contact_us_block h3 {
+    font-family: 'Raleway', sans-serif;
+    font-weight: 600;
+    font-size: 18px;
+    color: #111111;
+    margin: 35px 0 18px;
+}
+
+.contact_us_block p {
+    font-size: 16px;
+    color: #888888;
+    margin: 0px;
+}
+.contact_us_info {
+    font-size: 15px;
+    margin: 0 0 0 20px;
+    font-family:'Raleway', sans-serif;
+    color:#000;
+    padding-left: 0;
+}
+
+.contact_us_info  h3 {
+    font-size: 24px;
+    font-weight: 600;
+    margin: 0 0 30px;
+    color: #fff;
+}
+
+.contact_us_info p {
+    line-height: 28px;
+    display: block;
+    font-size: 16px;
+    /*color: #ffffff;*/
+    margin: 0 0 30px;
+}
+.contact_us_input-text {
+    background:#FFF;
+}
 
 /* Services
 ---------------------------------*/
@@ -327,7 +422,7 @@ a.read_more2:hover {
 }
 
 .service_icon {
-    border: 2px solid #df0031;
+    border: 2px solid #d41247;
     border-radius: 50%;
     width: 90px;
     height: 90px;
@@ -335,11 +430,11 @@ a.read_more2:hover {
 }
 
 .service_icon.icon2 {
-    border: 2px solid #df0031;
+    border: 2px solid #d41247;
 }
 
 .service_icon.icon3 {
-    border: 2px solid #df0031;
+    border: 2px solid #d41247;
 }
 
 .service_icon span {
@@ -351,7 +446,7 @@ a.read_more2:hover {
 }
 
 .service_icon i {
-    color: #df0031;
+    color: #d41247;
     font-size: 40px;
     margin-top: 0;
     position: relative;
@@ -450,18 +545,18 @@ a.contact_btn {
     text-align: center;
     line-height: 49px;
     font-size: 16px;
-    color: #df0031;
+    color: #d41247;
     border-radius: 3px;
     font-family: 'Raleway', sans-serif;
     font-weight: 600;
-    border: 2px solid #df0031;
+    border: 2px solid #d41247;
     transition: all 0.2s ease-in-out;
     -moz-transition: all 0.2s ease-in-out;
     -webkit-transition: all 0.2s ease-in-out;
 }
 
 a.contact_btn:hover {
-    background: #df0031;
+    background: #d41247;
     color: #fff;
 }
 
@@ -475,7 +570,7 @@ a.contact_btn:hover {
 
 
 #Portfolio {
-    padding: 30px 0px;
+    padding: 20px 0px;
 }
 
 .Portfolio-nav {
@@ -506,7 +601,7 @@ a.contact_btn:hover {
 }
 
 .Portfolio-nav li a:hover {
-    background: #df0031;
+    background: #d41247;
     color: #fff;
     text-decoration: none;
 }
@@ -536,7 +631,7 @@ a.contact_btn:hover {
 }
 
 .Portfolio-nav li a.current {
-    background: #df0031;
+    background: #d41247;
     color: #fff;
     text-decoration: none;
 }
@@ -626,7 +721,7 @@ img {
 
 
 .client_logos {
-    background: #df0031;
+    background: #d41247;
     padding: 60px 0;
     margin-top: 60px;
 }
@@ -711,7 +806,7 @@ img {
     display: block;
     width: 100%;
     height: 100%;
-    border-bottom: 4px solid #df0031;
+    border-bottom: 4px solid #d41247;
 }
 
 .policy_box:hover .policy_box_shadow {
@@ -831,7 +926,7 @@ img {
     display: block;
     width: 100%;
     height: 100%;
-    border-bottom: 4px solid #df0031;
+    border-bottom: 4px solid #d41247;
 }
 
 .team_box:hover .team_box_shadow {
@@ -909,7 +1004,7 @@ img {
 #board {
     padding: 30px 0;
 }
-
+ 
 /* Contact
 ---------------------------------*/
 .page_section.contact {
@@ -939,7 +1034,7 @@ img {
 }
 
 .contact_block_icon.icon2 {
-    border-color: #df0031;
+    border-color: #d41247;
 }
 
 .contact_block_icon.icon3 {
@@ -956,11 +1051,11 @@ img {
 }
 
 .contact_block_icon.icon2 {
-    border-color: #df0031;
+    border-color: #d41247;
 }
 
 .contact_block_icon.icon2 span {
-    background: #df0031;
+    background: #d41247;
 }
 
 .contact_block_icon.icon3 {
@@ -1098,7 +1193,7 @@ img {
     width: 175px;
     height: 50px;
     letter-spacing: 0px;
-    background: #df0031;
+    background: #d41247;
     border-radius: 3px;
     color: #ffffff;
     font-size: 16px;
@@ -1136,7 +1231,7 @@ img {
 
 .footer_bottom span a {
     display: inline-block;
-    color: #df0031;
+    color: #d41247;
     font-size: 16px;
     transition: all 0.3s ease-in-out;
     -moz-transition: all 0.3s ease-in-out;
@@ -1256,9 +1351,9 @@ img {
 
 #filters ul li a:hover h5, #filters ul li a.active h5 {
     background: #fff;
-    color: #df0031;
+    color: #d41247;
     text-decoration: none;
-    border: #df0031 solid 1px;
+    border: #d41247 solid 1px;
 }
 
 .section-title h2 {
@@ -1840,7 +1935,7 @@ font-size: 30px;
 padding: 60px 0 50px;
 } 
 .navbar-inverse .navbar-toggle .icon-bar{
-background:#df0031;
+background:#d41247;
 }
 .navbar-inverse .navbar-toggle {
 border-color: transparent;
