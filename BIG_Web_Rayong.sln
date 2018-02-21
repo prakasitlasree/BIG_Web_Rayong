@@ -13,6 +13,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BIG.WEB.RY.MODEL", "BIG.WEB
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BIG.WEB.RY.DATASERVICE", "BIG.WEB.RY.DATASERVICE\BIG.WEB.RY.DATASERVICE.csproj", "{F40032B3-BF65-4B40-B39E-8E9525C326CA}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Test", "Test\Test.csproj", "{F060B054-4C34-47BE-A4C0-83DD0BE574C2}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -39,6 +41,10 @@ Global
 		{F40032B3-BF65-4B40-B39E-8E9525C326CA}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{F40032B3-BF65-4B40-B39E-8E9525C326CA}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{F40032B3-BF65-4B40-B39E-8E9525C326CA}.Release|Any CPU.Build.0 = Release|Any CPU
+		{F060B054-4C34-47BE-A4C0-83DD0BE574C2}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F060B054-4C34-47BE-A4C0-83DD0BE574C2}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{F060B054-4C34-47BE-A4C0-83DD0BE574C2}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{F060B054-4C34-47BE-A4C0-83DD0BE574C2}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

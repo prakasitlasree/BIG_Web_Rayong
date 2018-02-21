@@ -12,11 +12,13 @@ namespace BIG.WEB.RY.DAL
     using System;
     using System.Data.Entity;
     using System.Data.Entity.Infrastructure;
+    using BIG.WEB.RY.MODEL;
     
-    public partial class Entities : DbContext
+    
+    public partial class BIG_RY_DBEntities : DbContext
     {
-        public Entities()
-            : base("name=Entities")
+        public BIG_RY_DBEntities()
+            : base("name=BIG_RY_DBEntities")
         {
         }
     
