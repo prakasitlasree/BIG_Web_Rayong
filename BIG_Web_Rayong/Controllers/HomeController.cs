@@ -12,8 +12,7 @@ namespace BIG_Web_Rayong.Controllers
     {
         public ActionResult Index()
         {
-            LogOn_Services service = new LogOn_Services();
-            var x = service.GetAll();
+       
             return View();
         }
 
