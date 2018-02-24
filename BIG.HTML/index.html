@@ -9,6 +9,7 @@
     <link href="css/style.css" rel="stylesheet" type="text/css">
     <link href="css/font-awesome.css" rel="stylesheet" type="text/css">
     <link href="css/animate.css" rel="stylesheet" type="text/css">
+    <link href="css/banner.css" rel="stylesheet" type="text/css"> 
 
     <!--[if lt IE 9]>
         <script src="js/respond-1.1.0.min.js"></script>
@@ -20,6 +21,8 @@
 <body>
 
     <!--Header_section-->
+    
+
     <header id="header_wrapper">
         <div class="container">
             <div class="header_box">
@@ -44,8 +47,103 @@
         </div>
     </header>
     <!--Header_section-->
+
+
+    <div class="banner">
+        <script src="Scripts/js/responsiveslides.min.js"></script>
+        <script>
+							// You can also use "$(window).load(function() {"
+							$(function () { 
+							$("#slider3").responsiveSlides({
+								auto: true,
+								pager: false,
+								nav: true,
+								speed: 500,
+								namespace: "callbacks",
+								before: function () {
+							$('.events').append("<li>before event fired.</li>");
+							},
+							after: function () {
+								$('.events').append("<li>after event fired.</li>");
+								}
+								});
+								});
+        </script>
+        <!-- responsiveslides -->
+        <div id="top" class="callbacks_container">
+            <ul class="rslides callbacks callbacks1" id="slider3">
+                <li id="callbacks1_s0" class="" style="display: block; float: none; position: absolute; opacity: 0; z-index: 1; transition: opacity 500ms ease-in-out;">
+                    <div class="banner">
+                        <div class="imageBanner">
+
+                            <img src="/Content/Banner/Banner_1.jpg" class="img-responsive" alt="">
+
+                            <h2 style="background-color:rgba(255, 255, 255, 0.4);line-height: 30px;padding:10px;color:white;text-shadow: 2px 2px #808080;" class="imageBanner">
+                                <b>บริการสำหรับทุกคน                                                                                                                                                                                                                                              </b><br>B.I.G Interguard                                                                                                                                                                                                                                               <br><i style="font-size:13px">
+                                    ให้บริการ ร.ป.ภ. ศูนย์รักษาความปลอดภัย ทั่วราชอาณาจักร
+                                </i>
+                            </h2>
+
+                        </div>
+                    </div>
+
+                </li>
+                <li id="callbacks1_s1" style="display: block; float: none; position: absolute; opacity: 0; z-index: 1; transition: opacity 500ms ease-in-out;" class="">
+                    <div class="banner">
+                        <div class="imageBanner">
+
+                            <img src="/Content/Banner/Banner_2.jpg" class="img-responsive" alt="">
+
+                            <h2 style="background-color:rgba(255, 255, 255, 0.4);line-height: 30px;padding:10px;color:white;text-shadow: 2px 2px #808080;" class="imageBanner">
+                                <b>ยินดีต้อนรับทุกท่าน                                                                                                                                                                                                                                            </b><br>B.I.G Interguard                                                                                                                                                                                                                                               <br><i style="font-size:13px">
+                                    ให้บริการ ร.ป.ภ. ศูนย์รักษาความปลอดภัย ทั่วราชอาณาจักร
+                                </i>
+                            </h2>
+
+                        </div>
+                    </div>
+
+                </li>
+                <li id="callbacks1_s2" style="display: block; float: none; position: absolute; opacity: 0; z-index: 1; transition: opacity 500ms ease-in-out;" class="">
+                    <div class="banner">
+                        <div class="imageBanner">
+
+                            <img src="/Content/Banner/Banner_1.jpg" class="img-responsive" alt="">
+
+                            <h2 style="background-color:rgba(255, 255, 255, 0.4);line-height: 30px;padding:10px;color:white;text-shadow: 2px 2px #808080;" class="imageBanner">
+                                <b>ยินดีต้อนรับทุกท่าน                                                                                                                                                                                                                                            </b><br>B.I.G Interguard                                                                                                                                                                                                                                               <br><i style="font-size:13px">
+                                    ให้บริการ ร.ป.ภ. ศูนย์รักษาความปลอดภัย ทั่วราชอาณาจักร
+                                </i>
+                            </h2>
+
+                        </div>
+                    </div>
+
+                </li>
+                <li id="callbacks1_s3" style="display: block; float: left; position: relative; opacity: 1; z-index: 2; transition: opacity 500ms ease-in-out;" class="callbacks1_on">
+                    <div class="banner">
+                        <div class="imageBanner">
+
+                            <img src="/Content/Banner/Banner_2.jpg" class="img-responsive" alt="">
+
+                            <h2 style="background-color:rgba(255, 255, 255, 0.4);line-height: 30px;padding:10px;color:white;text-shadow: 2px 2px #808080;" class="imageBanner">
+                                <b>ยินดีต้อนรับทุกท่าน                                                                                                                                                                                                                                            </b><br>B.I.G Interguard                                                                                                                                                                                                                                               <br><i style="font-size:13px">
+                                    ให้บริการ ร.ป.ภ. ศูนย์รักษาความปลอดภัย ทั่วราชอาณาจักร
+                                </i>
+                            </h2>
+
+                        </div>
+                    </div>
+
+                </li>
+
+            </ul><a href="#" class="callbacks_nav callbacks1_nav prev">Previous</a><a href="#" class="callbacks_nav callbacks1_nav next">Next</a>
+        </div>
+
+    </div>
+
     <!--Hero_Section-->
-    <section id="hero_section" class="top_cont_outer">
+    <!--<section id="hero_section" class="top_cont_outer">
         <div class="hero_wrapper">
             <div class="container">
                 <div class="hero_section">
@@ -64,8 +162,9 @@
                 </div>
             </div>
         </div>
-    </section>
+    </section>-->
     <!--Hero_Section-->
+
     <!--Aboutus-->
     <section id="aboutUs">
         <div class="inner_wrapper">
@@ -264,16 +363,18 @@
     </footer>
     <!--Footer-->
 
-    <script type="text/javascript" src="js/jquery-1.11.0.min.js"></script>
-    <script type="text/javascript" src="js/bootstrap.min.js"></script>
-    <script type="text/javascript" src="js/jquery-scrolltofixed.js"></script>
+    <!--<script type="text/javascript" src="js/jquery-1.11.0.min.js"></script>-->
+    <!--<script type="text/javascript" src="js/bootstrap.min.js"></script>-->
+    <script type="text/javascript" src="Scripts/js/jquery.min.js"></script>
+    <!--<script type="text/javascript" src="js/jquery-scrolltofixed.js"></script>-->
     <script type="text/javascript" src="js/jquery.nav.js"></script>
-    <script type="text/javascript" src="js/jquery.easing.1.3.js"></script>
-    <script type="text/javascript" src="js/jquery.isotope.js"></script>
+    <!--<script type="text/javascript" src="js/jquery.easing.1.3.js"></script>-->
+    <!--<script type="text/javascript" src="js/jquery.isotope.js"></script>-->
     <script type="text/javascript" src="js/wow.js"></script>
-    <script src="contact/jqBootstrapValidation.js"></script>
-    <script src="contact/contact_me.js"></script>
+    <script type="text/javascript"  src="contact/jqBootstrapValidation.js"></script>
+    <script type="text/javascript" src="contact/contact_me.js"></script>
     <script type="text/javascript" src="js/custom.js"></script>
 
+ 
 </body>
 </html>
