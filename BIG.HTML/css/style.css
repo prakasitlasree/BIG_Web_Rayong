@@ -1852,7 +1852,23 @@ div.mc-image {
 /*
    Media Queries
 --------------------------- */
-@media (min-width: 768px) {
+@media(max-width:1440px){
+	.banner-info p{
+	
+		padding: 14px;
+	}
+	.banner{
+	min-height: 100% !important;
+	}
+	.banner-info {
+		margin: 112px 0 0 180px;
+		}
+	.banner-info {
+	width:34%;
+	}
+     .logo{
+         width:35%
+     }
 }
 
 @media (max-width: 768px) {
@@ -1881,13 +1897,17 @@ div.mc-image {
     }
 
     #aboutUs img {
-        margin-bottom: 20px;
+        margin-bottom: 20px; 
+        width: 80%;
+        display: block;
+        margin: 0 auto;
+        align-content:center;
     }
 
     #aboutUs h3 {
         font-size: 16px;
         line-height: 22px;
-    }
+    } 
 
     #board img {
         display: block;
@@ -1982,8 +2002,7 @@ div.mc-image {
         background: #F9F9F9;
     }
 }
-
-
+ 
 @media(max-width:480px) {
     .team_area {
         width: 99%;
