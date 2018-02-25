@@ -28,5 +28,6 @@ namespace BIG.WEB.RY.DAL
         }
     
         public DbSet<LOGON> LOGONs { get; set; }
+        public DbSet<Test> Tests { get; set; }
     }
 }

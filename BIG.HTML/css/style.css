@@ -65,7 +65,7 @@ body {
     font-family: 'Open Sans', sans-serif;
     font-size: 14px;
     font-weight: normal;
-    color: #888888;
+    color: #222222;
     margin: 0;
 }
 
@@ -565,6 +565,29 @@ a.contact_btn {
         color: #fff;
     }
 
+a.readmore_new_btn {
+    background: #fff;
+     display: block;
+    width: 120px;
+    height: 30px;
+    text-align: center;
+    line-height: 30px;
+    font-size: 14px;
+    color: #D34346;
+    border-radius: 6px;
+    font-family: 'Raleway', sans-serif; 
+    border: 2px solid #D34346;
+    transition: all 0.2s ease-in-out;
+    -moz-transition: all 0.2s ease-in-out;
+    -webkit-transition: all 0.2s ease-in-out;
+}
+
+a.readmore_new_btn:hover {
+        background: #D34346;
+        color: #fff;
+    }
+
+
 .input-text {
     background: transparent;
 }
@@ -1011,14 +1034,19 @@ img {
 }
 
 .new_ood {
-    padding: 20px 0;
+    /*padding: 20px 0;*/
     background-color:#efe9e980;
+}
+.new_ood h3 {
+   color:#D34346;
 }
 
 .new_even {
-    padding: 20px 0;
+   /* padding: 20px 0;*/
 }
-
+.new_even h3 {
+   color:#D34346;
+}
 /* Contact
 ---------------------------------*/
 .page_section.contact {
@@ -1924,8 +1952,7 @@ div.mc-image {
     }
 
     .new_ood img {
-        margin-bottom: 20px;
-        width: 60%;
+        margin-bottom: 20px; 
         display: block;
         margin: 0 auto;
         align-content: center;

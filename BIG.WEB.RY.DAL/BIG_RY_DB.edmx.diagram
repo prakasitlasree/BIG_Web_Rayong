@@ -5,7 +5,8 @@
     <!-- Diagram content (shape and connector positions) -->
     <edmx:Diagrams>
       <Diagram DiagramId="28ee6721417d4499b6f95aa878e99808" Name="Diagram1">
-        <EntityTypeShape EntityType="BIG_RY_DBModel.LOGON" Width="1.5" PointX="0.75" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="BIG_RY_DBModel.LOGON" Width="1.5" PointX="0.75" PointY="0.75" />
+        <EntityTypeShape EntityType="BIG_RY_DBModel.Test" Width="1.5" PointX="2.75" PointY="0.75" />
       </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>

@@ -17,13 +17,25 @@
           <Property Name="UPDATED_DATE" Type="datetime" />
           <Property Name="UPDATED_BY" Type="nvarchar" MaxLength="50" />
         </EntityType>
+        <EntityType Name="Test">
+          <Key>
+            <PropertyRef Name="AUTO_ID" />
+          </Key>
+          <Property Name="AUTO_ID" Type="int" Nullable="false" />
+          <Property Name="TEST" Type="nvarchar" MaxLength="50" />
+        </EntityType>
         <EntityContainer Name="BIG_RY_DBModelStoreContainer">
           <EntitySet Name="LOGON" EntityType="Self.LOGON" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Test" EntityType="Self.Test" Schema="dbo" store:Type="Tables" />
         </EntityContainer>
       </Schema></edmx:StorageModels>
     <!-- CSDL content -->
     <edmx:ConceptualModels>
       <Schema Namespace="BIG_RY_DBModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityContainer Name="BIG_RY_DBEntities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="LOGONs" EntityType="BIG_RY_DBModel.LOGON" />
+          <EntitySet Name="Tests" EntityType="BIG_RY_DBModel.Test" />
+        </EntityContainer>
         <EntityType Name="LOGON">
           <Key>
             <PropertyRef Name="ID" />
@@ -36,9 +48,13 @@
           <Property Name="UPDATED_DATE" Type="DateTime" Precision="3" />
           <Property Name="UPDATED_BY" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
         </EntityType>
-        <EntityContainer Name="BIG_RY_DBEntities" annotation:LazyLoadingEnabled="true">
-          <EntitySet Name="LOGONs" EntityType="Self.LOGON" />
-        </EntityContainer>
+        <EntityType Name="Test">
+          <Key>
+            <PropertyRef Name="AUTO_ID" />
+          </Key>
+          <Property Name="AUTO_ID" Type="Int32" Nullable="false" />
+          <Property Name="TEST1" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+        </EntityType>
       </Schema>
     </edmx:ConceptualModels>
     <!-- C-S mapping content -->
@@ -48,13 +64,21 @@
           <EntitySetMapping Name="LOGONs">
             <EntityTypeMapping TypeName="BIG_RY_DBModel.LOGON">
               <MappingFragment StoreEntitySet="LOGON">
-                <ScalarProperty Name="ID" ColumnName="ID" />
-                <ScalarProperty Name="USERNAME" ColumnName="USERNAME" />
-                <ScalarProperty Name="PASSWORD" ColumnName="PASSWORD" />
-                <ScalarProperty Name="CREATED_DATE" ColumnName="CREATED_DATE" />
-                <ScalarProperty Name="CREATED_BY" ColumnName="CREATED_BY" />
-                <ScalarProperty Name="UPDATED_DATE" ColumnName="UPDATED_DATE" />
                 <ScalarProperty Name="UPDATED_BY" ColumnName="UPDATED_BY" />
+                <ScalarProperty Name="UPDATED_DATE" ColumnName="UPDATED_DATE" />
+                <ScalarProperty Name="CREATED_BY" ColumnName="CREATED_BY" />
+                <ScalarProperty Name="CREATED_DATE" ColumnName="CREATED_DATE" />
+                <ScalarProperty Name="PASSWORD" ColumnName="PASSWORD" />
+                <ScalarProperty Name="USERNAME" ColumnName="USERNAME" />
+                <ScalarProperty Name="ID" ColumnName="ID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Tests">
+            <EntityTypeMapping TypeName="BIG_RY_DBModel.Test">
+              <MappingFragment StoreEntitySet="Test">
+                <ScalarProperty Name="TEST1" ColumnName="TEST" />
+                <ScalarProperty Name="AUTO_ID" ColumnName="AUTO_ID" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
