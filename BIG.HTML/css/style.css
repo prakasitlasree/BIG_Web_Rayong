@@ -231,6 +231,12 @@ p {
     padding-top: 50px;
 }
 
+.quality_section {
+    position: relative;
+    padding-top: 40px;
+}
+
+
 .white_pad {
     position: relative;
     right: 0px;
@@ -246,6 +252,7 @@ p {
 .top_left_cont {
     padding: 110px 0;
 }
+
 
     .top_left_cont h3 {
         font-size: 16px;
@@ -271,6 +278,38 @@ p {
     .top_left_cont p {
         font-size: 16px;
         color: #FFABAB;
+        margin: 0 0 30px 0;
+        line-height: 26px;
+    }
+
+.quality_cont {
+    padding: 30px 0;
+}
+
+    .quality_cont h3 {
+        font-size: 16px;
+        color: #f56eab;
+        margin: 0 0 20px 0;
+        text-align: left;
+        font-weight: 700;
+    }
+
+    .quality_cont h2 {
+        font-size: 40px;
+        color: #FFF;
+        line-height: 52px;
+        margin: 0 0 26px 0;
+        font-family: 'Raleway', sans-serif;
+        text-align: left;
+    }
+
+        .quality_cont h2 strong {
+            font-weight: 700;
+        }
+
+    .quality_cont p {
+        font-size: 16px;
+        color: #ffffff;
         margin: 0 0 30px 0;
         line-height: 26px;
     }
@@ -305,7 +344,7 @@ a.read_more2 {
 
 #contact_us {
     padding: 20px 0px;
-    background: #efe9e980;
+    background: #fbf8f8;
 }
 
 .contact_us_wrapper {
@@ -410,7 +449,7 @@ a.read_more2 {
 
 #service {
     padding: 20px 0px;
-    background: #efe9e980;
+    background: #fbfbfb;
 }
 
 .service_wrapper {
@@ -469,7 +508,7 @@ a.read_more2 {
 
 .service_block p {
     font-size: 16px;
-    color: #888888;
+    color: #222222;
     margin: 0px;
 }
 
@@ -502,6 +541,10 @@ a.read_more2 {
     padding: 20px 0 20px;
 }
 
+.new_section {
+    padding: 30px 0 30px;
+}
+
 .service-list {
     padding: 0 0 0 0;
     font-size: 14px;
@@ -514,13 +557,13 @@ a.read_more2 {
     text-align: center;
 }
 
-    .service-list-col1 i {
-        display:;
-        color: #888;
-        font-size: 19px;
-        font-style: normal;
-        line-height: 20px;
-    }
+.service-list-col1 i {
+ 
+color: #888;
+font-size: 19px;
+font-style: normal;
+line-height: 20px;
+}
 
 .service-list-col2 {
     overflow: hidden;
@@ -567,7 +610,7 @@ a.contact_btn {
 
 a.readmore_new_btn {
     background: #fff;
-     display: block;
+    display: block;
     width: 120px;
     height: 30px;
     text-align: center;
@@ -575,14 +618,14 @@ a.readmore_new_btn {
     font-size: 14px;
     color: #D34346;
     border-radius: 6px;
-    font-family: 'Raleway', sans-serif; 
+    font-family: 'Raleway', sans-serif;
     border: 2px solid #D34346;
     transition: all 0.2s ease-in-out;
     -moz-transition: all 0.2s ease-in-out;
     -webkit-transition: all 0.2s ease-in-out;
 }
 
-a.readmore_new_btn:hover {
+    a.readmore_new_btn:hover {
         background: #D34346;
         color: #fff;
     }
@@ -780,11 +823,19 @@ img {
     }
 
 
+/* Team
+---------------------------------*/
+#team {
+    padding: 30px 0px;
+    background: #fbf8f8;
+    color: #888888;
+}
+
 /* Policy
 ---------------------------------*/
 #policy {
     padding: 30px 0px;
-    background: #efe9e980;
+    /*background: #f3f1f1;*/
     color: #888888;
 }
 
@@ -921,15 +972,17 @@ img {
     text-align: center;
     float: left;
 }
+.team_area p {
+    color:#222222;
+}
+.team_area span {
+    margin-bottom: 24px;
+    display: block;
+}
 
-    .team_area span {
-        margin-bottom: 24px;
-        display: block;
-    }
-
-    .team_area:nth-of-type(3n+0) {
-        margin: 0;
-    }
+.team_area:nth-of-type(3n+0) {
+    margin: 0;
+}
 
 .team_box {
     width: auto;
@@ -1026,7 +1079,7 @@ img {
             }
 
 #aboutUs {
-    padding: 30px 0;
+    padding: 40px 0;
 }
 
 #board {
@@ -1035,18 +1088,20 @@ img {
 
 .new_ood {
     /*padding: 20px 0;*/
-    background-color:#efe9e980;
-}
-.new_ood h3 {
-   color:#D34346;
+    background-color: #f3f1f1;
 }
 
+    .new_ood h3 {
+        color: #D34346;
+    }
+
 .new_even {
-   /* padding: 20px 0;*/
+    /* padding: 20px 0;*/
 }
-.new_even h3 {
-   color:#D34346;
-}
+
+    .new_even h3 {
+        color: #D34346;
+    }
 /* Contact
 ---------------------------------*/
 .page_section.contact {
@@ -1889,7 +1944,7 @@ div.mc-image {
 }
 
 /*
-   Media Queries
+Media Queries
 --------------------------- */
 @media(max-width:1440px) {
     .banner-info p {
@@ -1938,6 +1993,10 @@ div.mc-image {
         padding: 20px 0 20px;
     }
 
+      #aboutUs {
+         padding: 10px 0;
+    }
+
     #aboutUs img {
         margin-bottom: 20px;
         width: 80%;
@@ -1952,7 +2011,7 @@ div.mc-image {
     }
 
     .new_ood img {
-        margin-bottom: 20px; 
+        margin-bottom: 20px;
         display: block;
         margin: 0 auto;
         align-content: center;
@@ -1983,6 +2042,7 @@ div.mc-image {
         font-size: 14px;
         margin: 0px;
         margin-bottom: 20px;
+        color:#222222;
     }
 
     #filters ul {
@@ -2101,7 +2161,7 @@ div.mc-image {
     }
 
     .banner {
-        min-height: 200px !important;
+        min-height: 120px !important;
         background-size: 169%;
     }
 
