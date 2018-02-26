@@ -642,6 +642,7 @@ a.readmore_new_btn {
 
 #Portfolio {
     padding: 20px 0px;
+    background-color: #fbfbfb;
 }
 
 .Portfolio-nav {
@@ -1088,7 +1089,7 @@ img {
 
 .new_ood {
     /*padding: 20px 0;*/
-    background-color: #f3f1f1;
+    background-color: #fbf8f8;
 }
 
     .new_ood h3 {
@@ -1964,7 +1965,7 @@ Media Queries
     }
 
     .logo {
-        width: 35%;
+        width: 30%;
     }
 }
 
