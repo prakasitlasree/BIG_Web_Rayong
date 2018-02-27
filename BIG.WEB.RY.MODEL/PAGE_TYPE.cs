@@ -12,9 +12,17 @@ namespace BIG.WEB.RY.MODEL
     using System;
     using System.Collections.Generic;
     
-    public partial class Test
+    public partial class PAGE_TYPE
     {
+        public PAGE_TYPE()
+        {
+            this.PAGE_CONTENT = new HashSet<PAGE_CONTENT>();
+        }
+    
         public int AUTO_ID { get; set; }
-        public string TEST1 { get; set; }
+        public string NAME { get; set; }
+        public string DESCRIPTION { get; set; }
+    
+        public virtual ICollection<PAGE_CONTENT> PAGE_CONTENT { get; set; }
     }
 }

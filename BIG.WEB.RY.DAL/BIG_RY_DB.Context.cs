@@ -28,6 +28,8 @@ namespace BIG.WEB.RY.DAL
         }
     
         public DbSet<LOGON> LOGONs { get; set; }
-        public DbSet<Test> Tests { get; set; }
+        public DbSet<PAGE_CONTENT> PAGE_CONTENT { get; set; }
+        public DbSet<PAGE_CUSTOMER> PAGE_CUSTOMER { get; set; }
+        public DbSet<PAGE_TYPE> PAGE_TYPE { get; set; }
     }
 }

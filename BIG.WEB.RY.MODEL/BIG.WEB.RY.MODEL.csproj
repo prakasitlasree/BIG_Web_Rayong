@@ -52,10 +52,16 @@
     <Compile Include="LOGON.cs">
       <DependentUpon>BIG_RY_DB.tt</DependentUpon>
     </Compile>
-    <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Test.cs">
+    <Compile Include="PAGE_CONTENT.cs">
       <DependentUpon>BIG_RY_DB.tt</DependentUpon>
     </Compile>
+    <Compile Include="PAGE_CUSTOMER.cs">
+      <DependentUpon>BIG_RY_DB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="PAGE_TYPE.cs">
+      <DependentUpon>BIG_RY_DB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
     <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />

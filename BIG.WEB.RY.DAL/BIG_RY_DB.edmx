@@ -17,16 +17,74 @@
           <Property Name="UPDATED_DATE" Type="datetime" />
           <Property Name="UPDATED_BY" Type="nvarchar" MaxLength="50" />
         </EntityType>
-        <EntityType Name="Test">
+        <EntityType Name="PAGE_CONTENT">
           <Key>
             <PropertyRef Name="AUTO_ID" />
           </Key>
-          <Property Name="AUTO_ID" Type="int" Nullable="false" />
-          <Property Name="TEST" Type="nvarchar" MaxLength="50" />
+          <Property Name="AUTO_ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="TYPE_ID" Type="int" />
+          <Property Name="SECTION_NAME" Type="nvarchar" MaxLength="250" />
+          <Property Name="HTML_SUB_HEADER1" Type="nvarchar" MaxLength="4000" />
+          <Property Name="HTML_SUB_HEADER2" Type="nvarchar" MaxLength="4000" />
+          <Property Name="HTML_VALUE" Type="nvarchar" MaxLength="4000" />
+          <Property Name="IMAGE_URL" Type="nvarchar" MaxLength="250" />
+          <Property Name="SEQ" Type="int" />
+          <Property Name="STATUS" Type="int" />
         </EntityType>
+        <EntityType Name="PAGE_CUSTOMER">
+          <Key>
+            <PropertyRef Name="AUTO_ID" />
+          </Key>
+          <Property Name="AUTO_ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="PAGE_CONTENT_ID" Type="int" />
+          <Property Name="NAME" Type="nvarchar" MaxLength="4000" />
+          <Property Name="LOGO_URL" Type="nvarchar" MaxLength="4000" />
+        </EntityType>
+        <EntityType Name="PAGE_TYPE">
+          <Key>
+            <PropertyRef Name="AUTO_ID" />
+          </Key>
+          <Property Name="AUTO_ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="NAME" Type="nvarchar" MaxLength="250" />
+          <Property Name="DESCRIPTION" Type="nvarchar" MaxLength="4000" />
+        </EntityType>
+        <Association Name="FK_PAGE_CONTENT_PAGE_TYPE">
+          <End Role="PAGE_TYPE" Type="Self.PAGE_TYPE" Multiplicity="0..1" />
+          <End Role="PAGE_CONTENT" Type="Self.PAGE_CONTENT" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="PAGE_TYPE">
+              <PropertyRef Name="AUTO_ID" />
+            </Principal>
+            <Dependent Role="PAGE_CONTENT">
+              <PropertyRef Name="TYPE_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_PAGE_CUSTOMER_PAGE_CONTENT">
+          <End Role="PAGE_CONTENT" Type="Self.PAGE_CONTENT" Multiplicity="0..1" />
+          <End Role="PAGE_CUSTOMER" Type="Self.PAGE_CUSTOMER" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="PAGE_CONTENT">
+              <PropertyRef Name="AUTO_ID" />
+            </Principal>
+            <Dependent Role="PAGE_CUSTOMER">
+              <PropertyRef Name="PAGE_CONTENT_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
         <EntityContainer Name="BIG_RY_DBModelStoreContainer">
           <EntitySet Name="LOGON" EntityType="Self.LOGON" Schema="dbo" store:Type="Tables" />
-          <EntitySet Name="Test" EntityType="Self.Test" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="PAGE_CONTENT" EntityType="Self.PAGE_CONTENT" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="PAGE_CUSTOMER" EntityType="Self.PAGE_CUSTOMER" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="PAGE_TYPE" EntityType="Self.PAGE_TYPE" Schema="dbo" store:Type="Tables" />
+          <AssociationSet Name="FK_PAGE_CONTENT_PAGE_TYPE" Association="Self.FK_PAGE_CONTENT_PAGE_TYPE">
+            <End Role="PAGE_TYPE" EntitySet="PAGE_TYPE" />
+            <End Role="PAGE_CONTENT" EntitySet="PAGE_CONTENT" />
+          </AssociationSet>
+          <AssociationSet Name="FK_PAGE_CUSTOMER_PAGE_CONTENT" Association="Self.FK_PAGE_CUSTOMER_PAGE_CONTENT">
+            <End Role="PAGE_CONTENT" EntitySet="PAGE_CONTENT" />
+            <End Role="PAGE_CUSTOMER" EntitySet="PAGE_CUSTOMER" />
+          </AssociationSet>
         </EntityContainer>
       </Schema></edmx:StorageModels>
     <!-- CSDL content -->
@@ -34,7 +92,17 @@
       <Schema Namespace="BIG_RY_DBModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
         <EntityContainer Name="BIG_RY_DBEntities" annotation:LazyLoadingEnabled="true">
           <EntitySet Name="LOGONs" EntityType="BIG_RY_DBModel.LOGON" />
-          <EntitySet Name="Tests" EntityType="BIG_RY_DBModel.Test" />
+          <EntitySet Name="PAGE_CONTENT" EntityType="BIG_RY_DBModel.PAGE_CONTENT" />
+          <EntitySet Name="PAGE_CUSTOMER" EntityType="BIG_RY_DBModel.PAGE_CUSTOMER" />
+          <EntitySet Name="PAGE_TYPE" EntityType="BIG_RY_DBModel.PAGE_TYPE" />
+          <AssociationSet Name="FK_PAGE_CONTENT_PAGE_TYPE" Association="BIG_RY_DBModel.FK_PAGE_CONTENT_PAGE_TYPE">
+            <End Role="PAGE_TYPE" EntitySet="PAGE_TYPE" />
+            <End Role="PAGE_CONTENT" EntitySet="PAGE_CONTENT" />
+          </AssociationSet>
+          <AssociationSet Name="FK_PAGE_CUSTOMER_PAGE_CONTENT" Association="BIG_RY_DBModel.FK_PAGE_CUSTOMER_PAGE_CONTENT">
+            <End Role="PAGE_CONTENT" EntitySet="PAGE_CONTENT" />
+            <End Role="PAGE_CUSTOMER" EntitySet="PAGE_CUSTOMER" />
+          </AssociationSet>
         </EntityContainer>
         <EntityType Name="LOGON">
           <Key>
@@ -48,14 +116,66 @@
           <Property Name="UPDATED_DATE" Type="DateTime" Precision="3" />
           <Property Name="UPDATED_BY" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
         </EntityType>
-        <EntityType Name="Test">
+        <EntityType Name="PAGE_CONTENT">
           <Key>
             <PropertyRef Name="AUTO_ID" />
           </Key>
-          <Property Name="AUTO_ID" Type="Int32" Nullable="false" />
-          <Property Name="TEST1" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="AUTO_ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="TYPE_ID" Type="Int32" />
+          <Property Name="SECTION_NAME" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
+          <Property Name="HTML_SUB_HEADER1" Type="String" MaxLength="4000" FixedLength="false" Unicode="true" />
+          <Property Name="HTML_SUB_HEADER2" Type="String" MaxLength="4000" FixedLength="false" Unicode="true" />
+          <Property Name="HTML_VALUE" Type="String" MaxLength="4000" FixedLength="false" Unicode="true" />
+          <Property Name="IMAGE_URL" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
+          <Property Name="SEQ" Type="Int32" />
+          <Property Name="STATUS" Type="Int32" />
+          <NavigationProperty Name="PAGE_TYPE" Relationship="BIG_RY_DBModel.FK_PAGE_CONTENT_PAGE_TYPE" FromRole="PAGE_CONTENT" ToRole="PAGE_TYPE" />
+          <NavigationProperty Name="PAGE_CUSTOMER" Relationship="BIG_RY_DBModel.FK_PAGE_CUSTOMER_PAGE_CONTENT" FromRole="PAGE_CONTENT" ToRole="PAGE_CUSTOMER" />
         </EntityType>
-      </Schema>
+        <EntityType Name="PAGE_CUSTOMER">
+          <Key>
+            <PropertyRef Name="AUTO_ID" />
+          </Key>
+          <Property Name="AUTO_ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="PAGE_CONTENT_ID" Type="Int32" />
+          <Property Name="NAME" Type="String" MaxLength="4000" FixedLength="false" Unicode="true" />
+          <Property Name="LOGO_URL" Type="String" MaxLength="4000" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="PAGE_CONTENT" Relationship="BIG_RY_DBModel.FK_PAGE_CUSTOMER_PAGE_CONTENT" FromRole="PAGE_CUSTOMER" ToRole="PAGE_CONTENT" />
+        </EntityType>
+        <EntityType Name="PAGE_TYPE">
+          <Key>
+            <PropertyRef Name="AUTO_ID" />
+          </Key>
+          <Property Name="AUTO_ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="NAME" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
+          <Property Name="DESCRIPTION" Type="String" MaxLength="4000" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="PAGE_CONTENT" Relationship="BIG_RY_DBModel.FK_PAGE_CONTENT_PAGE_TYPE" FromRole="PAGE_TYPE" ToRole="PAGE_CONTENT" />
+        </EntityType>
+        <Association Name="FK_PAGE_CONTENT_PAGE_TYPE">
+          <End Type="BIG_RY_DBModel.PAGE_TYPE" Role="PAGE_TYPE" Multiplicity="0..1" />
+          <End Type="BIG_RY_DBModel.PAGE_CONTENT" Role="PAGE_CONTENT" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="PAGE_TYPE">
+              <PropertyRef Name="AUTO_ID" />
+            </Principal>
+            <Dependent Role="PAGE_CONTENT">
+              <PropertyRef Name="TYPE_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_PAGE_CUSTOMER_PAGE_CONTENT">
+          <End Type="BIG_RY_DBModel.PAGE_CONTENT" Role="PAGE_CONTENT" Multiplicity="0..1" />
+          <End Type="BIG_RY_DBModel.PAGE_CUSTOMER" Role="PAGE_CUSTOMER" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="PAGE_CONTENT">
+              <PropertyRef Name="AUTO_ID" />
+            </Principal>
+            <Dependent Role="PAGE_CUSTOMER">
+              <PropertyRef Name="PAGE_CONTENT_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        </Schema>
     </edmx:ConceptualModels>
     <!-- C-S mapping content -->
     <edmx:Mappings>
@@ -74,10 +194,36 @@
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
-          <EntitySetMapping Name="Tests">
-            <EntityTypeMapping TypeName="BIG_RY_DBModel.Test">
-              <MappingFragment StoreEntitySet="Test">
-                <ScalarProperty Name="TEST1" ColumnName="TEST" />
+          <EntitySetMapping Name="PAGE_CONTENT">
+            <EntityTypeMapping TypeName="BIG_RY_DBModel.PAGE_CONTENT">
+              <MappingFragment StoreEntitySet="PAGE_CONTENT">
+                <ScalarProperty Name="STATUS" ColumnName="STATUS" />
+                <ScalarProperty Name="SEQ" ColumnName="SEQ" />
+                <ScalarProperty Name="IMAGE_URL" ColumnName="IMAGE_URL" />
+                <ScalarProperty Name="HTML_VALUE" ColumnName="HTML_VALUE" />
+                <ScalarProperty Name="HTML_SUB_HEADER2" ColumnName="HTML_SUB_HEADER2" />
+                <ScalarProperty Name="HTML_SUB_HEADER1" ColumnName="HTML_SUB_HEADER1" />
+                <ScalarProperty Name="SECTION_NAME" ColumnName="SECTION_NAME" />
+                <ScalarProperty Name="TYPE_ID" ColumnName="TYPE_ID" />
+                <ScalarProperty Name="AUTO_ID" ColumnName="AUTO_ID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="PAGE_CUSTOMER">
+            <EntityTypeMapping TypeName="BIG_RY_DBModel.PAGE_CUSTOMER">
+              <MappingFragment StoreEntitySet="PAGE_CUSTOMER">
+                <ScalarProperty Name="LOGO_URL" ColumnName="LOGO_URL" />
+                <ScalarProperty Name="NAME" ColumnName="NAME" />
+                <ScalarProperty Name="PAGE_CONTENT_ID" ColumnName="PAGE_CONTENT_ID" />
+                <ScalarProperty Name="AUTO_ID" ColumnName="AUTO_ID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="PAGE_TYPE">
+            <EntityTypeMapping TypeName="BIG_RY_DBModel.PAGE_TYPE">
+              <MappingFragment StoreEntitySet="PAGE_TYPE">
+                <ScalarProperty Name="DESCRIPTION" ColumnName="DESCRIPTION" />
+                <ScalarProperty Name="NAME" ColumnName="NAME" />
                 <ScalarProperty Name="AUTO_ID" ColumnName="AUTO_ID" />
               </MappingFragment>
             </EntityTypeMapping>
