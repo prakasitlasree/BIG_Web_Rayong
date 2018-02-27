@@ -557,13 +557,12 @@ a.read_more2 {
     text-align: center;
 }
 
-.service-list-col1 i {
- 
-color: #888;
-font-size: 19px;
-font-style: normal;
-line-height: 20px;
-}
+    .service-list-col1 i {
+        color: #888;
+        font-size: 19px;
+        font-style: normal;
+        line-height: 20px;
+    }
 
 .service-list-col2 {
     overflow: hidden;
@@ -973,17 +972,19 @@ img {
     text-align: center;
     float: left;
 }
-.team_area p {
-    color:#222222;
-}
-.team_area span {
-    margin-bottom: 24px;
-    display: block;
-}
 
-.team_area:nth-of-type(3n+0) {
-    margin: 0;
-}
+    .team_area p {
+        color: #222222;
+    }
+
+    .team_area span {
+        margin-bottom: 24px;
+        display: block;
+    }
+
+    .team_area:nth-of-type(3n+0) {
+        margin: 0;
+    }
 
 .team_box {
     width: auto;
@@ -1324,6 +1325,9 @@ img {
         font-size: 14px;
         color: #cccccc;
         text-align: center;
+    }
+    footer_bottom span:hover{
+        color: #fff;
     }
 
         .footer_bottom span a {
@@ -1994,22 +1998,22 @@ Media Queries
         padding: 20px 0 20px;
     }
 
-      #aboutUs {
-         padding: 10px 0;
+    #aboutUs {
+        padding: 10px 0;
     }
 
-    #aboutUs img {
-        margin-bottom: 20px;
-        width: 80%;
-        display: block;
-        margin: 0 auto;
-        align-content: center;
-    }
+        #aboutUs img {
+            margin-bottom: 20px;
+            width: 80%;
+            display: block;
+            margin: 0 auto;
+            align-content: center;
+        }
 
-    #aboutUs h3 {
-        font-size: 16px;
-        line-height: 22px;
-    }
+        #aboutUs h3 {
+            font-size: 16px;
+            line-height: 22px;
+        }
 
     .new_ood img {
         margin-bottom: 20px;
@@ -2043,7 +2047,7 @@ Media Queries
         font-size: 14px;
         margin: 0px;
         margin-bottom: 20px;
-        color:#222222;
+        color: #222222;
     }
 
     #filters ul {

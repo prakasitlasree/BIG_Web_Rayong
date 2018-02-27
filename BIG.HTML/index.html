@@ -10,8 +10,8 @@
     <link href="css/font-awesome.css" rel="stylesheet" type="text/css">
     <link href="css/animate.css" rel="stylesheet" type="text/css">
     <link href="css/banner.css" rel="stylesheet" type="text/css">
-    
-     <!--[if lt IE 9]>
+
+    <!--[if lt IE 9]>
         <script src="js/respond-1.1.0.min.js"></script>
         <script src="js/html5shiv.js"></script>
         <script src="js/html5element.js"></script>
@@ -24,7 +24,7 @@
     <script type="text/javascript" src="Scripts/JS/modernizr.custom.min.js"></script>
     <script type="text/javascript" src="Scripts/JS/responsiveslides.min.js"></script>
     <script type="text/javascript" src="scripts/js/easyresponsivetabs.js"></script>
-     
+
     <script type="text/javascript" src="js/bootstrap.min.js"></script>
     <script type="text/javascript" src="js/jquery-scrolltofixed.js"></script>
     <script type="text/javascript" src="js/jquery.nav.js"></script>
@@ -34,6 +34,18 @@
     <script type="text/javascript" src="contact/jqBootstrapValidation.js"></script>
     <script type="text/javascript" src="contact/contact_me.js"></script>
     <!--<script type="text/javascript" src="js/custom.js"></script>-->
+
+    <script type="text/javascript">
+        $(document).ready(function() { 
+            $('#header_wrapper').scrollToFixed();
+            $('.res-nav_click').click(function() {
+                $('.main-nav').slideToggle();
+                return false 
+            });
+        });
+
+    </script>
+
 </head>
 <body>
 
@@ -67,11 +79,11 @@
 
 
     <div class="banner">
-        
+
         <script>
-             
+
             // You can also use "$(window).load(function() {"
-            $(function () { 
+            $(function () {
                 $("#slider1").responsiveSlides({
                     auto: true,
                     pager: false,
@@ -135,7 +147,7 @@
                             </h2>
 
                         </div>
-                    </div> 
+                    </div>
                 </li>
                 <li id="callbacks1_s3" style="display: block; float: none; position: absolute; opacity: 0; z-index: 1; transition: opacity 500ms ease-in-out;" class="">
                     <div class="banner">
@@ -150,7 +162,7 @@
                             </h2>
 
                         </div>
-                    </div> 
+                    </div>
                 </li>
                 <li id="callbacks1_s4" style="display: block; float: none; position: absolute; opacity: 0; z-index: 1; transition: opacity 500ms ease-in-out;" class="">
                     <div class="banner">
@@ -189,11 +201,11 @@
         </div>
 
     </div>
-     
+
     <!--Aboutus-->
     <section id="aboutUs">
         <div class="inner_wrapper">
-            <div class="container"> 
+            <div class="container">
                 <div class="inner_section">
                     <div class="row">
                         <h2>เกี่ยวกับเรา</h2>
@@ -229,9 +241,6 @@
         </div>
     </section>
     <!--Aboutus-->
-
-    
-
     <!--Message from CEO-->
     <section class="page_section team" id="team">
         <div class="container">
@@ -288,7 +297,6 @@
         </div>
     </section>
     <!--/Message from CEO-->
-
     <!--Policy-->
     <section class="page_section team" id="policy">
         <div class="inner_wrapper">
@@ -314,7 +322,6 @@
         <div class="clearfix"></div>
     </section>
     <!--Policy-->
-
     <!--Service-->
     <section id="service">
         <div class="container">
@@ -371,7 +378,7 @@
     </section>
     <!--Service-->
     <!--Board-->
-    <section id="board">
+    <!--<section id="board">
         <div class="container">
             <h2>โครงสร้างองค์กร</h2>
             <div class="zoomIn wow animated">
@@ -381,17 +388,16 @@
             </div>
         </div>
 
-    </section>
-
+    </section>-->
     <!--Board-->
     <!--Footer-->
     <footer class="footer_wrapper" id="contact">
 
         <div class="container">
-            <div class="footer_bottom"><span>Copyright © 2018 บริษัทรักษาความปลอดภัย บี.ไอ.จี. อินเตอร์กรุ๊ป (ระยอง) จำกัด. </span> </div>
+            <div class="footer_bottom"><span>Copyright © 2018 บริษัทรักษาความปลอดภัย บี.ไอ.จี. อินเตอร์กรุ๊ป (ระยอง) จำกัด. <a href="tel:+6638-606387">Hot Line : 0-3860-6387</a></span> </div>
         </div>
     </footer>
     <!--Footer-->
-     
- </body>
+
+</body>
 </html>
