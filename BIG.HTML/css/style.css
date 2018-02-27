@@ -439,9 +439,22 @@ a.read_more2 {
         /*color: #ffffff;*/
         margin: 0 0 30px;
     }
+    .contact_us_info a {
+        color: #000;
+    }
 
 .contact_us_input-text {
     background: #FFF;
+}
+
+.stuck {
+    position: fixed;
+    top: 35%;
+    border-radius:5px;
+    height:auto;
+  
+    overflow-y: auto;
+    z-index:100;
 }
 
 /* Services
