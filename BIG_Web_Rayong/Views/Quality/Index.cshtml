@@ -1,0 +1,34 @@
+﻿@model BIG.WEB.RY.MODEL.Content
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+ <!--Hero_Section-->
+<section id="hero_section" class="top_cont_outer">
+    <div class="hero_wrapper">
+        <div class="container">
+            <div class="quality_section">
+                <div class="row">
+                    <div class="col-lg-7 col-sm-7">
+                        <div class="quality_cont zoomIn wow animated">
+                            <h2>@Model.Quality.Last().HTML_SUB_HEADER1</h2>
+                            <p>
+                           @Model.Quality.Last().HTML_VALUE
+
+                            </p>
+                            <a href="/quality.html" class="read_more2">อ่านเพิ่มเติม...</a>
+                        </div>
+                    </div>
+                    <div class="col-lg-5 col-sm-5">
+                        <img src="@Url.Content(Model.Quality.Last().IMAGE_URL)" class="zoomIn wow animated" alt="" />
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="clear"></div>
+
+</section>
+<!--Hero_Section-->

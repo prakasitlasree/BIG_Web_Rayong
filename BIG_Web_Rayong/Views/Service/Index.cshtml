@@ -1,4 +1,4 @@
-﻿
+﻿@model BIG.WEB.RY.MODEL.Content
 @{
     ViewBag.Title = "Index";
     Layout = "~/Views/Shared/_Layout.cshtml";
@@ -13,29 +13,27 @@
                 <div class="col-lg-4">
                     <div class="service_block">
                         <div class="service_icon delay-03s animated wow  zoomIn"> <span><i class="fa fa-users"></i></span> </div>
-                        <h3 class="animated fadeInUp wow">การคัดเลือก</h3>
+                        <h3 class="animated fadeInUp wow">@Model.Services[0].HTML_SUB_HEADER1</h3>
                         <p class="animated fadeInDown wow">
-                            คัดเลือกผู้สมัครที่มีความพร้อมทั้งด้านร่างกาย และ จิตใจ รวมถึงคุณสมบัติสำคัญตามมาฐานที่กำหนด เช่น การตรวจสอบประวัติต่างๆ และ การตรวจสอบคัดกรองหาสารเสพติดก่อนเข้าปฏิบัติงาน
-                        </p>
+                            @Model.Services[0].HTML_VALUE
+                          </p>
                     </div>
                 </div>
                 <div class="col-lg-4 borderLeft">
                     <div class="service_block">
                         <div class="service_icon icon2  delay-03s animated wow zoomIn"> <span><i class="fa fa-male"></i></span> </div>
-                        <h3 class="animated fadeInUp wow">การฝึกอบรม</h3>
+                        <h3 class="animated fadeInUp wow">@Model.Services[1].HTML_SUB_HEADER1</h3>
                         <p class="animated fadeInDown wow">
-                            บริษัทกำหนดการฝึกอบกรมทั้งภาคทฤษฎี และ ภาคปฏิบัติ เพื่อพัฒนาด้านความรู้ความเข้าใจ และ ความสามารถในการปฏิบัติงาน รวมถึงให้ตอบสนองกับการให้บริการ อย่างสม่ำเสมอ
-                        </p>
+                            @Model.Services[1].HTML_VALUE
+                          </p>
                     </div>
                 </div>
                 <div class="col-lg-4 borderLeft">
                     <div class="service_block">
                         <div class="service_icon icon3  delay-03s animated wow zoomIn"> <span><i class="fa fa-key"></i></span> </div>
-                        <h3 class="animated fadeInUp wow">การควบคุมและประเมินผล</h3>
+                        <h3 class="animated fadeInUp wow">@Model.Services[2].HTML_SUB_HEADER1</h3>
                         <p class="animated fadeInDown wow">
-                            ฝ่ายปฎิบัติการ
-                            บริษัทฯ พร้อมให้บริการ 24 ชั่วโมง โดยมีศูนย์เพื่อรับเหตุการณ์ หรือแก้ไขปัญหาตลอดจนการสนับสนุนการปฏิบัติหน้าที่ของพนักงานรักษาความปลอดภัย  เพื่อเป็นการสร้างความมั่นใจว่าทุกคำร้องเรียน หรือ ปัญหาต่างๆ จะได้รับการแก้ไขได้อย่างทันท่วงที
-
+                     @Model.Services[2].HTML_VALUE
 
                         </p>
                     </div>
@@ -45,29 +43,28 @@
                 <div class="col-lg-4 mrgTop">
                     <div class="service_block">
                         <div class="service_icon delay-03s animated wow  zoomIn"> <span><i class="fa fa-comment"></i></span> </div>
-                        <h3 class="animated fadeInUp wow">ฝ่ายการตลาด</h3>
+                        <h3 class="animated fadeInUp wow">@Model.Services[3].HTML_SUB_HEADER1</h3>
                         <p class="animated fadeInDown wow">
-                            ฝ่ายการตลาด และ ลูกค้าสัมพันธ์
-                            บริษัทฯ ได้กำหนดให้ส่วนเกี่ยวข้องต่างๆ ติดตามคุณภาพการให้บริการด้วยระบบลูกค้าสัมพันธ์ เพื่อรองรับข้อเสนอแนะต่างๆ พร้อมกำหนดให้ผู้ใช้บริการให้ประเมินความพึ่งพอใจตามข้อกำหนด เพื่อนำมาปรับปรุงการให้บริการได้อย่างมีประสิทธิภาพและ เป็นไปตามเจตนารมณ์ที่ท่านต้องการ
+                       @Model.Services[3].HTML_VALUE
                         </p>
                     </div>
                 </div>
                 <div class="col-lg-4 borderLeft mrgTop">
                     <div class="service_block">
                         <div class="service_icon icon2  delay-03s animated wow zoomIn"> <span><i class="fa fa-eye"></i></span> </div>
-                        <h3 class="animated fadeInUp wow">สายตรวจปฎิบัติการ</h3>
+                        <h3 class="animated fadeInUp wow">@Model.Services[4].HTML_SUB_HEADER1</h3>
                         <p class="animated fadeInDown wow">
-                            บริษัทฯมีศูนย์เพื่อรับเหตุการณ์และส่งสายตรวจปฏิบัติการประจำเส้นทางทั้งภาคกลางวัน และ ภาคกลางคืน เข้าตรวจสอบการปฏิบัติหน้าที่ของพนักงานรักษาความปลอดภัยอย่างสม่ำเสมอ และ ควบคุมการปฏิบัติหน้าที่ของสายตรวจปฏิบัติการด้วยระบบ ISO 9001 : 2008 จากประเทศอังกฤษ
-                        </p>
+                            @Model.Services[4].HTML_VALUE
+                              </p>
                     </div>
                 </div>
                 <div class="col-lg-4 borderLeft mrgTop">
                     <div class="service_block">
                         <div class="service_icon icon3  delay-03s animated wow zoomIn"> <span><i class="fa fa-bullhorn"></i></span> </div>
-                        <h3 class="animated fadeInUp wow">บริการอื่นๆ</h3>
+                        <h3 class="animated fadeInUp wow">@Model.Services[5].HTML_SUB_HEADER1</h3>
                         <p class="animated fadeInDown wow">
-                            บริษัทฯ ยินดีที่จะให้ความร่วมมือและสนับสนุนกิจกรรมหรือเหตุ-การณ์ต่างๆ ผู้ใช้บริการ เช่น การควบคุมความสงบกรณีการเกิดความไม่เรียบร้อยภายในหน่วยงาน,การสืบสวนสอบสอบการทุจริตภายใน,ควบคุมการตรวจสอบปัสสาวะในการตรวจหาสารเสพติด เป็นต้น
-                        </p>
+                            @Model.Services[5].HTML_VALUE
+                            </p>
                     </div>
                 </div>
             </div>

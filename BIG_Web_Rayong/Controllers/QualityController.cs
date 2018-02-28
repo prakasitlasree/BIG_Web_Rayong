@@ -8,9 +8,9 @@ using System.Web.Mvc;
 
 namespace BIG_Web_Rayong.Controllers
 {
-    public class ServiceController : Controller
+    public class QualityController : Controller
     {
-      
+        // GET: Quality
         public ActionResult Index()
         {
             PageContent_Services service = new PageContent_Services();
@@ -18,8 +18,12 @@ namespace BIG_Web_Rayong.Controllers
 
             Content dataContent = new Content()
             {
-              Services = data.Where(x=>x.SECTION_NAME == "Service").ToList()
+
+                Quality = data.Where(x => x.SECTION_NAME == "Quality").ToList(),
+
             };
+
+
             return View(dataContent);
         }
     }

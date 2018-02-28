@@ -1,4 +1,6 @@
-﻿using System;
+﻿using BIG.WEB.RY.DATASERVICE;
+using BIG.WEB.RY.MODEL;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
@@ -11,7 +13,17 @@ namespace BIG_Web_Rayong.Controllers
         // GET: News
         public ActionResult Index()
         {
-            return View();
+            PageContent_Services service = new PageContent_Services();
+            var data = service.GetAll().ToList();
+
+            Content dataContent = new Content()
+            {
+
+                 News = data.Where(x => x.SECTION_NAME == "News").ToList(),
+     
+            };
+
+            return View(dataContent);
         }
     }
 }

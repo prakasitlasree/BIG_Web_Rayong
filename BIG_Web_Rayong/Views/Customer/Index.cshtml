@@ -1,10 +1,10 @@
-﻿
+﻿@model BIG.WEB.RY.MODEL.Content
 @{
     ViewBag.Title = "Index";
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
-<!-- Portfolio -->
+ <!-- Portfolio -->
 <section id="Portfolio" class="content">
 
     <!-- Container -->
@@ -31,194 +31,58 @@
                         <h5>ทั้งหมด</h5>
                     </a>
                 </li>
-                <li>
-                    <a class="" href="#" data-filter=".prototype">
-                        <h5>โรงงานอุตสาหกรรม</h5>
-                    </a>
-                </li>
-                <li>
-                    <a class="" href="#" data-filter=".design">
-                        <h5>บริษัท/สำนักงาน</h5>
-                    </a>
-                </li>
-                <li>
-                    <a class="" href="#" data-filter=".android">
-                        <h5>หมู่บ้าน</h5>
-                    </a>
-                </li>
-                <li>
-                    <a class="" href="#" data-filter=".appleIOS">
-                        <h5>ส่วนงานราชการ</h5>
-                    </a>
-                </li>
-                <li>
-                    <a class="" href="#" data-filter=".web">
-                        <h5>รัฐวิสาหกิจ</h5>
-                    </a>
-                </li>
+                @foreach (var item in Model.Customers)
+                {
+                    if (item.HTML_SUB_HEADER2 == "*")
+                    {
+                    
+                    }
+                    else
+                    {
+                        <li>
+                            <a class="" href="#" data-filter="@item.HTML_SUB_HEADER2">
+                                <h5>@item.HTML_SUB_HEADER1</h5>
+                            </a>
+                        </li>
+                    }
+
+                }
+             
             </ul>
         </div>
         <!--/Portfolio Filters -->
         <!-- Portfolio Wrapper -->
         <div class="isotope fadeInLeft animated wow" style="position: relative; overflow: hidden; height: 480px;" id="portfolio_wrapper">
 
-            <!-- Portfolio Item -->
-            <div style="position: absolute; left: 0px; top: 0px; transform: translate3d(0px, 0px, 0px) scale3d(1, 1, 1); width: 337px; opacity: 1;" class="portfolio-item one-four   appleIOS isotope-item">
-                <div class="portfolio_img"> <img src="@Url.Content("~/customer_img/agc.jpg")" alt="Portfolio 1"> </div>
-                <div class="item_overlay">
-                    <div class="item_info">
-                        <h4 class="project_name">SMS Mobile App</h4>
+            @foreach (var item in Model.CustomerList)
+            {
+               
+                <div style="position: absolute; left: 0px; top: 0px; transform: translate3d(0px, 0px, 0px) scale3d(1, 1, 1); width: 337px; opacity: 1;" class="portfolio-item one-four @Model.Customers.Where(x=>x.AUTO_ID == item.PAGE_CONTENT_ID).First().HTML_SUB_HEADER2.Replace(".","") isotope-item">
+                    <div class="portfolio_img"> <img src="@Url.Content(item.LOGO_URL)" alt="Portfolio 1"> </div>
+                    <div class="item_overlay">
+                        <div class="item_info">
+                            <h4 class="project_name">@item.NAME</h4>
+                        </div>
                     </div>
                 </div>
-            </div>
-            <!--/Portfolio Item -->
-            <!-- Portfolio Item-->
-            <div style="position: absolute; left: 0px; top: 0px; transform: translate3d(337px, 0px, 0px) scale3d(1, 1, 1); width: 337px; opacity: 1;" class="portfolio-item one-four  design isotope-item">
-                <div class="portfolio_img"> <img src="@Url.Content("~/customer_img/eggo.jpg")" alt="Portfolio 1"> </div>
-                <div class="item_overlay">
-                    <div class="item_info">
-                        <h4 class="project_name">Finance App</h4>
-                    </div>
-                </div>
-            </div>
-            <!--/Portfolio Item -->
-            <!-- Portfolio Item -->
-            <div style="position: absolute; left: 0px; top: 0px; transform: translate3d(674px, 0px, 0px) scale3d(1, 1, 1); width: 337px; opacity: 1;" class="portfolio-item one-four  design  isotope-item">
-                <div class="portfolio_img"> <img src="@Url.Content("~/customer_img/irpc.jpg")" alt="Portfolio 1"> </div>
-                <div class="item_overlay">
-                    <div class="item_info">
-                        <h4 class="project_name">GPS Concept</h4>
-                    </div>
-                </div>
-            </div>
-            <!--/Portfolio Item-->
-            <!-- Portfolio Item-->
-            <div style="position: absolute; left: 0px; top: 0px; transform: translate3d(1011px, 0px, 0px) scale3d(1, 1, 1); width: 337px; opacity: 1;" class="portfolio-item one-four  android  prototype web isotope-item">
-                <div class="portfolio_img"> <img src="@Url.Content("~/customer_img/tfi.jpg")" alt="Portfolio 1"> </div>
-                <div class="item_overlay">
-                    <div class="item_info">
-                        <h4 class="project_name">Shopping</h4>
-                    </div>
-                </div>
-            </div>
-            <!-- Portfolio Item -->
-            <!-- Portfolio Item -->
-            <div style="position: absolute; left: 0px; top: 0px; transform: translate3d(0px, 240px, 0px) scale3d(1, 1, 1); width: 337px; opacity: 1;" class="portfolio-item one-four  design isotope-item">
-                <div class="portfolio_img"> <img src="@Url.Content("~/customer_img/fujitrans.jpg")" alt="Portfolio 1"> </div>
-                <div class="item_overlay">
-                    <div class="item_info">
-                        <h4 class="project_name">Managment</h4>
-                    </div>
-                </div>
-            </div>
-            <!--/Portfolio Item -->
-            <!-- Portfolio Item -->
-            <div style="position: absolute; left: 0px; top: 0px; transform: translate3d(337px, 240px, 0px) scale3d(1, 1, 1); width: 337px; opacity: 1;" class="portfolio-item one-four  web isotope-item">
-                <div class="portfolio_img"> <img src="@Url.Content("~/customer_img/zeon.jpg")" alt="Portfolio 1"> </div>
-                <div class="item_overlay">
-                    <div class="item_info">
-                        <h4 class="project_name">iPhone</h4>
-                    </div>
-                </div>
-            </div>
-            <!--/Portfolio Item -->
-            <!-- Portfolio Item  -->
-            <div style="position: absolute; left: 0px; top: 0px; transform: translate3d(674px, 240px, 0px) scale3d(1, 1, 1); width: 337px; opacity: 1;" class="portfolio-item one-four  design web isotope-item">
-                <div class="portfolio_img"> <img src="@Url.Content("~/customer_img/vinythai.jpg")" alt="Portfolio 1"> </div>
-                <div class="item_overlay">
-                    <div class="item_info">
-                        <h4 class="project_name">Nexus Phone</h4>
-                    </div>
-                </div>
-            </div>
-            <!--/Portfolio Item -->
-            <!-- Portfolio Item -->
-            <div style="position: absolute; left: 0px; top: 0px; transform: translate3d(1011px, 240px, 0px) scale3d(1, 1, 1); width: 337px; opacity: 1;" class="portfolio-item one-four   android isotope-item">
-                <div class="portfolio_img"> <img src="@Url.Content("~/customer_img/snc.jpg")" alt="Portfolio 1"> </div>
-                <div class="item_overlay">
-                    <div class="item_info">
-                        <h4 class="project_name">Android</h4>
-                    </div>
-                </div>
-            </div>
-            <!--/Portfolio Item -->
-            <!-- Portfolio Item -->
-            <div style="position: absolute; left: 0px; top: 0px; transform: translate3d(0px, 240px, 0px) scale3d(1, 1, 1); width: 337px; opacity: 1;" class="portfolio-item one-four  design isotope-item">
-                <div class="portfolio_img"> <img src="@Url.Content("~/customer_img/gsteel.jpg")" alt="Portfolio 1"> </div>
-                <div class="item_overlay">
-                    <div class="item_info">
-                        <h4 class="project_name">Managment</h4>
-                    </div>
-                </div>
-            </div>
-            <!--/Portfolio Item -->
-            <!-- Portfolio Item -->
-            <div style="position: absolute; left: 0px; top: 0px; transform: translate3d(337px, 240px, 0px) scale3d(1, 1, 1); width: 337px; opacity: 1;" class="portfolio-item one-four  web isotope-item">
-                <div class="portfolio_img"> <img src="@Url.Content("~/customer_img/thaipaper.jpg")" alt="Portfolio 1"> </div>
-                <div class="item_overlay">
-                    <div class="item_info">
-                        <h4 class="project_name">iPhone</h4>
-                    </div>
-                </div>
-            </div>
-            <!--/Portfolio Item -->
-            <!-- Portfolio Item  -->
-            <div style="position: absolute; left: 0px; top: 0px; transform: translate3d(674px, 240px, 0px) scale3d(1, 1, 1); width: 337px; opacity: 1;" class="portfolio-item one-four  design web isotope-item">
-                <div class="portfolio_img"> <img src="@Url.Content("~/customer_img/bridgestone.jpg")" alt="Portfolio 1"> </div>
-                <div class="item_overlay">
-                    <div class="item_info">
-                        <h4 class="project_name">Nexus Phone</h4>
-                    </div>
-                </div>
-            </div>
-            <!--/Portfolio Item -->
-            <!-- Portfolio Item -->
-            <div style="position: absolute; left: 0px; top: 0px; transform: translate3d(1011px, 240px, 0px) scale3d(1, 1, 1); width: 337px; opacity: 1;" class="portfolio-item one-four   android isotope-item">
-                <div class="portfolio_img"> <img src="@Url.Content("~/customer_img/zebra.jpg")" alt="Portfolio 1"> </div>
-                <div class="item_overlay">
-                    <div class="item_info">
-                        <h4 class="project_name">Android</h4>
-                    </div>
-                </div>
-            </div>
-            <!--/Portfolio Item -->
+            }
+        
 
-
-
+    </div>
         </div>
-        <!--/Portfolio Wrapper -->
+            <!--/Portfolio Filters -->
 
-    </div>
-    <!--/Portfolio Filters -->
-
-    <div class="portfolio_btm"></div>
+            <div class="portfolio_btm"></div>
 
 
-    <div id="project_container">
-        <div class="clear"></div>
-        <div id="project_data"></div>
-    </div>
+            <div id="project_container">
+                <div class="clear"></div>
+                <div id="project_data"></div>
+            </div>
 
 
 </section>
+
 <!--/Portfolio -->
-
-<section class="page_section" id="clients">
-    <!--page_section-->
-    <h2>Clients</h2>
-    <!--page_section-->
-    <div class="client_logos">
-        <!--client_logos-->
-        <div class="container">
-            <ul class="fadeInRight animated wow">
-                <li><a href="javascript:void(0)"><img src="@Url.Content("~/img/client_logo1.png")" alt=""></a></li>
-                <li><a href="javascript:void(0)"><img src="@Url.Content("~/img/client_logo2.png")" alt=""></a></li>
-                <li><a href="javascript:void(0)"><img src="@Url.Content("~/img/client_logo3.png")" alt=""></a></li>
-                <li><a href="javascript:void(0)"><img src="@Url.Content("~/img/client_logo5.png")" alt=""></a></li>
-            </ul>
-        </div>
-    </div>
-</section>
-<!--client_logos-->
 
 
