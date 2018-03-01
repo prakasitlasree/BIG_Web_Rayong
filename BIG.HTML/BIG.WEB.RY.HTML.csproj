@@ -73,6 +73,7 @@
     <Content Include="big_img\CEO1.jpg" />
     <Content Include="big_img\CEO2.jpg" />
     <Content Include="big_img\CEO3.jpg" />
+    <Content Include="big_img\join_us.png" />
     <Content Include="big_img\logo.png" />
     <Content Include="big_img\logo2.jpg" />
     <Content Include="big_img\main_bg.png" />
@@ -82,6 +83,8 @@
     <Content Include="big_img\operate.jpg" />
     <Content Include="big_img\training.jpg" />
     <Content Include="big_img\welcome.jpg" />
+    <Content Include="Content\image\img.png" />
+    <Content Include="join_us.html" />
     <Content Include="Content\banner\Banner_1.jpg" />
     <Content Include="Content\banner\Banner_2.jpg" />
     <Content Include="Content\banner\Banner_3.jpg" />
