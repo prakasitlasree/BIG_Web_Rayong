@@ -12,6 +12,7 @@
     <title>B.I.G Admin</title>
   
     <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
+    <link rel="icon" href="@Url.Content("~/big_img/favicon.png")" type="image/png">
     <link rel="stylesheet" href="@Url.Content("~/Scripts/adminLTE/bower_components/bootstrap/dist/css/bootstrap.min.css")">
     <link rel="stylesheet" href="@Url.Content("~/Scripts/adminLTE/bower_components/font-awesome/css/font-awesome.min.css")">
     <link rel="stylesheet" href="@Url.Content("~/Scripts/adminLTE/bower_components/Ionicons/css/ionicons.min.css")">
@@ -26,7 +27,7 @@
     <script src="@Url.Content("~/Scripts/adminLTE/bower_components/jquery/dist/jquery.min.js")"></script>
 
     <script src="@Url.Content("~/Scripts/adminLTE/bower_components/bootstrap/dist/js/bootstrap.min.js")"></script>
-
+    <script src="@Url.Content("~/Scripts/js/bootbox.min.js")"></script>
     <script src="@Url.Content("~/Scripts/adminLTE/dist/js/adminlte.min.js")"></script>
 </head>
 
@@ -40,7 +41,7 @@
              
                 <span class="logo-mini"><b>B.I.G</b></span>
              
-                <span class="logo-lg"><b>B.I.G</b> Interguard</span>
+                <span class="logo-lg"><b>B.I.G</b> Intergroup</span>
             </a>
 
             <nav class="navbar navbar-static-top" role="navigation">
@@ -69,11 +70,10 @@
 
                 <!-- Sidebar Menu -->
                 <ul class="sidebar-menu" data-widget="tree">
-                    <li class="active"><a href="#"><i class="fa fa-link"></i> <span>Link</span></a></li>
-                    <li class=""><a href="#"><i class="fa fa-link"></i> <span>Link</span></a></li>
-                    <li class=""><a href="#"><i class="fa fa-link"></i> <span>Link</span></a></li>
-                    <li class=""><a href="#"><i class="fa fa-link"></i> <span>Link</span></a></li>
-                    <li class=""><a href="#"><i class="fa fa-link"></i> <span>Link</span></a></li>
+                    <li class=""><a href="@Url.Action("HomeManagement","Admin")"><i class="fa fa-home"></i> <span>Home Management</span></a></li>
+                    <li class=""><a href="@Url.Action("CustomerManagement","Admin")"><i class="fa fa-users"></i> <span>Customer Management</span></a></li>
+                    <li class=""><a href="@Url.Action("QualityManagement","Admin")"><i class="fa fa-check-square-o"></i> <span>Quality Management</span></a></li>
+                    <li class=""><a href="@Url.Action("NewsManagement","Admin")"><i class="fa fa-commenting"></i> <span>News Management</span></a></li>
                 </ul>
               
             </section>

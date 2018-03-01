@@ -27,5 +27,96 @@ namespace BIG.WEB.RY.DATASERVICE
                 throw ex;
             }
         }
+
+        public Result AddPageCustomer(PAGE_CUSTOMER dataInput)
+        {
+            try
+            {
+                var content = GetAll();
+
+                if (content.Count > 0)
+                {
+                    int maxId = content.Max(t => t.AUTO_ID);
+                    dataInput.AUTO_ID = maxId + 1;
+                }
+                else
+                {
+                    dataInput.AUTO_ID = 1;
+                }
+
+                using (var context = new BIG_RY_DBEntities())
+                {
+                    context.PAGE_CUSTOMER.Add(dataInput);
+                    context.SaveChanges();
+
+                    return new Result() { Message = "Success", Status = true };
+
+                }
+
+            }
+            catch (Exception ex)
+            {
+
+                return new Result() { Message = ex.Message.ToString(), Status = false };
+            }
+
+
+        }
+
+
+        public Result EditPageCustomer(PAGE_CUSTOMER dataInput)
+        {
+            try
+            {
+                using (var context = new BIG_RY_DBEntities())
+                {
+                    var update = context.PAGE_CUSTOMER.Where(x => x.AUTO_ID == dataInput.AUTO_ID).FirstOrDefault();
+                    if (update != null)
+                    {
+                        update.PAGE_CONTENT_ID = dataInput.PAGE_CONTENT_ID;
+                        update.NAME = dataInput.NAME;
+                     
+                        update.LOGO_URL = dataInput.LOGO_URL == null ? update.LOGO_URL : dataInput.LOGO_URL;
+                   
+
+                    }
+                    context.SaveChanges();
+
+                    return new Result() { Message = "Success", Status = true };
+
+                }
+
+            }
+            catch (Exception ex)
+            {
+                return new Result() { Message = ex.Message.ToString(), Status = false };
+            }
+
+
+        }
+
+        public Result DeletePageCustomer(PAGE_CUSTOMER dataInput)
+        {
+            try
+            {
+                using (var context = new BIG_RY_DBEntities())
+                {
+                    context.PAGE_CUSTOMER.Attach(dataInput);
+                    context.PAGE_CUSTOMER.Remove(dataInput);
+                    context.SaveChanges();
+
+                    return new Result() { Message = "Success", Status = true };
+
+                }
+
+            }
+            catch (Exception ex)
+            {
+                return new Result() { Message = ex.Message.ToString(), Status = false };
+            }
+
+
+
+        }
     }
 }
