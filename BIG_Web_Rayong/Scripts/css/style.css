@@ -155,7 +155,8 @@ p {
 
         .navStyle ul li {
             display: inline-block;
-            margin: 0 5px;
+            margin: 0px;
+            /*margin: 0 5px;*/
         }
 
             .navStyle ul li:first-child {
@@ -339,6 +340,76 @@ a.read_more2 {
         border: 1px solid #fff;
     }
 
+/*Join us*/
+#join_us {
+    padding: 20px 0px;
+    background: #fbf8f8;
+}
+
+.join_us_content {
+    background: #fbfbfb;
+    position: relative;
+}
+
+.join_us {
+    padding: 20px 0px;
+}
+
+    
+
+    .join_us h2 {
+        font-size: 34px;
+        color: #222222;
+        font-family: 'Prompt', sans-serif;
+        font-weight: normal;
+        margin: 0px 0 25px 0;
+        text-align: center;
+        text-transform: uppercase;
+    }
+    .join_us h3 {
+        font-family: 'Prompt', sans-serif;
+        font-weight: 600;
+        color: #222222;
+        font-size: 18px;
+        margin: 0 0 5px 0;
+    }
+     
+
+.quality_cont h2 strong {
+    font-weight: 500;
+}
+
+.join_us p {
+    font-size: 16px;
+    color: #ffffff;
+    margin: 0 0 30px 0;
+    line-height: 26px;
+}
+
+
+.list ul li:hover {
+    color: #D34346;
+    padding-left: 32px;
+    transition: .5s all;
+    -webkit-transition: .5s all;
+    -o-transition: .5s all;
+    -ms-transition: .5s all;
+    -moz-transition: .5s all;
+}
+
+.list ul {
+    padding: 0;
+    margin: 0;
+    list-style-type: none;
+}
+
+    .list ul li {
+        background: url("/Content/Image/img.png") no-repeat 0px 3px;
+        padding-left: 27px;
+        line-height: 1.8em;
+        font-size: 14px;
+    }
+/*End Join us*/
 
 /*Contact us*/
 
@@ -435,26 +506,49 @@ a.read_more2 {
     .contact_us_info p {
         line-height: 28px;
         display: block;
-        font-size: 16px;
+        font-size: 14px;
         /*color: #ffffff;*/
-        margin: 0 0 30px;
+        margin: 0 0 5px;
     }
+
     .contact_us_info a {
         color: #000;
     }
+
 
 .contact_us_input-text {
     background: #FFF;
 }
 
+  a.email_btn{
+    background: #fff;
+    display: block;
+    width: 270px;
+    height: 30px;
+    text-align: center;
+    line-height: 30px;
+    font-size: 14px;
+    color: #D34346;
+    border-radius: 6px;
+    font-family: 'Prompt', sans-serif;
+    border: 2px solid #D34346;
+    transition: all 0.2s ease-in-out;
+    -moz-transition: all 0.2s ease-in-out;
+    -webkit-transition: all 0.2s ease-in-out;
+}
+
+    a.email_btn:hover {
+        background: #D34346;
+        color: #fff;
+    }
+
 .stuck {
     position: fixed;
     top: 35%;
-    border-radius:5px;
-    height:auto;
-  
+    border-radius: 5px;
+    height: auto;
     overflow-y: auto;
-    z-index:100;
+    z-index: 100;
 }
 
 /* Services
@@ -641,8 +735,28 @@ a.readmore_new_btn {
         background: #D34346;
         color: #fff;
     }
+    
+    a.new_btn_posted_by {
+    background: #fff;
+    display: block;
+    width: 270px;
+    height: 30px;
+    text-align: center;
+    line-height: 30px;
+    font-size: 12px;
+    color: #D34346;
+    border-radius: 6px;
+    font-family: 'Prompt', sans-serif;
+    border: 2px solid #D34346;
+    transition: all 0.2s ease-in-out;
+    -moz-transition: all 0.2s ease-in-out;
+    -webkit-transition: all 0.2s ease-in-out;
+}
 
-
+    a.new_btn_posted_by:hover {
+        background: #D34346;
+        color: #fff;
+    }
 .input-text {
     background: transparent;
 }
@@ -1339,22 +1453,23 @@ img {
         color: #cccccc;
         text-align: center;
     }
-    footer_bottom span:hover{
+
+footer_bottom span:hover {
+    color: #fff;
+}
+
+.footer_bottom span a {
+    display: inline-block;
+    color: #D34346;
+    font-size: 16px;
+    transition: all 0.3s ease-in-out;
+    -moz-transition: all 0.3s ease-in-out;
+    -webkit-transition: all 0.3s ease-in-out;
+}
+
+    .footer_bottom span a:hover {
         color: #fff;
     }
-
-        .footer_bottom span a {
-            display: inline-block;
-            color: #D34346;
-            font-size: 16px;
-            transition: all 0.3s ease-in-out;
-            -moz-transition: all 0.3s ease-in-out;
-            -webkit-transition: all 0.3s ease-in-out;
-        }
-
-            .footer_bottom span a:hover {
-                color: #fff;
-            }
 
 /* Animation Timers
 ---------------------------------*/

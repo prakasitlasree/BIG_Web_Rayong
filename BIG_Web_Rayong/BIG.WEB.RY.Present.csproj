@@ -175,6 +175,8 @@
     <Compile Include="Controllers\ContactController.cs" />
     <Compile Include="Controllers\CustomerController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
+    <Compile Include="Controllers\JoinUsController.cs" />
+    <Compile Include="Controllers\LoginController.cs" />
     <Compile Include="Controllers\NewsController.cs" />
     <Compile Include="Controllers\QualityController.cs" />
     <Compile Include="Controllers\ServiceController.cs" />
@@ -188,6 +190,9 @@
     <Compile Include="Startup.cs" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="big_img\Banner_Cycle.png" />
+    <Content Include="big_img\join_us.png" />
+    <Content Include="big_img\operate.jpg" />
     <Content Include="Content\banner\Banner_1.jpg" />
     <Content Include="Content\banner\Banner_2.jpg" />
     <Content Include="Content\banner\Banner_3.jpg" />
@@ -203,6 +208,7 @@
     <Content Include="Content\image\2.png" />
     <Content Include="Content\image\3.png" />
     <Content Include="Content\image\icon-btn.png" />
+    <Content Include="Content\image\img.png" />
     <Content Include="Content\image\themes.png" />
     <Content Include="CSR\1.jpg" />
     <Content Include="CSR\10.jpg" />
@@ -7576,6 +7582,10 @@
     <Content Include="Views\Admin\CustomerManagement.cshtml" />
     <Content Include="Views\Admin\QualityManagement.cshtml" />
     <Content Include="Views\Admin\NewsManagement.cshtml" />
+    <Content Include="Views\JoinUs\Index.cshtml" />
+    <Content Include="Views\Admin\ServiceManagement.cshtml" />
+    <Content Include="Views\Admin\JoinUsManagement.cshtml" />
+    <Content Include="Views\Login\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\BIG.WEB.RY.DATASERVICE\BIG.WEB.RY.DATASERVICE.csproj">

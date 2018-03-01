@@ -17,7 +17,7 @@ namespace BIG.WEB.RY.MODEL
         public List<PAGE_CONTENT> Vision { get; set; }
         public List<PAGE_CONTENT> Mission { get; set; }
         public List<PAGE_CONTENT> Branches { get; set; }
-
+        public List<PAGE_CONTENT> JoinUs { get; set; }
         public List<PAGE_CONTENT> Services { get; set; }
 
         public List<PAGE_CONTENT> Customers { get; set; }

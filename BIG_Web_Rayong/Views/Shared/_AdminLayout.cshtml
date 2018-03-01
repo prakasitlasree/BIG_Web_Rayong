@@ -32,6 +32,15 @@
 </head>
 
 <body class="hold-transition skin-blue sidebar-mini">
+    <script>
+
+        $(document).ready(function () {
+
+            var currentCtrl = @HttpContext.Current.Request.RequestContext.RouteData.Values["controller"].ToString();
+            $('#'+currentCtrl.id).addClass("active");
+        });
+
+    </script>
     <div class="wrapper">
 
         <header class="main-header">
@@ -70,10 +79,13 @@
 
                 <!-- Sidebar Menu -->
                 <ul class="sidebar-menu" data-widget="tree">
-                    <li class=""><a href="@Url.Action("HomeManagement","Admin")"><i class="fa fa-home"></i> <span>Home Management</span></a></li>
-                    <li class=""><a href="@Url.Action("CustomerManagement","Admin")"><i class="fa fa-users"></i> <span>Customer Management</span></a></li>
-                    <li class=""><a href="@Url.Action("QualityManagement","Admin")"><i class="fa fa-check-square-o"></i> <span>Quality Management</span></a></li>
-                    <li class=""><a href="@Url.Action("NewsManagement","Admin")"><i class="fa fa-commenting"></i> <span>News Management</span></a></li>
+                    <li id="HomeManagement" class=""><a href="@Url.Action("HomeManagement","Admin")"><i class="fa fa-home"></i> <span>Home Management</span></a></li>
+                    <li id="ServiceManagement" class=""><a href="@Url.Action("ServiceManagement","Admin")"><i class="fa fa-cog"></i> <span>Service Management</span></a></li>
+                     <li id="CustomerManagement" class=""><a href="@Url.Action("CustomerManagement","Admin")"><i class="fa fa-users"></i> <span>Customer Management</span></a></li>
+
+                    <li id="QualityManagement" class=""><a href="@Url.Action("QualityManagement","Admin")"><i class="fa fa-check-square-o"></i> <span>Quality Management</span></a></li>
+                    <li id="JoinUsManagement" class=""><a href="@Url.Action("JoinUsManagement","Admin")"><i class="fa fa-handshake-o"></i> <span>Join Us Management</span></a></li>
+                    <li id="JoinUsManagement" class=""><a href="@Url.Action("NewsManagement","Admin")"><i class="fa fa-commenting"></i> <span>News Management</span></a></li>
                 </ul>
               
             </section>

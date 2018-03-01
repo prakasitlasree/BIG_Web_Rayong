@@ -1,0 +1,58 @@
+﻿@model BIG.WEB.RY.MODEL.Content
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+  <!--Join us-->
+<section id="join_us" class="join_us_content">
+    <div class="hero_wrapper">
+        <div class="container">
+            <div class="join_us">
+                <div class="row">
+                    <div class="col-lg-7 col-sm-7">
+                        <div class="zoomIn wow animated">
+                            <h2>ร่วมงานกับเรา</h2>
+                            <h3> คุณสมบัติ </h3>
+                            <div class="list">
+                                <ul>
+                                    @foreach (var item in Model.JoinUs.Where(x => x.HTML_SUB_HEADER1 == "คุณสมบัติ"))
+                                    {
+                                        <li>
+                                            @item.HTML_VALUE
+                                        </li>
+                                    }
+
+                              
+                                
+                                </ul>
+                            </div>
+                            <br />
+                            <h3> สวัสดิการ </h3>
+                            <div class="list">
+                                <ul>
+                                    @foreach (var item in Model.JoinUs.Where(x => x.HTML_SUB_HEADER1 == "สวัสดิการ"))
+                                    {
+                                        <li>
+                                            @item.HTML_VALUE
+                                        </li>
+                                    }
+                                </ul>
+                            </div>
+                            <div class="clear"></div><br />
+                            <a href="tel:+6638-606387" class="readmore_new_btn">0-3860-6387</a>
+                        </div>
+                    </div>
+                    <div class="col-lg-5 col-sm-5">
+                        <img src="@Model.JoinUs.Where(x => x.HTML_SUB_HEADER1 == "รูปภาพ").First().IMAGE_URL" class="zoomIn wow animated" alt="" />
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="clear"></div>
+
+</section>
+<!--Join us-->
+
