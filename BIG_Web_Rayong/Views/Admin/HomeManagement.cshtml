@@ -1,0 +1,526 @@
+﻿@model BIG.WEB.RY.MODEL.Content
+@{
+    ViewBag.Title = "HomeManagement";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+<div class="row">
+    <div class="col-xs-12">
+        <div class="box">
+            <div class="box-header">
+                <h3 class="box-title">Image Slider</h3>
+            </div>
+            <div class="container-fluid"><div style="text-align:right"><button type="button" class="btn btn-success" onclick="ShowAction(0, 'Add','SlideImage')">Add Slide Image</button></div></div>
+
+
+            <div class="box-body table-responsive">
+                <table class="table table-hover">
+                    <tr>
+                        <th>Action</th>
+                        <th width="20%">Image</th>
+                        <th>Caption 1</th>
+                        <th>Caption 2</th>
+                        <th>Description</th>
+                        <th>Status</th>
+                    </tr>
+                    @foreach (var item in Model.SlideImage.OrderBy(x => x.SEQ))
+                    {
+                        <tr>
+                            <td><button id="@item.AUTO_ID" onclick="ShowAction(this.id, 'Edit','SlideImage')" type="button" class="btn btn-primary">Edit</button>&nbsp;&nbsp;&nbsp;<button id="@item.AUTO_ID" onclick="DeleteContent(this.id)" type="button" class="btn btn-danger">Delete</button></td>
+                            <td><img style="width:100%" src="@Url.Content(item.IMAGE_URL)"></td>
+                            <td>@item.HTML_SUB_HEADER1</td>
+                            <td>@item.HTML_SUB_HEADER2</td>
+                            <td>@item.HTML_VALUE</td>
+                            @if (item.STATUS == 1)
+                            {
+                                <th>Active</th>
+                            }
+                            else
+                            {
+                                <th>InActive</th>
+                            }
+
+                        </tr>
+                    }
+                </table>
+            </div>
+            <!-- /.box-body -->
+        </div>
+        <!-- /.box -->
+
+        <div class="box">
+            <div class="box-header">
+                <h3 class="box-title">About Us</h3>
+            </div>
+            <div class="box-body table-responsive">
+                <table class="table table-hover">
+                    <tr>
+                        <th>Action</th>
+                        <th>Caption</th>
+                        <th width="50%">Description</th>
+                        <th width="20%">Image</th>
+                        <th>Status</th>
+                    </tr>
+                    @foreach (var item in Model.AboutUs)
+                    {
+                    <tr>
+                        <td><button id="@item.AUTO_ID" onclick="ShowAction(this.id, 'Edit','AboutUs')" type="button" class="btn btn-primary">Edit</button></td>
+                        <td>@item.HTML_SUB_HEADER1</td>
+                        <td>@item.HTML_VALUE</td>
+                        <td><img style="width:100%" src="@Url.Content(item.IMAGE_URL)"></td>
+                        @if (item.STATUS == 1)
+                        {
+                            <th>Active</th>
+                        }
+                        else
+                        {
+                            <th>InActive</th>
+                        }
+                    </tr>
+                    }
+                </table>
+            </div>
+            <!-- /.box-body -->
+        </div>
+
+        <div class="box">
+            <div class="box-header">
+                <h3 class="box-title">CEO</h3>
+            </div>
+  
+            <div class="box-body table-responsive">
+                <table class="table table-hover">
+                    <tr>
+                        <th>Action</th>
+                        <th width="20%">Image</th>
+                        <th>Name</th>
+                        <th>Position</th>
+                        <th>Quote</th>
+                        <th>Status</th>
+                    </tr>
+                    @foreach (var item in Model.CEO.OrderBy(x => x.SEQ))
+                    {
+                        <tr>
+                            <td><button id="@item.AUTO_ID" onclick="ShowAction(this.id, 'Edit','CEO')" type="button" class="btn btn-primary">Edit</button></td>
+                            <td><img style="width:100%" src="@Url.Content(item.IMAGE_URL)"></td>
+                            <td>@item.HTML_SUB_HEADER1</td>
+                            <td>@item.HTML_SUB_HEADER2</td>
+                            <td>@item.HTML_VALUE</td>
+                            @if (item.STATUS == 1)
+                            {
+                                <th>Active</th>
+                            }
+                            else
+                            {
+                                <th>InActive</th>
+                            }
+
+                        </tr>
+                    }
+                </table>
+            </div>
+            <!-- /.box-body -->
+        </div>
+
+        <div class="box">
+            <div class="box-header">
+                <h3 class="box-title">Branches</h3>
+            </div>
+
+            <div class="box-body table-responsive">
+                <table class="table table-hover">
+                    <tr>
+                        <th>Action</th>
+                        <th>Name</th>
+                        <th>Location</th>
+                        <th>Status</th>
+                    </tr>
+                    @foreach (var item in Model.Branches.OrderBy(x => x.SEQ))
+                    {
+                        <tr>
+                            <td><button id="@item.AUTO_ID" onclick="ShowAction(this.id, 'Edit','Branches')" type="button" class="btn btn-primary">Edit</button></td>
+                            <td>@item.HTML_SUB_HEADER2</td>
+                            <td>@item.HTML_VALUE</td>
+                            @if (item.STATUS == 1)
+                            {
+                                <th>Active</th>
+                            }
+                            else
+                            {
+                                <th>InActive</th>
+                            }
+
+                        </tr>
+                    }
+                </table>
+            </div>
+            <!-- /.box-body -->
+        </div>
+
+    </div>
+</div>
+
+<!-- Modal -->
+<div id="ImageSlideModal" class="modal fade" role="dialog">
+    <div class="modal-dialog">
+
+        <!-- Modal content-->
+        <div class="modal-content">
+            <div class="modal-body">
+                @using (Html.BeginForm("SaveDataImageSlide", "Admin", FormMethod.Post, new { enctype = "multipart/form-data" }))
+                {
+                    <div class="modal-header">
+                        <button type="button" class="close" data-dismiss="modal">&times;</button>
+                        <h4 class="modal-title">Add/Edit Image Slide</h4>
+                        @Html.TextBoxFor(model => model.PageContent.AUTO_ID, new { @id = "hiddenIDEdit", @style = "display:block;width:auto", @class = "form-control", @readonly = "" })
+                    </div>
+                    <div class="modal-body">
+
+                        <div class="form-group">
+                            <label class="control-label" for="email">Sequence :</label>
+                            @Html.TextBoxFor(model => model.PageContent.SEQ, new { @type = "number", @width = "50%", @id = "seq", @required = "", @class = "form-control", placeholder = "" })
+
+                        </div>
+
+                        <div class="form-group">
+                            <label class="control-label" for="email">Caption 1:</label>
+                            @Html.TextBoxFor(model => model.PageContent.HTML_SUB_HEADER1, new { @id = "caption1", @required = "", @class = "form-control", placeholder = "" })
+
+                        </div>
+                        <div class="form-group">
+                            <label class="control-label" for="email">Caption 2:</label>
+                            @Html.TextBoxFor(model => model.PageContent.HTML_SUB_HEADER2, new { @id = "caption2", @required = "", @class = "form-control", placeholder = "" })
+
+                        </div>
+                        <div class="form-group">
+                            <label class="control-label" for="email">Description</label>
+                            @Html.TextAreaFor(model => model.PageContent.HTML_VALUE, new { @id = "description", @required = "", @class = "form-control", placeholder = "" })
+
+                        </div>
+                        <div class="form-group">
+                            <label class="control-label" for="email">Active:</label>
+                            @{
+                                var listItems = new List<SelectListItem>()
+                            {
+                            new SelectListItem {Text = "Yes",   Value = "1"},
+                            new SelectListItem {Text = "No", Value = "0"}
+                            };
+
+                                @Html.DropDownListFor(model => model.PageContent.STATUS, listItems, string.Empty, new { @id = "status", @class = "form-control" })
+                            }
+
+
+
+                        </div>
+                        <div class="form-group">
+                            <label class="control-label" for="email">Image:</label><br />
+                            <img id="showingImg" style="width:50%" src="" />
+                            @Html.TextBoxFor(model => model.PageContentUpload, new { type = "file", name = "Files" })
+
+                        </div>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="submit" class="btn btn-primary" id="confirmAdd">Save</button>
+                        <button type="button" class="btn btn-danger" data-dismiss="modal">Close</button>
+                    </div>
+                                }
+
+            </div>
+        </div>
+    </div>
+</div>
+
+<div id="AboutUsModal" class="modal fade" role="dialog">
+    <div class="modal-dialog">
+
+        <!-- Modal content-->
+        <div class="modal-content">
+            <div class="modal-body">
+                @using (Html.BeginForm("SaveDataAboutUs", "Admin", FormMethod.Post, new { enctype = "multipart/form-data" }))
+                {
+                    <div class="modal-header">
+                        <button type="button" class="close" data-dismiss="modal">&times;</button>
+                        <h4 class="modal-title">Edit About Us</h4>
+                        @Html.TextBoxFor(model => model.PageContent.AUTO_ID, new { @id = "IDAboutUs", @style = "display:block;width:auto", @class = "form-control", @readonly = "" })
+                    </div>
+                    <div class="modal-body">
+
+                        <div class="form-group">
+                            <label class="control-label" for="email">Caption :</label>
+                            @Html.TextBoxFor(model => model.PageContent.HTML_SUB_HEADER1, new { @id = "captionAboutUs", @required = "", @class = "form-control", placeholder = "" })
+
+                        </div>
+                      
+                        <div class="form-group">
+                            <label class="control-label" for="email">Description</label>
+                            @Html.TextAreaFor(model => model.PageContent.HTML_VALUE, new { @rows = "4", @cols = "50", @id = "descriptionAboutUs", @required = "", @class = "form-control", placeholder = "" })
+
+                        </div>
+                        <div class="form-group">
+                            <label class="control-label" for="email">Active:</label>
+                            @{
+                                var listItems = new List<SelectListItem>()
+                            {
+                            new SelectListItem {Text = "Yes",   Value = "1"},
+                            new SelectListItem {Text = "No", Value = "0"}
+                            };
+
+                                @Html.DropDownListFor(model => model.PageContent.STATUS, listItems, string.Empty, new { @id = "statusAboutUs", @class = "form-control" })
+                            }
+
+
+
+                        </div>
+                        <div class="form-group">
+                            <label class="control-label" for="email">Image:</label><br />
+                            <img id="showingImgAboutUs" style="width:30%" src="" />
+                            @Html.TextBoxFor(model => model.PageContentUpload, new { type = "file", name = "Files" })
+
+                        </div>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="submit" class="btn btn-primary" id="confirmAdd">Save</button>
+                        <button type="button" class="btn btn-danger" data-dismiss="modal">Close</button>
+                    </div>
+                                }
+
+            </div>
+        </div>
+    </div>
+</div>
+
+<div id="CEOModal" class="modal fade" role="dialog">
+    <div class="modal-dialog">
+
+        <!-- Modal content-->
+        <div class="modal-content">
+            <div class="modal-body">
+                @using (Html.BeginForm("SaveDataCEO", "Admin", FormMethod.Post, new { enctype = "multipart/form-data" }))
+                {
+                    <div class="modal-header">
+                        <button type="button" class="close" data-dismiss="modal">&times;</button>
+                        <h4 class="modal-title">Add/Edit Image Slide</h4>
+                        @Html.TextBoxFor(model => model.PageContent.AUTO_ID, new { @id = "IDCEO", @style = "display:block;width:auto", @class = "form-control", @readonly = "" })
+                    </div>
+                    <div class="modal-body">
+
+                        <div class="form-group">
+                            <label class="control-label" for="email">Sequence :</label>
+                            @Html.TextBoxFor(model => model.PageContent.SEQ, new { @type = "number", @width = "50%", @id = "seqCEO", @required = "", @class = "form-control", placeholder = "" })
+
+                        </div>
+
+                        <div class="form-group">
+                            <label class="control-label" for="email">Name :</label>
+                            @Html.TextBoxFor(model => model.PageContent.HTML_SUB_HEADER1, new { @id = "nameCEO", @required = "", @class = "form-control", placeholder = "" })
+
+                        </div>
+                        <div class="form-group">
+                            <label class="control-label" for="email">Position :</label>
+                            @Html.TextBoxFor(model => model.PageContent.HTML_SUB_HEADER2, new { @id = "positionCEO", @required = "", @class = "form-control", placeholder = "" })
+
+                        </div>
+                        <div class="form-group">
+                            <label class="control-label" for="email">Quote :</label>
+                            @Html.TextAreaFor(model => model.PageContent.HTML_VALUE, new { @id = "quoteCEO", @required = "", @class = "form-control", placeholder = "" })
+
+                        </div>
+                        <div class="form-group">
+                            <label class="control-label" for="email">Active:</label>
+                            @{
+                                var listItems = new List<SelectListItem>()
+                            {
+                            new SelectListItem {Text = "Yes",   Value = "1"},
+                            new SelectListItem {Text = "No", Value = "0"}
+                            };
+
+                                @Html.DropDownListFor(model => model.PageContent.STATUS, listItems, string.Empty, new { @id = "statusCEO", @class = "form-control" })
+                            }
+
+
+
+                        </div>
+                        <div class="form-group">
+                            <label class="control-label" for="email">Image:</label><br />
+                            <img id="showingImgCEO" style="width:50%" src="" />
+                            @Html.TextBoxFor(model => model.PageContentUpload, new { type = "file", name = "Files" })
+
+                        </div>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="submit" class="btn btn-primary" id="confirmAdd">Save</button>
+                        <button type="button" class="btn btn-danger" data-dismiss="modal">Close</button>
+                    </div>
+                                }
+
+            </div>
+        </div>
+    </div>
+</div>
+
+<div id="BranchesModal" class="modal fade" role="dialog">
+    <div class="modal-dialog">
+
+        <!-- Modal content-->
+        <div class="modal-content">
+            <div class="modal-body">
+                @using (Html.BeginForm("SaveDataBranches", "Admin", FormMethod.Post, new { enctype = "multipart/form-data" }))
+                {
+                    <div class="modal-header">
+                        <button type="button" class="close" data-dismiss="modal">&times;</button>
+                        <h4 class="modal-title">Edit About Us</h4>
+                        @Html.TextBoxFor(model => model.PageContent.AUTO_ID, new { @id = "IDBranches", @style = "display:block;width:auto", @class = "form-control", @readonly = "" })
+                    </div>
+                    <div class="modal-body">
+
+                        <div class="form-group">
+                            <label class="control-label" for="email">Sequence :</label>
+                            @Html.TextBoxFor(model => model.PageContent.SEQ, new { @type = "number", @width = "50%", @id = "seqBranches", @required = "", @class = "form-control", placeholder = "" })
+
+                        </div>
+
+                        <div class="form-group">
+                            <label class="control-label" for="email">Name :</label>
+                            @Html.TextBoxFor(model => model.PageContent.HTML_SUB_HEADER2, new { @id = "nameBranches", @required = "", @class = "form-control", placeholder = "" })
+
+                        </div>
+
+                        <div class="form-group">
+                            <label class="control-label" for="email">Location : </label>
+                            @Html.TextBoxFor(model => model.PageContent.HTML_VALUE, new { @id = "locationBranches", @required = "", @class = "form-control", placeholder = "" })
+
+                        </div>
+                        <div class="form-group">
+                            <label class="control-label" for="email">Active:</label>
+                            @{
+                                var listItems = new List<SelectListItem>()
+                            {
+                            new SelectListItem {Text = "Yes",   Value = "1"},
+                            new SelectListItem {Text = "No", Value = "0"}
+                            };
+
+                                @Html.DropDownListFor(model => model.PageContent.STATUS, listItems, string.Empty, new { @id = "statusBranches", @class = "form-control" })
+                            }
+
+
+
+                        </div>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="submit" class="btn btn-primary" id="confirmAdd">Save</button>
+                        <button type="button" class="btn btn-danger" data-dismiss="modal">Close</button>
+                    </div>
+                                }
+
+            </div>
+        </div>
+    </div>
+</div>
+<!--Modal-->
+<!--JS-->
+<script>
+    function ShowAction(id, type,section) {
+
+        if (type == "Add") {
+            if(section == "SlideImage"){
+                $('#hiddenIDEdit').val('');
+                $("#showingImg").attr("src", "");
+                $('#caption1').val('');
+                $('#caption2').val('');
+                $('#description').val('');
+                $('#status').val('1');
+                $('#seq').val('');
+                $('#ImageSlideModal').modal('show');
+            }
+        
+        }
+        else if (type == "Edit") {
+            var tmpData = @Html.Raw(Json.Encode(Model));
+            if(section == "SlideImage"){
+                for (var i = 0; i < tmpData.SlideImage.length; i++) {
+                    if (tmpData.SlideImage[i].AUTO_ID == id) {
+                        $('#hiddenIDEdit').val(id);
+                        $("#showingImg").attr("src", tmpData.SlideImage[i].IMAGE_URL);
+                        $('#caption1').val(tmpData.SlideImage[i].HTML_SUB_HEADER1);
+                        $('#caption2').val(tmpData.SlideImage[i].HTML_SUB_HEADER2);
+                        $('#description').val(tmpData.SlideImage[i].HTML_VALUE);
+                        $('#status').val(tmpData.SlideImage[i].STATUS);
+                        $('#seq').val(tmpData.SlideImage[i].SEQ);
+                        $('#ImageSlideModal').modal('show');
+                    }
+                }
+            }
+            if(section == "AboutUs"){
+                for (var i = 0; i < tmpData.AboutUs.length; i++) {
+                    if (tmpData.AboutUs[i].AUTO_ID == id) {
+                        $('#IDAboutUs').val(id);
+                        $("#showingImgAboutUs").attr("src", tmpData.AboutUs[i].IMAGE_URL);
+                        $('#captionAboutUs').val(tmpData.AboutUs[i].HTML_SUB_HEADER1);
+                        $('#descriptionAboutUs').val(tmpData.AboutUs[i].HTML_VALUE);
+                        $('#statusAboutUs').val(tmpData.AboutUs[i].STATUS);
+                        $('#AboutUsModal').modal('show');
+
+                    }
+                }
+               
+            }
+            if(section == "CEO"){
+                for (var i = 0; i < tmpData.CEO.length; i++) {
+                    if (tmpData.CEO[i].AUTO_ID == id) {
+                        $('#IDCEO').val(id);
+                        $("#showingImgCEO").attr("src", tmpData.CEO[i].IMAGE_URL);
+                        $('#nameCEO').val(tmpData.CEO[i].HTML_SUB_HEADER1);
+                        $('#positionCEO').val(tmpData.CEO[i].HTML_SUB_HEADER2);
+                        $('#quoteCEO').val(tmpData.CEO[i].HTML_VALUE);
+                        $('#statusCEO').val(tmpData.CEO[i].STATUS);
+                        $('#seqCEO').val(tmpData.CEO[i].SEQ);
+                        $('#CEOModal').modal('show');
+                    }
+                }
+            }
+            if(section == "Branches"){
+                for (var i = 0; i < tmpData.Branches.length; i++) {
+                    if (tmpData.Branches[i].AUTO_ID == id) {
+                        $('#IDBranches').val(id);
+                        $('#nameBranches').val(tmpData.Branches[i].HTML_SUB_HEADER2);
+                        $('#locationBranches').val(tmpData.Branches[i].HTML_VALUE);
+                        $('#statusBranches').val(tmpData.Branches[i].STATUS);
+                        $('#seqBranches').val(tmpData.Branches[i].SEQ);
+                        $('#BranchesModal').modal('show');
+                    }
+                }
+            }
+
+        }
+
+    }
+
+
+    function DeleteContent(id){
+        bootbox.confirm({
+            message: "Do you want to deleate",
+            buttons: {
+                confirm: {
+                    label: 'Delete',
+                    className: 'btn-danger'
+                },
+                cancel: {
+                    label: 'Cancel',
+                    className: 'btn-default'
+                }
+            },
+            callback: function (result) {
+                if (result) {
+
+                    window.location = '@Url.Action("DeletePageContent", "Admin")'+'?id='+id;
+
+
+                } else {
+
+                }
+            }
+        });
+    }
+
+</script>
+<!---->

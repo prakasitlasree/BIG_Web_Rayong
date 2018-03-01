@@ -6905,6 +6905,7 @@
     <Content Include="Scripts\css\font-awesome.css" />
     <Content Include="Scripts\css\font-awesome.min.css" />
     <Content Include="Scripts\css\style.css" />
+    <Content Include="Scripts\js\bootbox.min.js" />
     <Content Include="Scripts\js\bootstrap.min.js" />
     <Content Include="Scripts\js\contact_me.js" />
     <Content Include="Scripts\js\custom.js" />
@@ -7571,6 +7572,10 @@
     <Content Include="Views\Service\Index.cshtml" />
     <Content Include="Views\Shared\_AdminLayout.cshtml" />
     <Content Include="Views\Quality\Index.cshtml" />
+    <Content Include="Views\Admin\HomeManagement.cshtml" />
+    <Content Include="Views\Admin\CustomerManagement.cshtml" />
+    <Content Include="Views\Admin\QualityManagement.cshtml" />
+    <Content Include="Views\Admin\NewsManagement.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\BIG.WEB.RY.DATASERVICE\BIG.WEB.RY.DATASERVICE.csproj">
