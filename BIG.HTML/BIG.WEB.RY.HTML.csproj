@@ -82,6 +82,7 @@
     <Content Include="big_img\operate.jpg" />
     <Content Include="big_img\training.jpg" />
     <Content Include="big_img\welcome.jpg" />
+    <Content Include="join_us.html" />
     <Content Include="Content\banner\Banner_1.jpg" />
     <Content Include="Content\banner\Banner_2.jpg" />
     <Content Include="Content\banner\Banner_3.jpg" />
