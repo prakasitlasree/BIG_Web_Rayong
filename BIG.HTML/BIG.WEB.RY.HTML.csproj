@@ -67,6 +67,7 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="big_img\about.jpg" />
+    <Content Include="big_img\Banner_Cycle.png" />
     <Content Include="big_img\board_ry.jpg" />
     <Content Include="big_img\ceo.JPG" />
     <Content Include="big_img\CEO1.jpg" />
@@ -78,6 +79,7 @@
     <Content Include="big_img\main_bg2.png" />
     <Content Include="big_img\main_bg3.png" />
     <Content Include="big_img\main_bg4.png" />
+    <Content Include="big_img\operate.jpg" />
     <Content Include="big_img\training.jpg" />
     <Content Include="big_img\welcome.jpg" />
     <Content Include="Content\banner\Banner_1.jpg" />
@@ -156,26 +158,6 @@
     <Content Include="css\style.css" />
     <Content Include="favicon.png" />
     <Content Include="fonts\fontawesome-webfont.svg" />
-    <Content Include="img\about-img.jpg" />
-    <Content Include="img\client_logo1.png" />
-    <Content Include="img\client_logo2.png" />
-    <Content Include="img\client_logo3.png" />
-    <Content Include="img\client_logo4.png" />
-    <Content Include="img\client_logo5.png" />
-    <Content Include="img\logo.png" />
-    <Content Include="img\main_device_image.png" />
-    <Content Include="img\portfolio_pic1.jpg" />
-    <Content Include="img\portfolio_pic2.jpg" />
-    <Content Include="img\portfolio_pic3.jpg" />
-    <Content Include="img\portfolio_pic4.jpg" />
-    <Content Include="img\portfolio_pic5.jpg" />
-    <Content Include="img\portfolio_pic6.jpg" />
-    <Content Include="img\portfolio_pic7.jpg" />
-    <Content Include="img\portfolio_pic8.jpg" />
-    <Content Include="img\team_pic1.jpg" />
-    <Content Include="img\team_pic2.jpg" />
-    <Content Include="img\team_pic3.jpg" />
-    <Content Include="img\twitter_bird.png" />
     <Content Include="index.html" />
     <Content Include="js\bootstrap.min.js" />
     <Content Include="js\custom.js" />
