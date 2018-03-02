@@ -106,6 +106,7 @@
     <edmx:ConceptualModels>
       <Schema Namespace="BIG_RY_DBModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
         <EntityContainer Name="BIG_RY_DBEntities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="sysdiagrams" EntityType="BIG_RY_DBModel.sysdiagram" />
           <EntitySet Name="LOGONs" EntityType="BIG_RY_DBModel.LOGON" />
           <EntitySet Name="PAGE_CONTENT" EntityType="BIG_RY_DBModel.PAGE_CONTENT" />
           <EntitySet Name="PAGE_CUSTOMER" EntityType="BIG_RY_DBModel.PAGE_CUSTOMER" />
@@ -118,8 +119,17 @@
             <End Role="PAGE_CONTENT" EntitySet="PAGE_CONTENT" />
             <End Role="PAGE_CUSTOMER" EntitySet="PAGE_CUSTOMER" />
           </AssociationSet>
-          <EntitySet Name="sysdiagrams" EntityType="BIG_RY_DBModel.sysdiagram" />
         </EntityContainer>
+        <EntityType Name="sysdiagram">
+          <Key>
+            <PropertyRef Name="diagram_id" />
+          </Key>
+          <Property Name="name" Type="String" Nullable="false" MaxLength="128" FixedLength="false" Unicode="true" />
+          <Property Name="principal_id" Type="Int32" Nullable="false" />
+          <Property Name="diagram_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="version" Type="Int32" />
+          <Property Name="definition" Type="Binary" MaxLength="Max" FixedLength="false" />
+        </EntityType>
         <EntityType Name="LOGON">
           <Key>
             <PropertyRef Name="ID" />
@@ -145,12 +155,12 @@
           <Property Name="IMAGE_URL" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
           <Property Name="SEQ" Type="Int32" />
           <Property Name="STATUS" Type="Int32" />
-          <NavigationProperty Name="PAGE_TYPE" Relationship="BIG_RY_DBModel.FK_PAGE_CONTENT_PAGE_TYPE" FromRole="PAGE_CONTENT" ToRole="PAGE_TYPE" />
-          <NavigationProperty Name="PAGE_CUSTOMER" Relationship="BIG_RY_DBModel.FK_PAGE_CUSTOMER_PAGE_CONTENT" FromRole="PAGE_CONTENT" ToRole="PAGE_CUSTOMER" />
           <Property Name="CREATED_DATE" Type="DateTime" Precision="3" />
           <Property Name="CREATED_BY" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
           <Property Name="UPDATED_DATE" Type="DateTime" Precision="3" />
           <Property Name="UPDATED_BY" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="PAGE_TYPE" Relationship="BIG_RY_DBModel.FK_PAGE_CONTENT_PAGE_TYPE" FromRole="PAGE_CONTENT" ToRole="PAGE_TYPE" />
+          <NavigationProperty Name="PAGE_CUSTOMER" Relationship="BIG_RY_DBModel.FK_PAGE_CUSTOMER_PAGE_CONTENT" FromRole="PAGE_CONTENT" ToRole="PAGE_CUSTOMER" />
         </EntityType>
         <EntityType Name="PAGE_CUSTOMER">
           <Key>
@@ -195,22 +205,23 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <EntityType Name="sysdiagram">
-          <Key>
-            <PropertyRef Name="diagram_id" />
-          </Key>
-          <Property Name="name" Type="String" Nullable="false" MaxLength="128" FixedLength="false" Unicode="true" />
-          <Property Name="principal_id" Type="Int32" Nullable="false" />
-          <Property Name="diagram_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="version" Type="Int32" />
-          <Property Name="definition" Type="Binary" MaxLength="Max" FixedLength="false" />
-        </EntityType>
         </Schema>
     </edmx:ConceptualModels>
     <!-- C-S mapping content -->
     <edmx:Mappings>
       <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
         <EntityContainerMapping StorageEntityContainer="BIG_RY_DBModelStoreContainer" CdmEntityContainer="BIG_RY_DBEntities">
+          <EntitySetMapping Name="sysdiagrams">
+            <EntityTypeMapping TypeName="BIG_RY_DBModel.sysdiagram">
+              <MappingFragment StoreEntitySet="sysdiagrams">
+                <ScalarProperty Name="definition" ColumnName="definition" />
+                <ScalarProperty Name="version" ColumnName="version" />
+                <ScalarProperty Name="diagram_id" ColumnName="diagram_id" />
+                <ScalarProperty Name="principal_id" ColumnName="principal_id" />
+                <ScalarProperty Name="name" ColumnName="name" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
           <EntitySetMapping Name="LOGONs">
             <EntityTypeMapping TypeName="BIG_RY_DBModel.LOGON">
               <MappingFragment StoreEntitySet="LOGON">
@@ -259,17 +270,6 @@
                 <ScalarProperty Name="DESCRIPTION" ColumnName="DESCRIPTION" />
                 <ScalarProperty Name="NAME" ColumnName="NAME" />
                 <ScalarProperty Name="AUTO_ID" ColumnName="AUTO_ID" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
-          <EntitySetMapping Name="sysdiagrams">
-            <EntityTypeMapping TypeName="BIG_RY_DBModel.sysdiagram">
-              <MappingFragment StoreEntitySet="sysdiagrams">
-                <ScalarProperty Name="definition" ColumnName="definition" />
-                <ScalarProperty Name="version" ColumnName="version" />
-                <ScalarProperty Name="diagram_id" ColumnName="diagram_id" />
-                <ScalarProperty Name="principal_id" ColumnName="principal_id" />
-                <ScalarProperty Name="name" ColumnName="name" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>

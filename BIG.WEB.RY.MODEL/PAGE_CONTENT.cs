@@ -28,6 +28,10 @@ namespace BIG.WEB.RY.MODEL
         public string IMAGE_URL { get; set; }
         public Nullable<int> SEQ { get; set; }
         public Nullable<int> STATUS { get; set; }
+        public Nullable<System.DateTime> CREATED_DATE { get; set; }
+        public string CREATED_BY { get; set; }
+        public Nullable<System.DateTime> UPDATED_DATE { get; set; }
+        public string UPDATED_BY { get; set; }
     
         public virtual PAGE_TYPE PAGE_TYPE { get; set; }
         public virtual ICollection<PAGE_CUSTOMER> PAGE_CUSTOMER { get; set; }

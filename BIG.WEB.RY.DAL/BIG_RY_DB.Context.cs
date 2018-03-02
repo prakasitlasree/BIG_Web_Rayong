@@ -27,10 +27,10 @@ namespace BIG.WEB.RY.DAL
             throw new UnintentionalCodeFirstException();
         }
     
+        public DbSet<sysdiagram> sysdiagrams { get; set; }
         public DbSet<LOGON> LOGONs { get; set; }
         public DbSet<PAGE_CONTENT> PAGE_CONTENT { get; set; }
         public DbSet<PAGE_CUSTOMER> PAGE_CUSTOMER { get; set; }
         public DbSet<PAGE_TYPE> PAGE_TYPE { get; set; }
-        public DbSet<sysdiagram> sysdiagrams { get; set; }
     }
 }
