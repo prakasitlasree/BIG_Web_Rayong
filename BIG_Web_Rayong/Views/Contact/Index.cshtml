@@ -51,7 +51,7 @@
                 <div class="col-lg-8 wow fadeInLeft delay-06s">
                     <div class="form">
                         <!--NOTE: Update your email Id in "contact_me.php" file in order to receive emails from your contact form-->
-                        <form name="sentMessage" id="contactForm" novalidate>
+                      
                             <div class="control-group">
                                 <div class="controls">
                                     <input type="text" class="form-control contact_us_input-text"
@@ -82,8 +82,8 @@
                             </div>
                             <br />
                             <div id="success"> </div> <!-- For success/fail messages -->
-                            <button type="submit" class="btn btn-primary input-btn pull-right">Send</button><br />
-                        </form>
+                            <button id="submitEmail" onclick="sendEmail()" class="btn btn-primary input-btn pull-right">Send</button><br />
+                        
 
                     </div>
                 </div>
@@ -91,3 +91,59 @@
         </div>
     </div>
 </section>
+<script>
+
+    function sendEmail() {
+        if ($('#name').val().trim() != "" && $('#email').val().trim() != "" && $('#message').val().trim() != "") {
+
+            $('#submitEmail').hide();
+            data = {
+                NAME: $('#name').val(),
+                EMAIL: $('#email').val(),
+                DESCRIPTION: $('#message').val()
+            };
+
+      
+            $.ajax({
+                type: 'post',
+                dataType: 'json',
+                url: '@Url.Action("SendEmail", "Contact")',
+                data: JSON.stringify(data),
+                contentType: "application/json",
+                success: function (json) {
+                    if (json.Status) {
+                        alert(json.Message);
+                        $('#submitEmail').show();
+                        $('#name').val(''),
+                       $('#email').val(''),
+                      $('#message').val('')
+
+                   
+
+                    } else {
+                        alert(json.Message);
+                        $('#submitEmail').show();
+                     
+                  
+                        $('#name').val(''),
+                       $('#email').val(''),
+                      $('#message').val('')
+                    }
+                }
+            });
+
+        }
+        else {
+            alert('Please check your information before send.');
+        }
+
+
+
+
+
+
+
+    }
+
+
+</script>

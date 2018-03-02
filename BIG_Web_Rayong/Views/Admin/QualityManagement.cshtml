@@ -76,15 +76,15 @@
 
                         </div>
                         <div class="form-group">
-                            <label class="control-label" for="email">Active:</label>
+                            <label class="control-label" for="email">Status :</label>
                             @{
                                 var listItems = new List<SelectListItem>()
                             {
-                            new SelectListItem {Text = "Yes",   Value = "1"},
-                            new SelectListItem {Text = "No", Value = "0"}
+                            new SelectListItem {Text = "Active",   Value = "1"},
+                            new SelectListItem {Text = "InActive", Value = "0"}
                             };
 
-                                @Html.DropDownListFor(model => model.PageContent.STATUS, listItems, "Select", new { @id = "statusQuality", @class = "form-control" })
+                                @Html.DropDownListFor(model => model.PageContent.STATUS, listItems,"Select", new { @id = "statusQuality", @class = "form-control" })
                             }
 
 

@@ -32,13 +32,16 @@ namespace BIG.WEB.RY.DATASERVICE
         {
             try
             {
+           
+              
                 var content = GetAll().Where(x => x.SECTION_NAME == dataInput.SECTION_NAME).ToList();
 
                 if (content.Count > 0)
                 {
                     int maxId = content.Max(t => t.AUTO_ID);
                     dataInput.AUTO_ID = maxId + 1;
-
+                    dataInput.CREATED_DATE = DateTime.Now;
+             
 
                 }
                 else
@@ -75,6 +78,8 @@ namespace BIG.WEB.RY.DATASERVICE
                     {
                         update.HTML_SUB_HEADER1 = dataInput.HTML_SUB_HEADER1;
                         update.HTML_SUB_HEADER2 = dataInput.HTML_SUB_HEADER2;
+                        update.UPDATED_DATE = DateTime.Now;
+                        update.UPDATED_BY = dataInput.UPDATED_BY;
                         update.HTML_VALUE = dataInput.HTML_VALUE;
                         update.IMAGE_URL = dataInput.IMAGE_URL == null ? update.IMAGE_URL : dataInput.IMAGE_URL;
                         update.STATUS = dataInput.STATUS;

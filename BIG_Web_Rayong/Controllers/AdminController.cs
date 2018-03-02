@@ -146,6 +146,7 @@ namespace BIG_Web_Rayong.Controllers
         }
         public ActionResult SaveDataImageSlide(Content dataInput, string type)
         {
+
             type = dataInput.PageContent.AUTO_ID > 0 ? "Edit" : "Add";
             dataInput.PageContent.SECTION_NAME = "Slide Images";
             dataInput.PageContent.TYPE_ID = 1;
@@ -176,10 +177,12 @@ namespace BIG_Web_Rayong.Controllers
             Result resultTrans;
             if(type == "Add")
             {
+                dataInput.PageContent.CREATED_BY = ((LOGON)Session["Login"]).USERNAME;
                 resultTrans = new PageContent_Services().AddPageContent(dataInput.PageContent);
             }
             else
             {
+                dataInput.PageContent.UPDATED_BY = ((LOGON)Session["Login"]).USERNAME;
                 resultTrans = new PageContent_Services().EditPageContent(dataInput.PageContent);
             }
             return resultTrans.Status == true ? RedirectToAction("HomeManagement", "Admin") : null;
@@ -187,7 +190,7 @@ namespace BIG_Web_Rayong.Controllers
 
         public ActionResult SaveDataAboutUs(Content dataInput)
         {
-      
+            dataInput.PageContent.UPDATED_BY = ((LOGON)Session["Login"]).USERNAME;
             dataInput.PageContent.SECTION_NAME = "About Us";
             dataInput.PageContent.TYPE_ID = 1;
             if (dataInput.PageContentUpload != null)
@@ -222,7 +225,7 @@ namespace BIG_Web_Rayong.Controllers
 
         public ActionResult SaveDataQuality(Content dataInput)
         {
-
+            dataInput.PageContent.UPDATED_BY = ((LOGON)Session["Login"]).USERNAME;
             dataInput.PageContent.SECTION_NAME = "Quality";
             dataInput.PageContent.TYPE_ID = 4;
             if (dataInput.PageContentUpload != null)
@@ -287,10 +290,12 @@ namespace BIG_Web_Rayong.Controllers
             Result resultTrans;
             if (type == "Add")
             {
+                dataInput.PageContent.CREATED_BY = ((LOGON)Session["Login"]).USERNAME;
                 resultTrans = new PageContent_Services().AddPageContent(dataInput.PageContent);
             }
             else
             {
+                dataInput.PageContent.UPDATED_BY = ((LOGON)Session["Login"]).USERNAME;
                 resultTrans = new PageContent_Services().EditPageContent(dataInput.PageContent);
             }
             return resultTrans.Status == true ? RedirectToAction("NewsManagement", "Admin") : null;
@@ -328,10 +333,12 @@ namespace BIG_Web_Rayong.Controllers
             Result resultTrans;
             if (type == "Add")
             {
+                dataInput.PageContent.CREATED_BY = ((LOGON)Session["Login"]).USERNAME;
                 resultTrans = new PageContent_Services().AddPageContent(dataInput.PageContent);
             }
             else
             {
+                dataInput.PageContent.UPDATED_BY = ((LOGON)Session["Login"]).USERNAME;
                 resultTrans = new PageContent_Services().EditPageContent(dataInput.PageContent);
             }
             return resultTrans.Status == true ? RedirectToAction("JoinUsManagement", "Admin") : null;
@@ -339,7 +346,7 @@ namespace BIG_Web_Rayong.Controllers
 
         public ActionResult SaveDataCEO(Content dataInput)
         {
-
+            dataInput.PageContent.UPDATED_BY = ((LOGON)Session["Login"]).USERNAME;
             dataInput.PageContent.SECTION_NAME = "CEO";
             dataInput.PageContent.TYPE_ID = 1;
             if (dataInput.PageContentUpload != null)
@@ -374,7 +381,7 @@ namespace BIG_Web_Rayong.Controllers
 
         public ActionResult SaveDataBranches(Content dataInput)
         {
-
+            dataInput.PageContent.UPDATED_BY = ((LOGON)Session["Login"]).USERNAME;
             dataInput.PageContent.SECTION_NAME = "Branches";
             dataInput.PageContent.TYPE_ID = 1;
             Result resultTrans;
@@ -384,7 +391,7 @@ namespace BIG_Web_Rayong.Controllers
 
         public ActionResult SaveDataService(Content dataInput)
         {
-
+            dataInput.PageContent.UPDATED_BY = ((LOGON)Session["Login"]).USERNAME;
             dataInput.PageContent.SECTION_NAME = "Service";
             dataInput.PageContent.TYPE_ID = 2;
             Result resultTrans;

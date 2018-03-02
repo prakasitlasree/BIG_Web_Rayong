@@ -198,15 +198,15 @@
 
                         </div>
                         <div class="form-group">
-                            <label class="control-label" for="email">Active:</label>
+                            <label class="control-label" for="email">Status :</label>
                             @{
                                 var listItems = new List<SelectListItem>()
                             {
-                            new SelectListItem {Text = "Yes",   Value = "1"},
-                            new SelectListItem {Text = "No", Value = "0"}
+                            new SelectListItem {Text = "Active",   Value = "1"},
+                            new SelectListItem {Text = "InActive", Value = "0"}
                             };
 
-                                @Html.DropDownListFor(model => model.PageContent.STATUS, listItems, string.Empty, new { @id = "status", @class = "form-control" })
+                                @Html.DropDownListFor(model => model.PageContent.STATUS, listItems, "Select", new { @id = "status", @class = "form-control" })
                             }
 
 
@@ -257,15 +257,15 @@
 
                         </div>
                         <div class="form-group">
-                            <label class="control-label" for="email">Active:</label>
+                            <label class="control-label" for="email">Status :</label>
                             @{
                                 var listItems = new List<SelectListItem>()
                             {
-                            new SelectListItem {Text = "Yes",   Value = "1"},
-                            new SelectListItem {Text = "No", Value = "0"}
+                            new SelectListItem {Text = "Acitve",   Value = "1"},
+                            new SelectListItem {Text = "InActive", Value = "0"}
                             };
 
-                                @Html.DropDownListFor(model => model.PageContent.STATUS, listItems, string.Empty, new { @id = "statusAboutUs", @class = "form-control" })
+                                @Html.DropDownListFor(model => model.PageContent.STATUS, listItems,"Select", new { @id = "statusAboutUs", @class = "form-control" })
                             }
 
 
@@ -326,15 +326,15 @@
 
                         </div>
                         <div class="form-group">
-                            <label class="control-label" for="email">Active:</label>
+                            <label class="control-label" for="email">Status :</label>
                             @{
                                 var listItems = new List<SelectListItem>()
                             {
-                            new SelectListItem {Text = "Yes",   Value = "1"},
-                            new SelectListItem {Text = "No", Value = "0"}
+                            new SelectListItem {Text = "Active",   Value = "1"},
+                            new SelectListItem {Text = "InActive", Value = "0"}
                             };
 
-                                @Html.DropDownListFor(model => model.PageContent.STATUS, listItems, string.Empty, new { @id = "statusCEO", @class = "form-control" })
+                                @Html.DropDownListFor(model => model.PageContent.STATUS, listItems, "Select", new { @id = "statusCEO", @class = "form-control" })
                             }
 
 
@@ -391,15 +391,15 @@
 
                         </div>
                         <div class="form-group">
-                            <label class="control-label" for="email">Active:</label>
+                            <label class="control-label" for="email">Status :</label>
                             @{
                                 var listItems = new List<SelectListItem>()
                             {
-                            new SelectListItem {Text = "Yes",   Value = "1"},
-                            new SelectListItem {Text = "No", Value = "0"}
+                            new SelectListItem {Text = "Active",   Value = "1"},
+                            new SelectListItem {Text = "InActive", Value = "0"}
                             };
 
-                                @Html.DropDownListFor(model => model.PageContent.STATUS, listItems, string.Empty, new { @id = "statusBranches", @class = "form-control" })
+                                @Html.DropDownListFor(model => model.PageContent.STATUS, listItems, "Select", new { @id = "statusBranches", @class = "form-control" })
                             }
 
 

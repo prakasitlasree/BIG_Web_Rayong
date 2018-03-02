@@ -51,6 +51,7 @@
       <DesignTime>True</DesignTime>
     </Compile>
     <Compile Include="Content.cs" />
+    <Compile Include="EmailContent.cs" />
     <Compile Include="LOGON.cs">
       <DependentUpon>BIG_RY_DB.tt</DependentUpon>
     </Compile>

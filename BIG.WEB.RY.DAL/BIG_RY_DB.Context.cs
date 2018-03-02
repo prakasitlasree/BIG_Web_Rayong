@@ -20,6 +20,7 @@ namespace BIG.WEB.RY.DAL
         public BIG_RY_DBEntities()
             : base("name=BIG_RY_DBEntities")
         {
+            this.Configuration.LazyLoadingEnabled = false;
         }
     
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
