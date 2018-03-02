@@ -21,9 +21,10 @@ namespace BIG_Web_Rayong.Controllers
 
         public ActionResult HomeManagement()
         {
+            var xx = Session["Login"];
             if (Session["Login"] == null)
             {
-                RedirectToAction("Index", "Login");
+               return RedirectToAction("Index", "Login");
             }
             PageContent_Services service = new PageContent_Services();
             var data = service.GetAll().ToList();

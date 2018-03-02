@@ -13,7 +13,8 @@ namespace BIG_Web_Rayong.Controllers
         // GET: Login
         public ActionResult Index()
         {
-            if(Session["Login"] != null)
+           
+            if (Session["Login"] != null)
             {
                 return RedirectToAction("HomeManagement", "Admin");
             }
