@@ -20,7 +20,6 @@ namespace BIG.WEB.RY.DAL
         public BIG_RY_DBEntities()
             : base("name=BIG_RY_DBEntities")
         {
-            this.Configuration.LazyLoadingEnabled = false;
         }
     
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
@@ -32,5 +31,6 @@ namespace BIG.WEB.RY.DAL
         public DbSet<PAGE_CONTENT> PAGE_CONTENT { get; set; }
         public DbSet<PAGE_CUSTOMER> PAGE_CUSTOMER { get; set; }
         public DbSet<PAGE_TYPE> PAGE_TYPE { get; set; }
+        public DbSet<sysdiagram> sysdiagrams { get; set; }
     }
 }

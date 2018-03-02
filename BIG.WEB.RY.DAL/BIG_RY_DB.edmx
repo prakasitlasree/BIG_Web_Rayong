@@ -30,6 +30,10 @@
           <Property Name="IMAGE_URL" Type="nvarchar" MaxLength="250" />
           <Property Name="SEQ" Type="int" />
           <Property Name="STATUS" Type="int" />
+          <Property Name="CREATED_DATE" Type="datetime" />
+          <Property Name="CREATED_BY" Type="nvarchar" MaxLength="250" />
+          <Property Name="UPDATED_DATE" Type="datetime" />
+          <Property Name="UPDATED_BY" Type="nvarchar" MaxLength="250" />
         </EntityType>
         <EntityType Name="PAGE_CUSTOMER">
           <Key>
@@ -47,6 +51,16 @@
           <Property Name="AUTO_ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="NAME" Type="nvarchar" MaxLength="250" />
           <Property Name="DESCRIPTION" Type="nvarchar" MaxLength="4000" />
+        </EntityType>
+        <EntityType Name="sysdiagrams">
+          <Key>
+            <PropertyRef Name="diagram_id" />
+          </Key>
+          <Property Name="name" Type="nvarchar" MaxLength="128" Nullable="false" />
+          <Property Name="principal_id" Type="int" Nullable="false" />
+          <Property Name="diagram_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="version" Type="int" />
+          <Property Name="definition" Type="varbinary(max)" />
         </EntityType>
         <Association Name="FK_PAGE_CONTENT_PAGE_TYPE">
           <End Role="PAGE_TYPE" Type="Self.PAGE_TYPE" Multiplicity="0..1" />
@@ -77,6 +91,7 @@
           <EntitySet Name="PAGE_CONTENT" EntityType="Self.PAGE_CONTENT" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="PAGE_CUSTOMER" EntityType="Self.PAGE_CUSTOMER" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="PAGE_TYPE" EntityType="Self.PAGE_TYPE" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagrams" Schema="dbo" store:Type="Tables" />
           <AssociationSet Name="FK_PAGE_CONTENT_PAGE_TYPE" Association="Self.FK_PAGE_CONTENT_PAGE_TYPE">
             <End Role="PAGE_TYPE" EntitySet="PAGE_TYPE" />
             <End Role="PAGE_CONTENT" EntitySet="PAGE_CONTENT" />
@@ -103,6 +118,7 @@
             <End Role="PAGE_CONTENT" EntitySet="PAGE_CONTENT" />
             <End Role="PAGE_CUSTOMER" EntitySet="PAGE_CUSTOMER" />
           </AssociationSet>
+          <EntitySet Name="sysdiagrams" EntityType="BIG_RY_DBModel.sysdiagram" />
         </EntityContainer>
         <EntityType Name="LOGON">
           <Key>
@@ -131,6 +147,10 @@
           <Property Name="STATUS" Type="Int32" />
           <NavigationProperty Name="PAGE_TYPE" Relationship="BIG_RY_DBModel.FK_PAGE_CONTENT_PAGE_TYPE" FromRole="PAGE_CONTENT" ToRole="PAGE_TYPE" />
           <NavigationProperty Name="PAGE_CUSTOMER" Relationship="BIG_RY_DBModel.FK_PAGE_CUSTOMER_PAGE_CONTENT" FromRole="PAGE_CONTENT" ToRole="PAGE_CUSTOMER" />
+          <Property Name="CREATED_DATE" Type="DateTime" Precision="3" />
+          <Property Name="CREATED_BY" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
+          <Property Name="UPDATED_DATE" Type="DateTime" Precision="3" />
+          <Property Name="UPDATED_BY" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
         </EntityType>
         <EntityType Name="PAGE_CUSTOMER">
           <Key>
@@ -175,6 +195,16 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
+        <EntityType Name="sysdiagram">
+          <Key>
+            <PropertyRef Name="diagram_id" />
+          </Key>
+          <Property Name="name" Type="String" Nullable="false" MaxLength="128" FixedLength="false" Unicode="true" />
+          <Property Name="principal_id" Type="Int32" Nullable="false" />
+          <Property Name="diagram_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="version" Type="Int32" />
+          <Property Name="definition" Type="Binary" MaxLength="Max" FixedLength="false" />
+        </EntityType>
         </Schema>
     </edmx:ConceptualModels>
     <!-- C-S mapping content -->
@@ -197,6 +227,10 @@
           <EntitySetMapping Name="PAGE_CONTENT">
             <EntityTypeMapping TypeName="BIG_RY_DBModel.PAGE_CONTENT">
               <MappingFragment StoreEntitySet="PAGE_CONTENT">
+                <ScalarProperty Name="UPDATED_BY" ColumnName="UPDATED_BY" />
+                <ScalarProperty Name="UPDATED_DATE" ColumnName="UPDATED_DATE" />
+                <ScalarProperty Name="CREATED_BY" ColumnName="CREATED_BY" />
+                <ScalarProperty Name="CREATED_DATE" ColumnName="CREATED_DATE" />
                 <ScalarProperty Name="STATUS" ColumnName="STATUS" />
                 <ScalarProperty Name="SEQ" ColumnName="SEQ" />
                 <ScalarProperty Name="IMAGE_URL" ColumnName="IMAGE_URL" />
@@ -225,6 +259,17 @@
                 <ScalarProperty Name="DESCRIPTION" ColumnName="DESCRIPTION" />
                 <ScalarProperty Name="NAME" ColumnName="NAME" />
                 <ScalarProperty Name="AUTO_ID" ColumnName="AUTO_ID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="sysdiagrams">
+            <EntityTypeMapping TypeName="BIG_RY_DBModel.sysdiagram">
+              <MappingFragment StoreEntitySet="sysdiagrams">
+                <ScalarProperty Name="definition" ColumnName="definition" />
+                <ScalarProperty Name="version" ColumnName="version" />
+                <ScalarProperty Name="diagram_id" ColumnName="diagram_id" />
+                <ScalarProperty Name="principal_id" ColumnName="principal_id" />
+                <ScalarProperty Name="name" ColumnName="name" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
