@@ -8,21 +8,19 @@ using System.Web.Mvc;
 
 namespace BIG_Web_Rayong.Controllers
 {
-    public class CustomerController : Controller
+    public class JoinUsController : Controller
     {
-        // GET: Customer
+        // GET: JoinUs
         public ActionResult Index()
         {
-          
-                PageContent_Services service = new PageContent_Services();
-            Customer_Services serviceCust = new Customer_Services();
+            PageContent_Services service = new PageContent_Services();
             var data = service.GetAll().ToList();
-            var listCust = serviceCust.GetAll();
-            
+
             Content dataContent = new Content()
             {
-                Customers = data.Where(x => x.SECTION_NAME == "Customer").ToList(),
-                CustomerList = listCust
+                JoinUs = data.Where(x => x.SECTION_NAME == "JoinUs").ToList(),
+
+
             };
             return View(dataContent);
         }

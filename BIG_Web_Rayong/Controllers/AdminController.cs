@@ -21,6 +21,10 @@ namespace BIG_Web_Rayong.Controllers
 
         public ActionResult HomeManagement()
         {
+            if (Session["Login"] == null)
+            {
+                RedirectToAction("Index", "Login");
+            }
             PageContent_Services service = new PageContent_Services();
             var data = service.GetAll().ToList();
 
@@ -44,6 +48,10 @@ namespace BIG_Web_Rayong.Controllers
 
         public ActionResult CustomerManagement()
         {
+            if (Session["Login"] == null)
+            {
+                return RedirectToAction("Index", "Login");
+            }
             PageContent_Services service = new PageContent_Services();
             Customer_Services serviceCust = new Customer_Services();
             var data = service.GetAll().ToList();
@@ -63,6 +71,10 @@ namespace BIG_Web_Rayong.Controllers
 
         public ActionResult QualityManagement()
         {
+            if (Session["Login"] == null)
+            {
+                return RedirectToAction("Index", "Login");
+            }
             PageContent_Services service = new PageContent_Services();
             var data = service.GetAll().ToList();
 
@@ -78,12 +90,53 @@ namespace BIG_Web_Rayong.Controllers
 
         public ActionResult NewsManagement()
         {
+            if (Session["Login"] == null)
+            {
+                return RedirectToAction("Index", "Login");
+            }
             PageContent_Services service = new PageContent_Services();
             var data = service.GetAll().ToList();
 
             Content dataContent = new Content()
             {
                 News = data.Where(x => x.SECTION_NAME == "News").ToList(),
+
+
+            };
+            return View(dataContent);
+
+        }
+        public ActionResult JoinUsManagement()
+        {
+            if (Session["Login"] == null)
+            {
+                return RedirectToAction("Index", "Login");
+            }
+            PageContent_Services service = new PageContent_Services();
+            var data = service.GetAll().ToList();
+
+            Content dataContent = new Content()
+            {
+                 JoinUs = data.Where(x => x.SECTION_NAME == "JoinUs").ToList(),
+
+
+            };
+            return View(dataContent);
+
+        }
+
+        public ActionResult ServiceManagement()
+        {
+            if (Session["Login"] == null)
+            {
+                return RedirectToAction("Index", "Login");
+            }
+            PageContent_Services service = new PageContent_Services();
+            var data = service.GetAll().ToList();
+
+            Content dataContent = new Content()
+            {
+                Services = data.Where(x => x.SECTION_NAME == "Service").ToList(),
 
 
             };
@@ -242,6 +295,47 @@ namespace BIG_Web_Rayong.Controllers
             return resultTrans.Status == true ? RedirectToAction("NewsManagement", "Admin") : null;
         }
 
+        public ActionResult SaveDataJoinUs(Content dataInput, string type)
+        {
+            type = dataInput.PageContent.AUTO_ID > 0 ? "Edit" : "Add";
+            dataInput.PageContent.SECTION_NAME = "JoinUs";
+            dataInput.PageContent.TYPE_ID = 7;
+            if (dataInput.PageContentUpload != null)
+            {
+                var file = dataInput.PageContentUpload;
+                var fileName = Path.GetFileName(file.FileName);
+                var files = Directory.GetFiles(Server.MapPath("~/big_img"));
+                dataInput.PageContent.HTML_SUB_HEADER1 = "รูปภาพ";
+                if (!Directory.Exists(Server.MapPath("~/big_img")))
+                {
+                    Directory.CreateDirectory(Server.MapPath("~/big_img"));
+                }
+                var exist = (from p in files
+                             where p.Contains(fileName)
+                             select p).ToList();
+                if (exist.Count > 0)
+                {
+                    fileName = Path.GetFileNameWithoutExtension(fileName) + "_" + exist.Count + exist.Count + Path.GetExtension(fileName);
+                }
+                if (file != null && file.ContentLength > 0)
+                {
+                    var path = Path.Combine(Server.MapPath("~/big_img"), fileName);
+                    file.SaveAs(path);
+                }
+                dataInput.PageContent.IMAGE_URL = "/big_img/" + fileName;
+            }
+            Result resultTrans;
+            if (type == "Add")
+            {
+                resultTrans = new PageContent_Services().AddPageContent(dataInput.PageContent);
+            }
+            else
+            {
+                resultTrans = new PageContent_Services().EditPageContent(dataInput.PageContent);
+            }
+            return resultTrans.Status == true ? RedirectToAction("JoinUsManagement", "Admin") : null;
+        }
+
         public ActionResult SaveDataCEO(Content dataInput)
         {
 
@@ -286,6 +380,16 @@ namespace BIG_Web_Rayong.Controllers
             resultTrans = new PageContent_Services().EditPageContent(dataInput.PageContent);
             return resultTrans.Status == true ? RedirectToAction("HomeManagement", "Admin") : null;
         }
+
+        public ActionResult SaveDataService(Content dataInput)
+        {
+
+            dataInput.PageContent.SECTION_NAME = "Service";
+            dataInput.PageContent.TYPE_ID = 2;
+            Result resultTrans;
+            resultTrans = new PageContent_Services().EditPageContent(dataInput.PageContent);
+            return resultTrans.Status == true ? RedirectToAction("ServiceManagement", "Admin") : null;
+        }
         public ActionResult DeletePageContent(int id)
         {
             PAGE_CONTENT dataInput = new PAGE_CONTENT()
@@ -310,6 +414,9 @@ namespace BIG_Web_Rayong.Controllers
                     break;
                 case 6:
                     controller = "NewsManagement";
+                    break;
+                case 7:
+                    controller = "JoinUsManagement";
                     break;
                 default:
                     controller = "HomeManagement";

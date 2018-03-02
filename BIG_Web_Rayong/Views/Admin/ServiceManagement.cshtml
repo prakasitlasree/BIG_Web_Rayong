@@ -1,0 +1,128 @@
+﻿@model BIG.WEB.RY.MODEL.Content
+@{
+    ViewBag.Title = "ServiceManagement";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+
+
+<div class="box">
+    <div class="box-header">
+        <h3 class="box-title">Service</h3>
+    </div>
+
+    <div class="box-body table-responsive">
+        <table class="table table-hover">
+            <tr>
+                <th>Action</th>
+                <th>Services</th>
+                <th>Description</th>
+                <th>Status</th>
+            </tr>
+            @foreach (var item in Model.Services.OrderBy(x => x.SEQ))
+            {
+                <tr>
+                    <td><button id="@item.AUTO_ID" onclick="ShowAction(this.id, 'Edit','Service')" type="button" class="btn btn-primary">Edit</button></td>
+                    <td>@item.HTML_SUB_HEADER1</td>
+                    <td>@item.HTML_VALUE</td>
+                    @if (item.STATUS == 1)
+                    {
+                        <th>Active</th>
+                    }
+                    else
+                    {
+                        <th>InActive</th>
+                    }
+
+                </tr>
+            }
+        </table>
+    </div>
+    <!-- /.box-body -->
+</div>
+<div id="ServiceModal" class="modal fade" role="dialog">
+    <div class="modal-dialog">
+
+        <!-- Modal content-->
+        <div class="modal-content">
+            <div class="modal-body">
+                @using (Html.BeginForm("SaveDataService", "Admin", FormMethod.Post, new { enctype = "multipart/form-data" }))
+                {
+                    <div class="modal-header">
+                        <button type="button" class="close" data-dismiss="modal">&times;</button>
+                        <h4 class="modal-title">Edit About Us</h4>
+                        @Html.TextBoxFor(model => model.PageContent.AUTO_ID, new { @id = "IDService", @style = "display:block;width:auto", @class = "form-control", @readonly = "" })
+                    </div>
+                    <div class="modal-body">
+
+                        <div class="form-group">
+                            <label class="control-label" for="email">Sequence :</label>
+                            @Html.TextBoxFor(model => model.PageContent.SEQ, new { @type = "number", @width = "50%", @id = "seqService", @required = "", @class = "form-control", placeholder = "" })
+
+                        </div>
+
+                        <div class="form-group">
+                            <label class="control-label" for="email">Service :</label>
+                            @Html.TextBoxFor(model => model.PageContent.HTML_SUB_HEADER1, new { @id = "nameService", @required = "", @class = "form-control", placeholder = "" })
+
+                        </div>
+
+                        <div class="form-group">
+                            <label class="control-label" for="email">Location : </label>
+                            @Html.TextBoxFor(model => model.PageContent.HTML_VALUE, new { @id = "locationService", @required = "", @class = "form-control", placeholder = "" })
+
+                        </div>
+                        <div class="form-group">
+                            <label class="control-label" for="email">Status :</label>
+                            @{
+                                var listItems = new List<SelectListItem>()
+                            {
+                            new SelectListItem {Text = "Active",   Value = "1"},
+                            new SelectListItem {Text = "InActive", Value = "0"}
+                            };
+
+                                @Html.DropDownListFor(model => model.PageContent.STATUS, listItems, "Select", new { @id = "statusService", @class = "form-control" })
+                            }
+
+
+
+                        </div>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="submit" class="btn btn-primary" id="confirmAdd">Save</button>
+                        <button type="button" class="btn btn-danger" data-dismiss="modal">Close</button>
+                    </div>
+                                }
+
+            </div>
+        </div>
+    </div>
+</div>
+<script>
+    function ShowAction(id, type,section) {
+
+      
+       if (type == "Edit") {
+            var tmpData = @Html.Raw(Json.Encode(Model));
+     
+            if(section == "Service"){
+                for (var i = 0; i < tmpData.Services.length; i++) {
+                    if (tmpData.Services[i].AUTO_ID == id) {
+                        $('#IDService').val(id);
+                        $('#nameService').val(tmpData.Services[i].HTML_SUB_HEADER1);
+                        $('#locationService').val(tmpData.Services[i].HTML_VALUE);
+                        $('#statusService').val(tmpData.Services[i].STATUS);
+                        $('#seqService').val(tmpData.Services[i].SEQ);
+                        $('#ServiceModal').modal('show');
+                    }
+                }
+            }
+
+        }
+
+    }
+
+
+    
+
+</script>

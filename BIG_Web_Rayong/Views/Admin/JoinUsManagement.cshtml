@@ -1,0 +1,243 @@
+﻿@model BIG.WEB.RY.MODEL.Content
+@{
+    ViewBag.Title = "JoinUsManagement";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+
+<div class="row">
+    <div class="col-xs-12">
+
+        <!-- /.box -->
+
+        <div class="box">
+            <div class="box-header">
+                <h3 class="box-title">JoinUs</h3>
+            </div>
+           
+            <div class="container-fluid">
+                <div style="text-align:right">
+                    <button id="@Model.JoinUs.Where(x=>x.HTML_SUB_HEADER1 == "รูปภาพ").First().AUTO_ID" type="button" onclick="ShowActionImage(this.id)" class="btn btn-primary" >Edit Image</button>
+                </div>
+            </div>
+            <div style="text-align:center">
+            
+                        <img width="50%" src="@Url.Content(Model.JoinUs.Where(x=>x.HTML_SUB_HEADER1 == "รูปภาพ").First().IMAGE_URL)">
+                    </div>
+
+                    <div class="container-fluid"><div style="text-align:right"><button  type="button" class="btn btn-success" onclick="ShowAction(0, 'Add','JoinUs')">Add JoinUs</button></div></div>
+                    <div class="box-body table-responsive">
+                        <table class="table table-hover">
+                            <tr>
+                                <th width="20%">Action</th>
+                                <th width="">Type</th>
+                                <th width="40%">Description</th>
+                                <th>Status</th>
+                            </tr>
+                            @foreach (var item in Model.JoinUs.OrderBy(x => x.HTML_SUB_HEADER1).Where(x => x.HTML_SUB_HEADER1 != "รูปภาพ"))
+                            {
+                                <tr>
+                                    <td><button id="@item.AUTO_ID" onclick="ShowAction(this.id, 'Edit','JoinUs')" type="button" class="btn btn-primary">Edit</button>&nbsp;&nbsp;&nbsp;<button id="@item.AUTO_ID" onclick="DeleteContent(this.id)" type="button" class="btn btn-danger">Delete</button></td>
+                                    <td>@item.HTML_SUB_HEADER1</td>
+                                    <td>@item.HTML_VALUE</td>
+                                    @if (item.STATUS == 1)
+                                    {
+                                        <th>Active</th>
+                                    }
+                                    else
+                                    {
+                                        <th>InActive</th>
+                                    }
+                                </tr>
+                            }
+                        </table>
+                    </div>
+                    <!-- /.box-body -->
+                </div>
+
+
+            </div>
+</div>
+
+
+<div id="JoinUsModal" class="modal fade" role="dialog">
+    <div class="modal-dialog">
+
+        <!-- Modal content-->
+        <div class="modal-content">
+            <div class="modal-body">
+                @using (Html.BeginForm("SaveDataJoinUs", "Admin", FormMethod.Post, new { enctype = "multipart/form-data" }))
+                {
+                    <div class="modal-header">
+                        <button type="button" class="close" data-dismiss="modal">&times;</button>
+                        <h4 class="modal-title">Edit About Us</h4>
+                        @Html.TextBoxFor(model => model.PageContent.AUTO_ID, new { @id = "IDJoinUs", @style = "display:block;width:auto", @class = "form-control", @readonly = "" })
+                    </div>
+                    <div class="modal-body">
+                        <div class="form-group">
+                            <label class="control-label" for="email">Sequence :</label>
+                            @Html.TextBoxFor(model => model.PageContent.SEQ, new { @type = "number", @width = "50%", @id = "seqJoinUs", @required = "", @class = "form-control", placeholder = "" })
+
+                        </div>
+                        <div class="form-group">
+                            <label class="control-label" for="email">Type :</label>
+                            @{
+                                var listItemsType = new List<SelectListItem>()
+                            {
+                            new SelectListItem {Text = "คุณสมบัติ",   Value = "คุณสมบัติ"},
+                            new SelectListItem {Text = "สวัสดิการ", Value = "สวัสดิการ"}
+                            };
+
+                                @Html.DropDownListFor(model => model.PageContent.HTML_SUB_HEADER1, listItemsType, "Select", new { @id = "typeJoinUs", @class = "form-control" })
+                            }
+
+
+
+                        </div>
+
+                        <div class="form-group">
+                            <label class="control-label" for="email">Description</label>
+                            @Html.TextAreaFor(model => model.PageContent.HTML_VALUE, new { @rows = "4", @cols = "50", @id = "descriptionJoinUs", @required = "", @class = "form-control", placeholder = "" })
+
+                        </div>
+                        <div class="form-group">
+                            <label class="control-label" for="email">Status :</label>
+                            @{
+                                var listItems = new List<SelectListItem>()
+                            {
+                            new SelectListItem {Text = "Active",   Value = "1"},
+                            new SelectListItem {Text = "InActive", Value = "0"}
+                            };
+
+                                @Html.DropDownListFor(model => model.PageContent.STATUS, listItems, "Select", new { @id = "statusJoinUs", @class = "form-control" })
+                            }
+
+
+
+                        </div>
+                     
+                    </div>
+                    <div class="modal-footer">
+                        <button type="submit" class="btn btn-primary" id="confirmAdd">Save</button>
+                        <button type="button" class="btn btn-danger" data-dismiss="modal">Close</button>
+                    </div>
+                                }
+
+            </div>
+        </div>
+    </div>
+</div>
+
+<div id="JoinUsImageModal" class="modal fade" role="dialog">
+    <div class="modal-dialog">
+
+        <!-- Modal content-->
+        <div class="modal-content">
+            <div class="modal-body">
+                @using (Html.BeginForm("SaveDataJoinUs", "Admin", FormMethod.Post, new { enctype = "multipart/form-data" }))
+                {
+                    <div class="modal-header">
+                        <button type="button" class="close" data-dismiss="modal">&times;</button>
+                        <h4 class="modal-title">Edit Image</h4>
+                        @Html.TextBoxFor(model => model.PageContent.AUTO_ID, new { @id = "IDJoinUsImage", @style = "display:block;width:auto", @class = "form-control", @readonly = "" })
+                    </div>
+                    <div class="modal-body">
+                        <div class="form-group">
+                            <label class="control-label" for="email">Image :</label><br />
+                            <img id="showingImgJoinUs" style="width:50%" src="" />
+                            @Html.TextBoxFor(model => model.PageContentUpload, new { type = "file", name = "Files" })
+
+                        </div>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="submit" class="btn btn-primary" id="confirmAdd">Save</button>
+                        <button type="button" class="btn btn-danger" data-dismiss="modal">Close</button>
+                    </div>
+                                }
+
+            </div>
+        </div>
+    </div>
+</div>
+
+<script>
+    function ShowAction(id, type,section) {
+        if (type == "Add") {
+            if(section == "JoinUs"){
+                $('#IDJoinUs').val('');
+                $('#typeJoinUs').val('');
+                $('#descriptionJoinUs').val('');
+                $('#statusJoinUs').val('');
+                $('#seqJoinUs').val('');
+                $('#JoinUsModal').modal('show');
+
+            }
+        }
+        if (type == "Edit") {
+            var tmpData = @Html.Raw(Json.Encode(Model));
+
+            if(section == "JoinUs"){
+                for (var i = 0; i < tmpData.JoinUs.length; i++) {
+                    if (tmpData.JoinUs[i].AUTO_ID == id) {
+                        $('#IDJoinUs').val(id);
+                        $('#typeJoinUs').val(tmpData.JoinUs[i].HTML_SUB_HEADER1);
+                        $('#descriptionJoinUs').val(tmpData.JoinUs[i].HTML_VALUE);
+                        $('#statusJoinUs').val(tmpData.JoinUs[i].STATUS);
+                        $('#seqJoinUs').val(tmpData.JoinUs[i].SEQ);
+                        $('#JoinUsModal').modal('show');
+
+                    }
+                }
+
+            }
+
+
+
+        }
+
+    }
+    function ShowActionImage(id){
+        var tmpData = @Html.Raw(Json.Encode(Model));
+
+   
+            for (var i = 0; i < tmpData.JoinUs.length; i++) {
+                if (tmpData.JoinUs[i].AUTO_ID == id) {
+                    $("#showingImgJoinUs").attr("src", tmpData.JoinUs[i].IMAGE_URL);
+                    $('#IDJoinUsImage').val(id);
+                    $('#JoinUsImageModal').modal('show');
+                    break;
+                }
+            }
+
+        
+
+    }
+    function DeleteContent(id){
+        bootbox.confirm({
+            message: "Do you want to deleate",
+            buttons: {
+                confirm: {
+                    label: 'Delete',
+                    className: 'btn-danger'
+                },
+                cancel: {
+                    label: 'Cancel',
+                    className: 'btn-default'
+                }
+            },
+            callback: function (result) {
+                if (result) {
+
+                    window.location = '@Url.Action("DeletePageContent", "Admin")'+'?id='+id;
+
+
+                } else {
+
+                }
+            }
+        });
+    }
+
+</script>
+
+
