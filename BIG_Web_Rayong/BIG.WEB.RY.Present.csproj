@@ -191,8 +191,18 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="big_img\Banner_Cycle.png" />
+    <Content Include="big_img\CEO3_11.jpg" />
+    <Content Include="big_img\favicon.png" />
     <Content Include="big_img\join_us.png" />
+    <Content Include="big_img\join_us_11.png" />
+    <Content Include="big_img\logo2_11.jpg" />
+    <Content Include="big_img\main_bg_11.png" />
     <Content Include="big_img\operate.jpg" />
+    <Content Include="big_img\Quality_control.png" />
+    <Content Include="big_img\training_11.jpg" />
+    <Content Include="big_img\trump_iddle.png" />
+    <Content Include="big_img\trump_iddle_11.png" />
+    <Content Include="big_img\welcome_11.jpg" />
     <Content Include="Content\banner\Banner_1.jpg" />
     <Content Include="Content\banner\Banner_2.jpg" />
     <Content Include="Content\banner\Banner_3.jpg" />
