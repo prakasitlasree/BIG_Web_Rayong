@@ -81,6 +81,7 @@
     <Content Include="big_img\main_bg3.png" />
     <Content Include="big_img\main_bg4.png" />
     <Content Include="big_img\operate.jpg" />
+    <Content Include="big_img\Quality_control.png" />
     <Content Include="big_img\training.jpg" />
     <Content Include="big_img\welcome.jpg" />
     <Content Include="Content\image\img.png" />
