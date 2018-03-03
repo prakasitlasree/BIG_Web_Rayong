@@ -19,7 +19,7 @@ namespace BIG_Web_Rayong.Controllers
             Content dataContent = new Content()
             {
 
-                 News = data.Where(x => x.SECTION_NAME == "News").ToList(),
+                 News = data.Where(x => x.SECTION_NAME == "News").Where(x => x.STATUS == 1).ToList(),
      
             };
 

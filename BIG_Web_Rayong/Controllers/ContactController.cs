@@ -27,7 +27,7 @@ namespace BIG_Web_Rayong.Controllers
                 mailServer.EnableSsl = true;
                 mailServer.UseDefaultCredentials = false;
                 mailServer.Credentials = new System.Net.NetworkCredential("biginterguard.website@gmail.com", "bigadmin");
-                var mailTo = ""; // mail B.I.G
+                var mailTo = "siriporn.marketing@gmail.com,prakasitlasree@gmail.com"; // mail B.I.G
 
                 string from = "no-reply@bigintergroup.com";
 

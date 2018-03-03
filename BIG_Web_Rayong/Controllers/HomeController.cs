@@ -18,10 +18,10 @@ namespace BIG_Web_Rayong.Controllers
             Content dataContent = new Content()
             {
 
-                 AboutUs = data.Where(x => x.SECTION_NAME == "About Us").ToList(),
-                SlideImage = data.Where(x => x.SECTION_NAME =="Slide Images").ToList(),
+                 AboutUs = data.Where(x => x.SECTION_NAME == "About Us").Where(x=>x.STATUS == 1).ToList(),
+                SlideImage = data.Where(x => x.SECTION_NAME =="Slide Images").Where(x => x.STATUS == 1).ToList(),
                 Branches = data.Where(x => x.SECTION_NAME == "Branches").ToList(),
-                CEO = data.Where(x => x.SECTION_NAME == "CEO").ToList(),
+                CEO = data.Where(x => x.SECTION_NAME == "CEO").Where(x => x.STATUS == 1).ToList(),
                 Mission = data.Where(x => x.SECTION_NAME == "Mission").ToList(),
                 Vision = data.Where(x => x.SECTION_NAME == "Vision").ToList(),
                 Policy = data.Where(x => x.SECTION_NAME ==  "Policy").ToList()

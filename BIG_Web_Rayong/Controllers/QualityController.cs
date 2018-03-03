@@ -19,7 +19,7 @@ namespace BIG_Web_Rayong.Controllers
             Content dataContent = new Content()
             {
 
-                Quality = data.Where(x => x.SECTION_NAME == "Quality").ToList(),
+                Quality = data.Where(x => x.SECTION_NAME == "Quality").Where(x => x.STATUS == 1).ToList(),
 
             };
 
