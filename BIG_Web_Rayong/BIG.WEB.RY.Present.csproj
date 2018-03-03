@@ -248,7 +248,6 @@
     <Content Include="customer_img\zebra.jpg" />
     <Content Include="customer_img\zeon.jpg" />
     <Content Include="favicon.ico" />
-    <Content Include="fonts\glyphicons-halflings-regular.svg" />
     <Content Include="Global.asax" />
     <Content Include="Content\Site.css" />
     <Content Include="big_img\about.jpg" />
@@ -6958,11 +6957,9 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
+    <Folder Include="fonts\" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="fonts\glyphicons-halflings-regular.woff" />
-    <Content Include="fonts\glyphicons-halflings-regular.ttf" />
-    <Content Include="fonts\glyphicons-halflings-regular.eot" />
     <Content Include="packages.config" />
     <None Include="Project_Readme.html" />
     <Content Include="Scripts\fonts\fontawesome-webfont.ttf" />
@@ -7596,6 +7593,7 @@
     <Content Include="Views\Admin\ServiceManagement.cshtml" />
     <Content Include="Views\Admin\JoinUsManagement.cshtml" />
     <Content Include="Views\Login\Index.cshtml" />
+    <None Include="Properties\PublishProfiles\BIG_Publish.pubxml" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\BIG.WEB.RY.DATASERVICE\BIG.WEB.RY.DATASERVICE.csproj">
