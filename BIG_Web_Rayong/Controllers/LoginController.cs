@@ -23,7 +23,7 @@ namespace BIG_Web_Rayong.Controllers
         }
         public ActionResult Login(LOGON account)
         {
-            LogOn_Services service = new LogOn_Services();
+            var service = new LogOn_Services();
             var logon = service.GetAll();
             var verifyId = logon.Where(x => x.USERNAME == account.USERNAME).Count();
             if(verifyId > 0)

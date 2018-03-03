@@ -20,13 +20,12 @@ namespace BIG_Web_Rayong.Controllers
 
 
         public ActionResult HomeManagement()
-        {
-            var xx = Session["Login"];
+        { 
             if (Session["Login"] == null)
             {
                return RedirectToAction("Index", "Login");
             }
-            PageContent_Services service = new PageContent_Services();
+            var service = new PageContent_Services();
             var data = service.GetAll().ToList();
 
             Content dataContent = new Content()
@@ -38,12 +37,8 @@ namespace BIG_Web_Rayong.Controllers
                 Mission = data.Where(x => x.SECTION_NAME == "Mission").ToList(),
                 Vision = data.Where(x => x.SECTION_NAME == "Vision").ToList(),
                 Policy = data.Where(x => x.SECTION_NAME == "Policy").ToList()
-
-
-            };
-
-
-
+                 
+            }; 
             return View(dataContent);
         }
 
@@ -53,21 +48,17 @@ namespace BIG_Web_Rayong.Controllers
             {
                 return RedirectToAction("Index", "Login");
             }
-            PageContent_Services service = new PageContent_Services();
-            Customer_Services serviceCust = new Customer_Services();
+            var service = new PageContent_Services();
+            var serviceCust = new Customer_Services();
             var data = service.GetAll().ToList();
             var listCust = serviceCust.GetAll();
 
-            Content dataContent = new Content()
+            var dataContent = new Content()
             {
                 Customers = data.Where(x => x.SECTION_NAME == "Customer").ToList(),
                 CustomerList = listCust
             };
-            return View(dataContent);
-
-
-
-        
+            return View(dataContent); 
         }
 
         public ActionResult QualityManagement()
@@ -76,14 +67,12 @@ namespace BIG_Web_Rayong.Controllers
             {
                 return RedirectToAction("Index", "Login");
             }
-            PageContent_Services service = new PageContent_Services();
+            var service = new PageContent_Services();
             var data = service.GetAll().ToList();
 
             Content dataContent = new Content()
             {
-                Quality = data.Where(x => x.SECTION_NAME == "Quality").ToList(),
-             
-
+                Quality = data.Where(x => x.SECTION_NAME == "Quality").ToList(), 
             };
             return View(dataContent);
 
@@ -95,17 +84,14 @@ namespace BIG_Web_Rayong.Controllers
             {
                 return RedirectToAction("Index", "Login");
             }
-            PageContent_Services service = new PageContent_Services();
+            var service = new PageContent_Services();
             var data = service.GetAll().ToList();
 
-            Content dataContent = new Content()
+            var dataContent = new Content()
             {
-                News = data.Where(x => x.SECTION_NAME == "News").ToList(),
-
-
+                News = data.Where(x => x.SECTION_NAME == "News").ToList(), 
             };
-            return View(dataContent);
-
+            return View(dataContent); 
         }
         public ActionResult JoinUsManagement()
         {
@@ -113,10 +99,10 @@ namespace BIG_Web_Rayong.Controllers
             {
                 return RedirectToAction("Index", "Login");
             }
-            PageContent_Services service = new PageContent_Services();
+            var service = new PageContent_Services();
             var data = service.GetAll().ToList();
 
-            Content dataContent = new Content()
+            var dataContent = new Content()
             {
                  JoinUs = data.Where(x => x.SECTION_NAME == "JoinUs").ToList(),
 
@@ -132,10 +118,10 @@ namespace BIG_Web_Rayong.Controllers
             {
                 return RedirectToAction("Index", "Login");
             }
-            PageContent_Services service = new PageContent_Services();
+            var service = new PageContent_Services();
             var data = service.GetAll().ToList();
 
-            Content dataContent = new Content()
+            var dataContent = new Content()
             {
                 Services = data.Where(x => x.SECTION_NAME == "Service").ToList(),
 

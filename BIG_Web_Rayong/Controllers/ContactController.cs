@@ -29,7 +29,7 @@ namespace BIG_Web_Rayong.Controllers
                 mailServer.Credentials = new System.Net.NetworkCredential("biginterguard.website@gmail.com", "bigadmin");
                 var mailTo = ""; // mail B.I.G
 
-                string from = "biginterguard.website@gmail.com";
+                string from = "no-reply@bigintergroup.com";
 
                 string to = mailTo;
                 string[] toArray = to.Split(',');
@@ -55,13 +55,13 @@ namespace BIG_Web_Rayong.Controllers
                 }
 
                 result.Status = true;
-                result.Message = "ส่งคำร้องเรียบร้อยแล้ว ขอบคุณที่ใช้บริการ";
+                result.Message = "ส่งใบเสนอราคา ขอบคุณที่ใช้บริการ";
 
             }
             catch (Exception ex)
             {
                 result.Status = false;
-                result.Message = "ไม่สามารถส่งคำร้องได้";
+                result.Message = "ไม่สามารถส่งขอใบเสนอราคา";
             }
 
 

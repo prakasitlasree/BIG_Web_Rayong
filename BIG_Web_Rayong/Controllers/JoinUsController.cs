@@ -13,14 +13,13 @@ namespace BIG_Web_Rayong.Controllers
         // GET: JoinUs
         public ActionResult Index()
         {
-            PageContent_Services service = new PageContent_Services();
+            var service = new PageContent_Services();
             var data = service.GetAll().ToList();
 
             Content dataContent = new Content()
             {
                 JoinUs = data.Where(x => x.SECTION_NAME == "JoinUs").ToList(),
-
-
+                
             };
             return View(dataContent);
         }

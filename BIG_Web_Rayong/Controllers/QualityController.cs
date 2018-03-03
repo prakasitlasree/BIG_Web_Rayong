@@ -13,7 +13,7 @@ namespace BIG_Web_Rayong.Controllers
         // GET: Quality
         public ActionResult Index()
         {
-            PageContent_Services service = new PageContent_Services();
+            var service = new PageContent_Services();
             var data = service.GetAll().ToList();
 
             Content dataContent = new Content()
