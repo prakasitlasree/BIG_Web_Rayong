@@ -17,8 +17,8 @@ namespace BIG.WEB.RY.DATASERVICE
             {
                 using (var ctx = new BIG_RY_DBEntities())
                 {
-
                     result = ctx.PAGE_CONTENT.ToList();
+                    //result = ctx.PAGE_CONTENT.Include("PAGE_CUSTOMER").ToList();
                 }
                 return result;
             }
@@ -32,41 +32,19 @@ namespace BIG.WEB.RY.DATASERVICE
         {
             try
             {
-           
-              
-                var content = GetAll().Where(x => x.SECTION_NAME == dataInput.SECTION_NAME).ToList();
-
-                if (content.Count > 0)
-                {
-                    int maxId = content.Max(t => t.AUTO_ID);
-                    dataInput.AUTO_ID = maxId + 1;
-                    dataInput.CREATED_DATE = DateTime.Now;
-             
-
-                }
-                else
-                {
-                    dataInput.AUTO_ID = 1;
-                }
-
                 using (var context = new BIG_RY_DBEntities())
                 {
                     context.PAGE_CONTENT.Add(dataInput);
                     context.SaveChanges();
-
                     return new Result() { Message = "Success", Status = true };
-
                 }
-
             }
             catch (Exception ex)
             {
-
                 return new Result() { Message = ex.Message.ToString(), Status = false };
             }
-
-
         }
+
         public Result EditPageContent(PAGE_CONTENT dataInput)
         {
             try
@@ -84,21 +62,16 @@ namespace BIG.WEB.RY.DATASERVICE
                         update.IMAGE_URL = dataInput.IMAGE_URL == null ? update.IMAGE_URL : dataInput.IMAGE_URL;
                         update.STATUS = dataInput.STATUS;
                         update.SEQ = dataInput.SEQ;
-
                     }
                     context.SaveChanges();
 
                     return new Result() { Message = "Success", Status = true };
-
                 }
-
             }
             catch (Exception ex)
             {
                 return new Result() { Message = ex.Message.ToString(), Status = false };
             }
-
-
         }
 
         public Result DeletePageContent(PAGE_CONTENT dataInput)
@@ -110,22 +83,13 @@ namespace BIG.WEB.RY.DATASERVICE
                     context.PAGE_CONTENT.Attach(dataInput);
                     context.PAGE_CONTENT.Remove(dataInput);
                     context.SaveChanges();
-
                     return new Result() { Message = "Success", Status = true };
-
                 }
-
             }
             catch (Exception ex)
             {
                 return new Result() { Message = ex.Message.ToString(), Status = false };
             }
-
-
-
         }
-
-
-      
     }
 }

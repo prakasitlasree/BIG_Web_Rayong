@@ -12,18 +12,12 @@ namespace BIG_Web_Rayong.Controllers
     {
         // GET: Customer
         public ActionResult Index()
-        {
-
+        { 
             var service = new PageContent_Services();
             var serviceCust = new Customer_Services();
-            var data = service.GetAll().ToList();
-            var listCust = serviceCust.GetAll();
-
-            var dataContent = new Content()
-            {
-                Customers = data.Where(x => x.SECTION_NAME == "Customer").ToList(),
-                CustomerList = listCust
-            };
+            var dataContent = new Content();
+            dataContent.Customers = service.GetAll().Where(x => x.SECTION_NAME == "Customer").OrderBy(o => o.SEQ).ToList();
+            dataContent.CustomerList = serviceCust.GetAll();
             return View(dataContent);
         }
     }

@@ -15,6 +15,7 @@
         <table class="table table-hover">
             <tr>
                 <th>Action</th>
+                <th>Seq</th>
                 <th>Services</th>
                 <th>Description</th>
                 <th>Status</th>
@@ -23,6 +24,7 @@
             {
                 <tr>
                     <td><button id="@item.AUTO_ID" onclick="ShowAction(this.id, 'Edit','Service')" type="button" class="btn btn-primary">Edit</button></td>
+                    <td>@item.SEQ</td>
                     <td>@item.HTML_SUB_HEADER1</td>
                     <td>@item.HTML_VALUE</td>
                     @if (item.STATUS == 1)

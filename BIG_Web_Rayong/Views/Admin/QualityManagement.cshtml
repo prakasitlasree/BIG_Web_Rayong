@@ -16,7 +16,7 @@
             <div class="box-body table-responsive">
                 <table class="table table-hover">
                     <tr>
-                        <th>Action</th>
+                        <th>Action</th> 
                         <th>Caption</th>
                         <th width="50%">Description</th>
                         <th width="20%">Image</th>
@@ -26,6 +26,7 @@
                     {
                         <tr>
                             <td><button id="@item.AUTO_ID" onclick="ShowAction(this.id, 'Edit','Quality')" type="button" class="btn btn-primary">Edit</button></td>
+                          
                             <td>@item.HTML_SUB_HEADER1</td>
                             <td>@item.HTML_VALUE</td>
                             <td><img style="width:100%" src="@Url.Content(item.IMAGE_URL)"></td>

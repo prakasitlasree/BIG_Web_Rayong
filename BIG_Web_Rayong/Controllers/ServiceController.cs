@@ -18,7 +18,7 @@ namespace BIG_Web_Rayong.Controllers
 
             Content dataContent = new Content()
             {
-              Services = data.Where(x=>x.SECTION_NAME == "Service").ToList()
+              Services = data.Where(x=>x.SECTION_NAME == "Service" && x.STATUS == 1).OrderBy(o => o.SEQ).ToList()
             };
             return View(dataContent);
         }

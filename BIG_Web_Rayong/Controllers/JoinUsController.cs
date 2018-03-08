@@ -18,8 +18,7 @@ namespace BIG_Web_Rayong.Controllers
 
             Content dataContent = new Content()
             {
-                JoinUs = data.Where(x => x.SECTION_NAME == "JoinUs").Where(x => x.STATUS == 1).ToList(),
-                
+                JoinUs = data.Where(x => x.SECTION_NAME == "JoinUs" && x.STATUS == 1).OrderBy(o => o.SEQ).ToList(), 
             };
             return View(dataContent);
         }

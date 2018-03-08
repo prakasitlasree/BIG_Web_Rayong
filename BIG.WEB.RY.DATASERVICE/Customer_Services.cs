@@ -17,7 +17,6 @@ namespace BIG.WEB.RY.DATASERVICE
             {
                 using (var ctx = new BIG_RY_DBEntities())
                 {
-
                     result = ctx.PAGE_CUSTOMER.ToList();
                 }
                 return result;
@@ -31,39 +30,20 @@ namespace BIG.WEB.RY.DATASERVICE
         public Result AddPageCustomer(PAGE_CUSTOMER dataInput)
         {
             try
-            {
-                var content = GetAll();
-
-                if (content.Count > 0)
-                {
-                    int maxId = content.Max(t => t.AUTO_ID);
-                    dataInput.AUTO_ID = maxId + 1;
-                }
-                else
-                {
-                    dataInput.AUTO_ID = 1;
-                }
-
+            { 
                 using (var context = new BIG_RY_DBEntities())
                 {
                     context.PAGE_CUSTOMER.Add(dataInput);
-                    context.SaveChanges();
-
-                    return new Result() { Message = "Success", Status = true };
-
-                }
-
+                    context.SaveChanges(); 
+                    return new Result() { Message = "Success", Status = true }; 
+                } 
             }
             catch (Exception ex)
-            {
-
+            { 
                 return new Result() { Message = ex.Message.ToString(), Status = false };
-            }
-
-
+            } 
         }
-
-
+         
         public Result EditPageCustomer(PAGE_CUSTOMER dataInput)
         {
             try
@@ -74,25 +54,17 @@ namespace BIG.WEB.RY.DATASERVICE
                     if (update != null)
                     {
                         update.PAGE_CONTENT_ID = dataInput.PAGE_CONTENT_ID;
-                        update.NAME = dataInput.NAME;
-                     
-                        update.LOGO_URL = dataInput.LOGO_URL == null ? update.LOGO_URL : dataInput.LOGO_URL;
-                   
-
+                        update.NAME = dataInput.NAME; 
+                        update.LOGO_URL = dataInput.LOGO_URL == null ? update.LOGO_URL : dataInput.LOGO_URL; 
                     }
-                    context.SaveChanges();
-
-                    return new Result() { Message = "Success", Status = true };
-
-                }
-
+                    context.SaveChanges(); 
+                    return new Result() { Message = "Success", Status = true }; 
+                } 
             }
             catch (Exception ex)
             {
                 return new Result() { Message = ex.Message.ToString(), Status = false };
-            }
-
-
+            } 
         }
 
         public Result DeletePageCustomer(PAGE_CUSTOMER dataInput)
@@ -103,20 +75,14 @@ namespace BIG.WEB.RY.DATASERVICE
                 {
                     context.PAGE_CUSTOMER.Attach(dataInput);
                     context.PAGE_CUSTOMER.Remove(dataInput);
-                    context.SaveChanges();
-
-                    return new Result() { Message = "Success", Status = true };
-
-                }
-
+                    context.SaveChanges(); 
+                    return new Result() { Message = "Success", Status = true }; 
+                } 
             }
             catch (Exception ex)
             {
                 return new Result() { Message = ex.Message.ToString(), Status = false };
-            }
-
-
-
+            } 
         }
     }
 }

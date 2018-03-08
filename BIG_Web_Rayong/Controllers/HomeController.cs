@@ -17,18 +17,14 @@ namespace BIG_Web_Rayong.Controllers
      
             Content dataContent = new Content()
             {
-
-                 AboutUs = data.Where(x => x.SECTION_NAME == "About Us").Where(x=>x.STATUS == 1).ToList(),
-                SlideImage = data.Where(x => x.SECTION_NAME =="Slide Images").Where(x => x.STATUS == 1).ToList(),
-                Branches = data.Where(x => x.SECTION_NAME == "Branches").ToList(),
-                CEO = data.Where(x => x.SECTION_NAME == "CEO").Where(x => x.STATUS == 1).ToList(),
-                Mission = data.Where(x => x.SECTION_NAME == "Mission").ToList(),
-                Vision = data.Where(x => x.SECTION_NAME == "Vision").ToList(),
-                Policy = data.Where(x => x.SECTION_NAME ==  "Policy").ToList()
-            };
-
-
-
+                AboutUs = data.Where(x => x.SECTION_NAME == "About Us" && x.STATUS == 1).ToList(),
+                SlideImage = data.Where(x => x.SECTION_NAME =="Slide Images" && x.STATUS ==1).OrderBy(o=> o.SEQ).ToList(),
+                Branches = data.Where(x => x.SECTION_NAME == "Branches" && x.STATUS == 1).OrderBy(o => o.SEQ).ToList(),
+                CEO = data.Where(x => x.SECTION_NAME == "CEO" && x.STATUS == 1).OrderBy(o => o.SEQ).ToList(),
+                Mission = data.Where(x => x.SECTION_NAME == "Mission" && x.STATUS == 1).ToList(),
+                Vision = data.Where(x => x.SECTION_NAME == "Vision" && x.STATUS == 1).ToList(),
+                Policy = data.Where(x => x.SECTION_NAME ==  "Policy" && x.STATUS == 1).ToList()
+            }; 
             return View(dataContent);
         }
 

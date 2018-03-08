@@ -16,8 +16,7 @@ namespace BIG.WEB.RY.DATASERVICE
             try
             {
                 using (var ctx = new BIG_RY_DBEntities())
-                {
-
+                { 
                     result = ctx.LOGONs.ToList();
                 }
                 return result;

@@ -17,10 +17,8 @@ namespace BIG_Web_Rayong.Controllers
             var data = service.GetAll().ToList();
 
             Content dataContent = new Content()
-            {
-
-                Quality = data.Where(x => x.SECTION_NAME == "Quality").Where(x => x.STATUS == 1).ToList(),
-
+            { 
+                Quality = data.Where(x => x.SECTION_NAME == "Quality" && x.STATUS == 1).OrderBy(o => o.SEQ).ToList(), 
             };
 
 

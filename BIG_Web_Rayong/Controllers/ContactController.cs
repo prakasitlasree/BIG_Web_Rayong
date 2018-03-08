@@ -26,7 +26,7 @@ namespace BIG_Web_Rayong.Controllers
                 SmtpClient mailServer = new SmtpClient("smtp.gmail.com", 587);
                 mailServer.EnableSsl = true;
                 mailServer.UseDefaultCredentials = false;
-                mailServer.Credentials = new System.Net.NetworkCredential("biginterguard.website@gmail.com", "bigadmin");
+                mailServer.Credentials = new System.Net.NetworkCredential("bigintergroup.website@gmail.com", "Bigintergroup!9");
                 var mailTo = "siriporn.marketing@gmail.com,prakasitlasree@gmail.com"; // mail B.I.G
 
                 string from = "no-reply@bigintergroup.com";
@@ -48,14 +48,15 @@ namespace BIG_Web_Rayong.Controllers
                     detail.AppendLine("ชื่อ : " + dataInput.NAME);
                     detail.AppendLine("อีเมล์ : " + dataInput.EMAIL);
                     detail.AppendLine("รายละเอียด : " + dataInput.DESCRIPTION);
-
+                    detail.AppendLine(" ");
+                    detail.AppendLine("ส่งจาก : B.I.G Intergroup Website. ");
                     msg.Body = detail.ToString();
 
                     mailServer.Send(msg);
                 }
 
                 result.Status = true;
-                result.Message = "ส่งใบเสนอราคา ขอบคุณที่ใช้บริการ";
+                result.Message = "ส่งใบเสนอราคาเรียบร้อย ขอบคุณที่ใช้บริการ!!!";
 
             }
             catch (Exception ex)
@@ -63,8 +64,7 @@ namespace BIG_Web_Rayong.Controllers
                 result.Status = false;
                 result.Message = "ไม่สามารถส่งขอใบเสนอราคา";
             }
-
-
+             
             return Json(result,JsonRequestBehavior.AllowGet);
         }
     }

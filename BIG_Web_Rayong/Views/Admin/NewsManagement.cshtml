@@ -18,6 +18,7 @@
                 <table class="table table-hover">
                     <tr>
                         <th width="15%">Action</th>
+                        <th>Seq</th>
                         <th width="20%">Caption</th>
                         <th width="30%">Description</th>
                         <th width="10%">Author</th>
@@ -28,6 +29,7 @@
                     {
                         <tr>
                             <td><button id="@item.AUTO_ID" onclick="ShowAction(this.id, 'Edit','News')" type="button" class="btn btn-primary">Edit</button>&nbsp;&nbsp;&nbsp;<button id="@item.AUTO_ID" onclick="DeleteContent(this.id)" type="button" class="btn btn-danger">Delete</button></td>
+                            <td>@item.SEQ</td>
                             <td>@item.HTML_SUB_HEADER1</td>
                             <td>@item.HTML_VALUE</td>
                             <td>@item.HTML_SUB_HEADER2</td>

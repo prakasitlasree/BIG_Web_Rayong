@@ -17,6 +17,8 @@
                 <table class="table table-hover">
                     <tr>
                         <th>Action</th>
+                        <th>Seq</th>
+
                         <th width="20%">Image</th>
                         <th>Caption 1</th>
                         <th>Caption 2</th>
@@ -27,6 +29,7 @@
                     {
                         <tr>
                             <td><button id="@item.AUTO_ID" onclick="ShowAction(this.id, 'Edit','SlideImage')" type="button" class="btn btn-primary">Edit</button>&nbsp;&nbsp;&nbsp;<button id="@item.AUTO_ID" onclick="DeleteContent(this.id)" type="button" class="btn btn-danger">Delete</button></td>
+                            <td>@item.SEQ</td>
                             <td><img style="width:100%" src="@Url.Content(item.IMAGE_URL)"></td>
                             <td>@item.HTML_SUB_HEADER1</td>
                             <td>@item.HTML_SUB_HEADER2</td>
@@ -93,6 +96,7 @@
                     <tr>
                         <th>Action</th>
                         <th width="20%">Image</th>
+                        <th>Seq</th> 
                         <th>Name</th>
                         <th>Position</th>
                         <th>Quote</th>
@@ -103,6 +107,7 @@
                         <tr>
                             <td><button id="@item.AUTO_ID" onclick="ShowAction(this.id, 'Edit','CEO')" type="button" class="btn btn-primary">Edit</button></td>
                             <td><img style="width:100%" src="@Url.Content(item.IMAGE_URL)"></td>
+                            <td>@item.SEQ</td>
                             <td>@item.HTML_SUB_HEADER1</td>
                             <td>@item.HTML_SUB_HEADER2</td>
                             <td>@item.HTML_VALUE</td>
@@ -131,6 +136,7 @@
                 <table class="table table-hover">
                     <tr>
                         <th>Action</th>
+                        <th>Seq</th>
                         <th>Name</th>
                         <th>Location</th>
                         <th>Status</th>
@@ -139,6 +145,7 @@
                     {
                         <tr>
                             <td><button id="@item.AUTO_ID" onclick="ShowAction(this.id, 'Edit','Branches')" type="button" class="btn btn-primary">Edit</button></td>
+                            <td>@item.SEQ</td>
                             <td>@item.HTML_SUB_HEADER2</td>
                             <td>@item.HTML_VALUE</td>
                             @if (item.STATUS == 1)

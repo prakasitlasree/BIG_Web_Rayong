@@ -29,15 +29,17 @@
                     <div class="box-body table-responsive">
                         <table class="table table-hover">
                             <tr>
-                                <th width="20%">Action</th>
-                                <th width="">Type</th>
-                                <th width="40%">Description</th>
+                                <th width="15%">Action</th>
+                                <th width="5%">Seq</th>
+                                <th width="5%">Type</th>
+                                <th width="80%">Description</th>
                                 <th>Status</th>
                             </tr>
                             @foreach (var item in Model.JoinUs.OrderBy(x => x.HTML_SUB_HEADER1).Where(x => x.HTML_SUB_HEADER1 != "รูปภาพ"))
                             {
                                 <tr>
                                     <td><button id="@item.AUTO_ID" onclick="ShowAction(this.id, 'Edit','JoinUs')" type="button" class="btn btn-primary">Edit</button>&nbsp;&nbsp;&nbsp;<button id="@item.AUTO_ID" onclick="DeleteContent(this.id)" type="button" class="btn btn-danger">Delete</button></td>
+                                    <td>@item.SEQ</td>
                                     <td>@item.HTML_SUB_HEADER1</td>
                                     <td>@item.HTML_VALUE</td>
                                     @if (item.STATUS == 1)

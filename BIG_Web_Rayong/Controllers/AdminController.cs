@@ -30,13 +30,13 @@ namespace BIG_Web_Rayong.Controllers
 
             Content dataContent = new Content()
             {
-                AboutUs = data.Where(x => x.SECTION_NAME == "About Us").ToList(),
-                SlideImage = data.Where(x => x.SECTION_NAME == "Slide Images").ToList(),
-                Branches = data.Where(x => x.SECTION_NAME == "Branches").ToList(),
-                CEO = data.Where(x => x.SECTION_NAME == "CEO").ToList(),
-                Mission = data.Where(x => x.SECTION_NAME == "Mission").ToList(),
-                Vision = data.Where(x => x.SECTION_NAME == "Vision").ToList(),
-                Policy = data.Where(x => x.SECTION_NAME == "Policy").ToList()
+                AboutUs = data.Where(x => x.SECTION_NAME == "About Us").OrderBy(o => o.SEQ).ToList(),
+                SlideImage = data.Where(x => x.SECTION_NAME == "Slide Images").OrderBy(o => o.SEQ).ToList(),
+                Branches = data.Where(x => x.SECTION_NAME == "Branches").OrderBy(o => o.SEQ).ToList(),
+                CEO = data.Where(x => x.SECTION_NAME == "CEO").OrderBy(o => o.SEQ).ToList(),
+                Mission = data.Where(x => x.SECTION_NAME == "Mission").OrderBy(o => o.SEQ).ToList(),
+                Vision = data.Where(x => x.SECTION_NAME == "Vision").OrderBy(o => o.SEQ).ToList(),
+                Policy = data.Where(x => x.SECTION_NAME == "Policy").OrderBy(o => o.SEQ).ToList()
                  
             }; 
             return View(dataContent);
@@ -50,7 +50,7 @@ namespace BIG_Web_Rayong.Controllers
             }
             var service = new PageContent_Services();
             var serviceCust = new Customer_Services();
-            var data = service.GetAll().ToList();
+            var data = service.GetAll().OrderBy(o => o.SEQ).ToList();
             var listCust = serviceCust.GetAll();
 
             var dataContent = new Content()
@@ -89,7 +89,7 @@ namespace BIG_Web_Rayong.Controllers
 
             var dataContent = new Content()
             {
-                News = data.Where(x => x.SECTION_NAME == "News").ToList(), 
+                News = data.Where(x => x.SECTION_NAME == "News").OrderBy(o => o.SEQ).ToList(), 
             };
             return View(dataContent); 
         }
@@ -104,9 +104,7 @@ namespace BIG_Web_Rayong.Controllers
 
             var dataContent = new Content()
             {
-                 JoinUs = data.Where(x => x.SECTION_NAME == "JoinUs").ToList(),
-
-
+                 JoinUs = data.Where(x => x.SECTION_NAME == "JoinUs").OrderBy(o => o.SEQ).ToList(), 
             };
             return View(dataContent);
 
@@ -123,9 +121,8 @@ namespace BIG_Web_Rayong.Controllers
 
             var dataContent = new Content()
             {
-                Services = data.Where(x => x.SECTION_NAME == "Service").ToList(),
-
-
+                Services = data.Where(x => x.SECTION_NAME == "Service").OrderBy(o => o.SEQ).ToList(),
+                 
             };
             return View(dataContent);
 
