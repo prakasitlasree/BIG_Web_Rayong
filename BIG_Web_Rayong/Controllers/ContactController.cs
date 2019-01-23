@@ -27,7 +27,6 @@ namespace BIG_Web_Rayong.Controllers
                 mailServer.EnableSsl = true;
                 mailServer.UseDefaultCredentials = false;
                 
-                //@dminRY2019
                 var mailTo = "siriporn.marketing@gmail.com,prakasitlasree@gmail.com"; // mail B.I.G
 
                 string from = "no-reply@bigintergroup.com";
