@@ -22,11 +22,12 @@ namespace BIG_Web_Rayong.Controllers
         {
             Result result = new Result();
             try
-            {
+            { 
                 SmtpClient mailServer = new SmtpClient("smtp.gmail.com", 587);
                 mailServer.EnableSsl = true;
                 mailServer.UseDefaultCredentials = false;
-                mailServer.Credentials = new System.Net.NetworkCredential("bigintergroup.website@gmail.com", "Bigintergroup!9");
+                
+                //@dminRY2019
                 var mailTo = "siriporn.marketing@gmail.com,prakasitlasree@gmail.com"; // mail B.I.G
 
                 string from = "no-reply@bigintergroup.com";
@@ -62,7 +63,7 @@ namespace BIG_Web_Rayong.Controllers
             catch (Exception ex)
             {
                 result.Status = false;
-                result.Message = "ไม่สามารถส่งขอใบเสนอราคา";
+                result.Message = "ไม่สามารถส่งขอใบเสนอราคา" + ex.Message;
             }
              
             return Json(result,JsonRequestBehavior.AllowGet);
