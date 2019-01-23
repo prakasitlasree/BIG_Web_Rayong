@@ -2058,6 +2058,7 @@
     <Content Include="Views\Admin\JoinUsManagement.cshtml" />
     <Content Include="Views\Login\Index.cshtml" />
     <None Include="Properties\PublishProfiles\BIG_Publish.pubxml" />
+    <None Include="Properties\PublishProfiles\BIG_RY_VPS.pubxml" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\BIG.WEB.RY.DATASERVICE\BIG.WEB.RY.DATASERVICE.csproj">
